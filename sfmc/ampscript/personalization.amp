@@ -1,0 +1,58 @@
+%%[
+/*
+  Personalisation block for the master template.
+  - Pulls the subscriber's course enquiry from a Data Extension
+  - Falls back to safe defaults so the email never renders empty values
+  - Builds a tracked CTA URL with UTM parameters
+*/
+
+SET @subscriberKey = _subscriberkey
+SET @firstName     = AttributeValue("FirstName")
+
+IF Empty(@firstName) THEN
+  SET @firstName = "there"
+ELSE
+  SET @firstName = ProperCase(Trim(@firstName))
+ENDIF
+
+/* Latest enquiry for this subscriber */
+SET @rows = LookupOrderedRows("Course_Enquiries", 1, "EnquiryDate DESC", "SubscriberKey", @subscriberKey)
+
+IF RowCount(@rows) > 0 THEN
+  SET @row        = Row(@rows, 1)
+  SET @courseName = Field(@row, "CourseName")
+  SET @courseCode = Field(@row, "CourseCode")
+ELSE
+  SET @courseName = "your chosen course"
+  SET @courseCode = "GENERAL"
+ENDIF
+
+/* Term details from a lookup DE, with a fallback */
+SET @termName  = Lookup("Term_Config", "TermName",  "IsCurrent", "true")
+SET @closeRaw  = Lookup("Term_Config", "CloseDate", "IsCurrent", "true")
+
+IF Empty(@termName) THEN SET @termName = "the upcoming term" ENDIF
+
+IF NOT Empty(@closeRaw) THEN
+  SET @closeDate = FormatDate(@closeRaw, "d MMMM yyyy", "", "en-AU")
+ELSE
+  SET @closeDate = "soon"
+ENDIF
+
+/* Tracked CTA */
+SET @baseUrl = "https://www.example.edu/enrol"
+SET @ctaUrl  = Concat(
+  @baseUrl,
+  "?course=", URLEncode(@courseCode, 1, 1),
+  "&utm_source=sfmc&utm_medium=email&utm_campaign=", URLEncode(emailname_, 1, 1)
+)
+
+/* Dynamic content: different message for returning students */
+SET @isReturning = Lookup("Student_Status", "IsReturning", "SubscriberKey", @subscriberKey)
+]%%
+
+%%[ IF @isReturning == "true" THEN ]%%
+  <p style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:16px;line-height:24px;">Welcome back, %%=v(@firstName)=%%. Your credits from last term carry over automatically.</p>
+%%[ ELSE ]%%
+  <p style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:16px;line-height:24px;">New to Northwind? Here is how your first term works.</p>
+%%[ ENDIF ]%%
