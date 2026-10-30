@@ -1,4 +1,8 @@
 /*
+  ==========================================================================
+  NORTHWIND LEARNING | ENGAGEMENT SCORING QUERY
+  Author: Faisal Irfan | github.com/faisal8143
+  ==========================================================================
   Automation Studio query: engagement score for the last 90 days
   Target DE: Engagement_Score_90d (Overwrite)
   Primary key: SubscriberKey
