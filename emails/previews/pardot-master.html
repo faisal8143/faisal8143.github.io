@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Northwind Learning</title>
+<!--
+  ==========================================================================
+  NORTHWIND LEARNING | PARDOT (ACCOUNT ENGAGEMENT) MASTER EMAIL TEMPLATE
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  A modular block library for Pardot's drag-and-drop email builder.
+    - Every block is a <tr pardot-repeatable> so marketers can duplicate,
+      reorder or remove it without touching code.
+    - Every editable area is a <div pardot-region>.
+    - Images are fluid on mobile; columns stack under 640px.
+    - Buttons are bulletproof (VML for Outlook desktop, HTML elsewhere).
+    - Dark mode handled for Apple Mail, Outlook.com and Gmail app.
+
+  BRAND TOKENS
+    Navy    #0A1F44   headings, footer
+    Blue    #0B5CAD   buttons, links           (white on blue  6.6:1  AA)
+    Teal    #0F766E   eyebrow labels           (teal on white  5.5:1  AA)
+    Ink     #334155   body copy                (ink on white  10.4:1  AAA)
+    Canvas  #F2F4F7   page background
+    Font    Arial / Helvetica system stack (renders identically everywhere)
+
+  BLOCKS
+    01 Preheader + view online   07 Stats row (3 columns)
+    02 Header / logo             08 Testimonial
+    03 Hero                      09 Event card
+    04 Text                      10 CTA banner
+    05 Two-column cards          11 Footer
+    06 Image + text (L / R)
+  ==========================================================================
+-->
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<style>table,td,div,p,a,h1,h2,h3{font-family:Arial,Helvetica,sans-serif !important;} .mso-hide{display:none !important;}</style>
+<![endif]-->
+<style>
+  :root{color-scheme:light dark;supported-color-schemes:light dark;}
+  html,body{margin:0 !important;padding:0 !important;width:100% !important;}
+  body{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+  table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}
+  td{mso-line-height-rule:exactly;}
+  img{border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;display:block;}
+  a{text-decoration:none;}
+  a[x-apple-data-detectors],#MessageViewBody a{color:inherit !important;text-decoration:none !important;font:inherit !important;}
+  p{margin:0;}
+  ul{margin:0;padding:0 0 0 20px;}
+  li{margin:0 0 6px;}
+
+  @media screen and (max-width:640px){
+    .wrapper{width:100% !important;}
+    .px{padding-left:24px !important;padding-right:24px !important;}
+    .stack{display:block !important;width:100% !important;max-width:100% !important;box-sizing:border-box !important;}
+    .stack-gap{padding:0 0 24px !important;}
+    .fluid{width:100% !important;max-width:100% !important;height:auto !important;}
+    .h1{font-size:28px !important;line-height:34px !important;}
+    .h2{font-size:22px !important;line-height:28px !important;}
+    .center{text-align:center !important;}
+    .btn-full{width:100% !important;}
+    .btn-full a{display:block !important;}
+    .hide-mobile{display:none !important;max-height:0 !important;overflow:hidden !important;}
+    .stat{border-left:0 !important;border-top:1px solid #E2E8F0 !important;padding:20px 0 !important;}
+    .stat-first{border-top:0 !important;}
+  }
+
+  @media (prefers-color-scheme:dark){
+    .dm-canvas{background:#0B1220 !important;}
+    .dm-card{background:#111A2C !important;}
+    .dm-soft{background:#16223A !important;}
+    .dm-head{color:#F1F5F9 !important;}
+    .dm-text{color:#CBD5E1 !important;}
+    .dm-muted{color:#94A3B8 !important;}
+    .dm-link{color:#7DB4FF !important;}
+    .dm-teal{color:#5EEAD4 !important;}
+    .logo-light{display:block !important;max-height:none !important;overflow:visible !important;}
+    .logo-dark{display:none !important;max-height:0 !important;overflow:hidden !important;}
+  }
+  [data-ogsc] .dm-head{color:#F1F5F9 !important;}
+  [data-ogsc] .dm-text{color:#CBD5E1 !important;}
+  [data-ogsc] .dm-muted{color:#94A3B8 !important;}
+  [data-ogsc] .dm-link{color:#7DB4FF !important;}
+  [data-ogsc] .dm-teal{color:#5EEAD4 !important;}
+  [data-ogsb] .dm-canvas{background:#0B1220 !important;}
+  [data-ogsb] .dm-card{background:#111A2C !important;}
+  [data-ogsb] .dm-soft{background:#16223A !important;}
+</style>
+</head>
+<body class="dm-canvas" style="margin:0;padding:0;background:#F2F4F7;" bgcolor="#F2F4F7">
+<!--[if gte mso 9]><v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t"><v:fill type="tile" color="#F2F4F7"/></v:background><![endif]-->
+
+<div role="article" aria-roledescription="email" aria-label="Northwind Learning" lang="en">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-canvas" style="background:#F2F4F7;" bgcolor="#F2F4F7">
+<tr>
+<td align="center" style="padding:0 12px;">
+<!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td><![endif]-->
+<table role="presentation" class="wrapper" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+
+  <!-- ===== 01 PREHEADER + VIEW ONLINE ===== -->
+  <tr pardot-repeatable="">
+    <td style="padding:16px 0 12px;">
+      <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#F2F4F7;" pardot-region="">Enrolments for Term 1, 2027 are now open. Here is everything you need to get started.</div>
+      <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="dm-muted center" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#64748B;text-align:right;">
+            <div pardot-region="">Trouble viewing this email? <a href="#" class="dm-link" style="color:#0B5CAD;text-decoration:underline;">View it online</a></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 02 HEADER / LOGO ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:28px 40px;border-radius:12px 12px 0 0;" bgcolor="#FFFFFF">
+      <div pardot-region="">
+        <a href="https://faisal8143.github.io/email-dev-portfolio/" target="_blank">
+          <img class="logo-dark" src="../../assets/img/logo-dark.png" width="200" height="48" alt="Northwind Learning" style="width:200px;height:48px;">
+          <!--[if !mso]><!--><img class="logo-light" src="../../assets/img/logo-light.png" width="200" height="48" alt="Northwind Learning" style="display:none;max-height:0;overflow:hidden;width:200px;height:48px;"><!--<![endif]-->
+        </a>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ===== 03 HERO ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card" style="background:#FFFFFF;" bgcolor="#FFFFFF">
+      <div pardot-region="">
+        <a href="https://example.edu/enrol" target="_blank"><img class="fluid" src="../../assets/img/hero-pardot.png" width="600" height="300" alt="Enrolments are open for Term 1, 2027" style="width:600px;height:auto;max-width:600px;"></a>
+      </div>
+    </td>
+  </tr>
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:36px 40px 40px;" bgcolor="#FFFFFF">
+      <div pardot-region="">
+        <p class="dm-teal" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#0F766E;margin:0 0 12px;">Term 1, 2027</p>
+        <h1 class="h1 dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:34px;line-height:40px;font-weight:bold;color:#0A1F44;margin:0 0 16px;">Hi Sarah, your next chapter starts here</h1>
+        <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#334155;margin:0 0 28px;">Enrolments are now open. Choose from 120+ online courses, study at your own pace, and get one-on-one support from an advisor whenever you need it.</p>
+      </div>
+      <!-- Bulletproof button -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="btn-full">
+        <tr>
+          <td align="center" bgcolor="#0B5CAD" style="border-radius:8px;background:#0B5CAD;">
+            <div pardot-region="">
+              <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.edu/enrol" style="height:50px;v-text-anchor:middle;width:220px;" arcsize="16%" stroke="f" fillcolor="#0B5CAD"><w:anchorlock/><center style="color:#FFFFFF;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">Enrol now</center></v:roundrect><![endif]-->
+              <!--[if !mso]><!--><a href="https://example.edu/enrol" target="_blank" style="display:inline-block;padding:15px 36px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:20px;font-weight:bold;color:#FFFFFF;text-decoration:none;border-radius:8px;">Enrol now</a><!--<![endif]-->
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 04 TEXT ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-soft px" style="background:#F8FAFC;padding:36px 40px;" bgcolor="#F8FAFC">
+      <div pardot-region="">
+        <h2 class="h2 dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:30px;font-weight:bold;color:#0A1F44;margin:0 0 12px;">Why students choose Northwind</h2>
+        <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#334155;margin:0 0 16px;">Every course is designed with industry partners and delivered fully online, so you can fit study around work and family.</p>
+        <ul class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#334155;margin:0;padding:0 0 0 20px;">
+          <li style="margin:0 0 6px;">Start in January, May or September</li>
+          <li style="margin:0 0 6px;">Pay per subject, with no upfront fees</li>
+          <li style="margin:0;">Recognised qualifications from accredited partners</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ===== 05 TWO-COLUMN CARDS ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:40px 40px 16px;" bgcolor="#FFFFFF">
+      <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0"><tr><td width="250" valign="top"><![endif]-->
+      <div class="stack stack-gap" style="display:inline-block;width:250px;vertical-align:top;padding:0 0 24px;">
+        <div pardot-region="">
+          <a href="https://example.edu/online" target="_blank"><img class="fluid" src="../../assets/img/card-online.png" width="250" height="150" alt="Study online" style="width:250px;height:auto;border-radius:10px;"></a>
+          <h3 class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;margin:18px 0 8px;">Study 100% online</h3>
+          <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#334155;margin:0 0 12px;">Live and on-demand classes you can join from anywhere.</p>
+          <a href="https://example.edu/online" target="_blank" class="dm-link" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#0B5CAD;">Explore courses &rarr;</a>
+        </div>
+      </div>
+      <!--[if mso]></td><td width="20"></td><td width="250" valign="top"><![endif]-->
+      <div class="stack stack-gap" style="display:inline-block;width:250px;vertical-align:top;padding:0 0 24px;">
+        <div pardot-region="">
+          <a href="https://example.edu/advisor" target="_blank"><img class="fluid" src="../../assets/img/card-advisor.png" width="250" height="150" alt="Talk to an advisor" style="width:250px;height:auto;border-radius:10px;"></a>
+          <h3 class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;margin:18px 0 8px;">Talk to an advisor</h3>
+          <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#334155;margin:0 0 12px;">Get help choosing subjects that match your goals.</p>
+          <a href="https://example.edu/advisor" target="_blank" class="dm-link" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#0B5CAD;">Book a call &rarr;</a>
+        </div>
+      </div>
+      <!--[if mso]></td></tr></table><![endif]-->
+    </td>
+  </tr>
+
+  <!-- ===== 06A IMAGE LEFT / TEXT RIGHT ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:8px 40px 32px;" bgcolor="#FFFFFF">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="stack stack-gap" width="230" valign="middle" style="width:230px;padding:0 24px 0 0;">
+            <div pardot-region=""><img class="fluid" src="../../assets/img/card-campus.png" width="230" height="138" alt="Campus experience days" style="width:230px;height:auto;border-radius:10px;"></div>
+          </td>
+          <td class="stack" valign="middle">
+            <div pardot-region="">
+              <h3 class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;margin:0 0 8px;">Campus experience days</h3>
+              <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#334155;margin:0 0 12px;">Meet teachers and fellow students at our partner campuses.</p>
+              <a href="https://example.edu/campus" target="_blank" class="dm-link" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;color:#0B5CAD;">See dates &rarr;</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 06B TEXT LEFT / IMAGE RIGHT (uses dir="rtl" so the image still stacks first on mobile) ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:8px 40px 40px;" bgcolor="#FFFFFF" dir="rtl">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="stack stack-gap" width="230" valign="middle" dir="ltr" style="width:230px;padding:0 0 0 24px;">
+            <div pardot-region=""><img class="fluid" src="../../assets/img/card-career.png" width="230" height="138" alt="Career outcomes" style="width:230px;height:auto;border-radius:10px;"></div>
+          </td>
+          <td class="stack" valign="middle" dir="ltr" style="text-align:left;">
+            <div pardot-region="">
+              <h3 class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;margin:0 0 8px;">Built for your career</h3>
+              <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#334155;margin:0 0 12px;">Portfolio projects, mentoring and job-ready skills in every course.</p>
+              <a href="https://example.edu/careers" target="_blank" class="dm-link" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;color:#0B5CAD;">Learn more &rarr;</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 07 STATS ROW ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-soft px" style="background:#F8FAFC;padding:28px 40px;" bgcolor="#F8FAFC">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="stack stat stat-first" width="33%" align="center" style="padding:8px;text-align:center;">
+            <div pardot-region=""><p class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:32px;line-height:38px;font-weight:bold;color:#0B5CAD;margin:0;">120+</p><p class="dm-muted" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#64748B;margin:4px 0 0;">Online courses</p></div>
+          </td>
+          <td class="stack stat" width="33%" align="center" style="padding:8px;text-align:center;border-left:1px solid #E2E8F0;">
+            <div pardot-region=""><p class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:32px;line-height:38px;font-weight:bold;color:#0B5CAD;margin:0;">94%</p><p class="dm-muted" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#64748B;margin:4px 0 0;">Student satisfaction</p></div>
+          </td>
+          <td class="stack stat" width="33%" align="center" style="padding:8px;text-align:center;border-left:1px solid #E2E8F0;">
+            <div pardot-region=""><p class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:32px;line-height:38px;font-weight:bold;color:#0B5CAD;margin:0;">3</p><p class="dm-muted" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#64748B;margin:4px 0 0;">Intakes each year</p></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 08 TESTIMONIAL ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:40px;" bgcolor="#FFFFFF">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="border-left:4px solid #19C3B1;padding:4px 0 4px 24px;">
+            <div pardot-region="">
+              <p class="dm-head" style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:30px;font-style:italic;color:#0A1F44;margin:0 0 14px;">&ldquo;I finished my diploma while working full time. The flexibility made it possible.&rdquo;</p>
+              <p class="dm-muted" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#64748B;margin:0;"><strong class="dm-text" style="color:#334155;">Student name</strong> &middot; Diploma of Business, 2026</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 09 EVENT CARD ===== -->
+  <tr pardot-repeatable="">
+    <td class="dm-card px" style="background:#FFFFFF;padding:0 40px 40px;" bgcolor="#FFFFFF">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-soft" style="background:#EEF4FF;border-radius:12px;" bgcolor="#EEF4FF">
+        <tr>
+          <td class="stack center" width="96" valign="top" style="width:96px;padding:24px 0 24px 24px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
+              <tr><td width="72" align="center" bgcolor="#0B5CAD" style="width:72px;background:#0B5CAD;border-radius:10px 10px 0 0;padding:6px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:14px;font-weight:bold;color:#FFFFFF;letter-spacing:1px;"><div pardot-region="">NOV</div></td></tr>
+              <tr><td width="72" align="center" bgcolor="#FFFFFF" style="width:72px;background:#FFFFFF;border-radius:0 0 10px 10px;padding:8px 0;font-family:Arial,Helvetica,sans-serif;font-size:28px;line-height:32px;font-weight:bold;color:#0A1F44;"><div pardot-region="">18</div></td></tr>
+            </table>
+          </td>
+          <td class="stack center" valign="top" style="padding:24px;">
+            <div pardot-region="">
+              <h3 class="dm-head" style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;margin:0 0 6px;">Online open day</h3>
+              <p class="dm-text" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#334155;margin:0 0 12px;">Wednesday, 6:00 &ndash; 7:30 PM AEDT &middot; Live on Zoom</p>
+              <a href="https://example.edu/open-day" target="_blank" class="dm-link" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;color:#0B5CAD;">Save my seat &rarr;</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 10 CTA BANNER ===== -->
+  <tr pardot-repeatable="">
+    <td class="px" style="background:#0A1F44;padding:40px;" bgcolor="#0A1F44">
+      <div pardot-region="">
+        <h2 class="h2" style="font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:30px;font-weight:bold;color:#FFFFFF;margin:0 0 8px;text-align:center;">Ready to get started?</h2>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#CBD5E1;margin:0 0 24px;text-align:center;">Applications for Term 1 close on 15 January 2027.</p>
+      </div>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" class="btn-full" style="margin:0 auto;">
+        <tr>
+          <td align="center" bgcolor="#19C3B1" style="border-radius:8px;background:#19C3B1;">
+            <div pardot-region="">
+              <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.edu/apply" style="height:50px;v-text-anchor:middle;width:220px;" arcsize="16%" stroke="f" fillcolor="#19C3B1"><w:anchorlock/><center style="color:#0A1F44;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">Apply today</center></v:roundrect><![endif]-->
+              <!--[if !mso]><!--><a href="https://example.edu/apply" target="_blank" style="display:inline-block;padding:15px 36px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:20px;font-weight:bold;color:#0A1F44;text-decoration:none;border-radius:8px;">Apply today</a><!--<![endif]-->
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===== 11 FOOTER ===== -->
+  <tr pardot-repeatable="">
+    <td class="px" style="padding:32px 40px 40px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="center" style="padding:0 0 20px;">
+            <div pardot-region="">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+                <tr>
+                  <td style="padding:0 6px;"><a href="https://www.linkedin.com/" target="_blank"><img src="../../assets/img/social-linkedin.png" width="32" height="32" alt="LinkedIn" style="width:32px;height:32px;background:#0A1F44;border-radius:16px;"></a></td>
+                  <td style="padding:0 6px;"><a href="https://www.youtube.com/" target="_blank"><img src="../../assets/img/social-youtube.png" width="32" height="32" alt="YouTube" style="width:32px;height:32px;background:#0A1F44;border-radius:16px;"></a></td>
+                  <td style="padding:0 6px;"><a href="https://www.facebook.com/" target="_blank"><img src="../../assets/img/social-facebook.png" width="32" height="32" alt="Facebook" style="width:32px;height:32px;background:#0A1F44;border-radius:16px;"></a></td>
+                  <td style="padding:0 6px;"><a href="https://x.com/" target="_blank"><img src="../../assets/img/social-x.png" width="32" height="32" alt="X" style="width:32px;height:32px;background:#0A1F44;border-radius:16px;"></a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="dm-muted" align="center" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#64748B;text-align:center;">
+            <div pardot-region="">
+              <p style="margin:0 0 10px;"><strong>Northwind Learning</strong><br>Level 10, 100 Example Street, Melbourne VIC 3000</p>
+              <p style="margin:0 0 10px;">You are receiving this email because you enquired about studying with us.</p>
+              <p style="margin:0;">
+                <a href="#" class="dm-link" style="color:#0B5CAD;text-decoration:underline;">Update preferences</a> &nbsp;&middot;&nbsp;
+                <a href="#" class="dm-link" style="color:#0B5CAD;text-decoration:underline;">Unsubscribe</a> &nbsp;&middot;&nbsp;
+                <a href="https://example.edu/privacy" class="dm-link" style="color:#0B5CAD;text-decoration:underline;">Privacy policy</a>
+              </p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+<!--[if mso]></td></tr></table><![endif]-->
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
