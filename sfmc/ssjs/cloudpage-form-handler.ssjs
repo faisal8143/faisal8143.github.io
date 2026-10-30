@@ -1,5 +1,10 @@
 <script runat="server">
   /*
+    ========================================================================
+    NORTHWIND LEARNING | SSJS CLOUDPAGE FORM HANDLER
+    Author: Faisal Irfan | github.com/faisal8143
+    Data Extensions: Course_Enquiries (PK SubscriberKey), CloudPage_Error_Log
+    ========================================================================
     CloudPage form handler
     - Accepts a POST from a preference / enquiry form
     - Validates and sanitises input
@@ -16,14 +21,20 @@
     } else {
       var email     = Request.GetFormField("email");
       var firstName = Request.GetFormField("firstName");
-      var course    = Request.GetFormField("courseCode");
+      var course    = String(Request.GetFormField("courseCode") || "").toUpperCase();
       var optIn     = Request.GetFormField("optIn") == "on";
+      var honeypot  = Request.GetFormField("website"); /* hidden field, bots fill it */
 
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "");
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "") && String(email).length <= 254;
+      var courseOk = /^[A-Z0-9_-]{2,20}$/.test(course || "");
 
-      if (!emailOk) {
+      if (honeypot) {
+        /* Silently accept so bots get no signal, but store nothing */
+        response.ok = true;
+        response.message = "Thanks! We will be in touch shortly.";
+      } else if (!emailOk) {
         response.message = "Please enter a valid email address.";
-      } else if (!course) {
+      } else if (!courseOk) {
         response.message = "Please choose a course.";
       } else {
         var key = String(email).toLowerCase();
