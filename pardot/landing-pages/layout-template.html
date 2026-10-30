@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  NORTHWIND LEARNING | PARDOT (ACCOUNT ENGAGEMENT) LANDING PAGE LAYOUT
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Layout template for Pardot landing pages and forms.
+    - %%title%%, %%description%% and %%content%% are Pardot system tags;
+      %%content%% renders the Pardot form, styled by pardot/form-styles.css
+    - pardot-region / pardot-region-type let marketers edit copy and images
+      in the WYSIWYG editor without touching code
+    - Responsive two-column hero that stacks on mobile, accessible contrast
+  ==========================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%%title%%</title>
+<meta name="description" content="%%description%%">
+<style>
+  :root{--navy:#0A1F44;--blue:#0B5CAD;--teal:#19C3B1;--ink:#334155;--line:#E2E8F0;--bg:#F2F4F7}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:#fff;border-bottom:1px solid var(--line)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:64px 0}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .hero h1{font-size:40px;line-height:1.15;margin:0 0 16px}
+  .hero p{color:#CBD5E1;font-size:18px;margin:0 0 20px}
+  .ticks{list-style:none;padding:0;margin:0}
+  .ticks li{padding-left:30px;position:relative;margin:0 0 10px}
+  .ticks li:before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:bold}
+  .form-card{background:#fff;color:var(--ink);border-radius:16px;padding:28px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+  .form-card h2{color:var(--navy);margin:0 0 6px;font-size:22px}
+  .proof{padding:48px 0}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center}
+  .stat b{display:block;font-size:30px;color:var(--blue)}
+  footer{padding:28px 0;font-size:13px;color:#64748B;text-align:center}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}.hero{padding:40px 0}.hero h1{font-size:30px}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div pardot-region="logo" pardot-region-type="image"><img src="https://faisal8143.github.io/email-dev-portfolio/assets/img/logo-dark.png" alt="Northwind Learning" width="180" height="43"></div>
+    <a href="tel:+611300000000" style="color:var(--blue);font-weight:bold;text-decoration:none">1300 000 000</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div pardot-region="hero_copy" pardot-region-type="wysiwyg">
+      <h1>Download the 2027 course guide</h1>
+      <p>Everything you need to choose the right online course, in one free guide.</p>
+      <ul class="ticks">
+        <li>120+ online courses compared</li>
+        <li>Fees, intakes and study load explained</li>
+        <li>Career outcomes for every field</li>
+      </ul>
+    </div>
+    <div class="form-card">
+      <div pardot-region="form_heading" pardot-region-type="wysiwyg">
+        <h2>Get your free guide</h2>
+        <p>It takes 30 seconds.</p>
+      </div>
+      %%content%%
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap stats" pardot-region="stats" pardot-region-type="wysiwyg">
+    <div class="stat"><b>120+</b>Online courses</div>
+    <div class="stat"><b>94%</b>Student satisfaction</div>
+    <div class="stat"><b>3</b>Intakes each year</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" pardot-region="footer" pardot-region-type="wysiwyg">
+    &copy; Northwind Learning &middot; <a href="https://example.edu/privacy">Privacy policy</a>
+  </div>
+</footer>
+</body>
+</html>
