@@ -1,0 +1,102 @@
+%%[
+/*
+  ==========================================================================
+  NORTHWIND LEARNING | SFMC CLOUDPAGE PREFERENCE CENTRE
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  - Identifies the subscriber securely from an encrypted email link
+    (CloudPagesURL passes SubscriberKey, never a raw email in the URL)
+  - Reads and saves topic preferences in a Data Extension
+  - Global unsubscribe via LogUnsubEvent so All Subscribers stays in sync
+  - Single page: GET shows the form, POST saves and shows a confirmation
+  ==========================================================================
+*/
+SET @sk = AttributeValue("_subscriberkey")
+IF Empty(@sk) THEN SET @sk = RequestParameter("sk") ENDIF
+SET @valid = IIF(Empty(@sk), false, true)
+
+IF @valid AND RequestParameter("submitted") == "1" THEN
+  SET @news   = IIF(RequestParameter("news")   == "on", "true", "false")
+  SET @events = IIF(RequestParameter("events") == "on", "true", "false")
+  SET @offers = IIF(RequestParameter("offers") == "on", "true", "false")
+  SET @freq   = RequestParameter("frequency")
+  IF IndexOf("weekly|monthly", @freq) == 0 THEN SET @freq = "monthly" ENDIF
+
+  UpsertData("Subscriber_Preferences", 1, "SubscriberKey", @sk,
+    "News", @news, "Events", @events, "Offers", @offers,
+    "Frequency", @freq, "UpdatedAt", Now())
+
+  IF RequestParameter("unsub_all") == "on" THEN
+    SET @jid = RequestParameter("jid")
+    SET @lid = RequestParameter("lid")
+    SET @rr = CreateObject("ExecuteRequest")
+    SetObjectProperty(@rr, "Name", "LogUnsubEvent")
+    SET @p1 = CreateObject("APIProperty")
+    SetObjectProperty(@p1, "Name", "SubscriberKey")
+    SetObjectProperty(@p1, "Value", @sk)
+    AddObjectArrayItem(@rr, "Parameters", @p1)
+    SET @p2 = CreateObject("APIProperty")
+    SetObjectProperty(@p2, "Name", "Reason")
+    SetObjectProperty(@p2, "Value", "Preference centre: unsubscribe from all")
+    AddObjectArrayItem(@rr, "Parameters", @p2)
+    SET @status = InvokeExecute(@rr, @msg, @errCode)
+  ENDIF
+  SET @saved = true
+ENDIF
+
+IF @valid THEN
+  SET @row = LookupRows("Subscriber_Preferences", "SubscriberKey", @sk)
+  IF RowCount(@row) > 0 THEN
+    SET @r = Row(@row, 1)
+    SET @news = Field(@r, "News")  SET @events = Field(@r, "Events")
+    SET @offers = Field(@r, "Offers")  SET @freq = Field(@r, "Frequency")
+  ENDIF
+ENDIF
+]%%<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email preferences | Northwind Learning</title>
+<style>
+  :root{--navy:#0A1F44;--blue:#0B5CAD;--ink:#334155;--line:#E2E8F0;--bg:#F2F4F7}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.6 Arial,Helvetica,sans-serif;color:var(--ink)}
+  .card{max-width:560px;margin:40px auto;background:#fff;border-radius:14px;padding:32px;box-shadow:0 8px 24px rgba(16,24,40,.08)}
+  h1{color:var(--navy);font-size:26px;margin:0 0 8px}fieldset{border:0;padding:0;margin:24px 0}
+  legend{font-weight:bold;color:var(--navy);margin-bottom:10px}
+  label.opt{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;cursor:pointer}
+  input[type=checkbox],input[type=radio]{width:20px;height:20px;accent-color:var(--blue)}
+  .btn{background:var(--blue);color:#fff;border:0;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:bold;cursor:pointer;width:100%}
+  .ok{background:#ECFDF5;color:#065F46;padding:12px 16px;border-radius:10px}.danger{border-color:#FECACA;background:#FEF2F2}
+  @media(max-width:600px){.card{margin:0;border-radius:0;padding:24px 18px}}
+</style>
+</head>
+<body>
+<main class="card">
+%%[ IF NOT @valid THEN ]%%
+  <h1>Link expired</h1>
+  <p>Please use the "Update preferences" link in any of our recent emails.</p>
+%%[ ELSE ]%%
+  <h1>Email preferences</h1>
+  <p>Choose what you hear from us and how often.</p>
+  %%[ IF @saved THEN ]%%<p class="ok" role="status">Your preferences have been saved.</p>%%[ ENDIF ]%%
+  <form method="post" action="%%=RequestParameter('PAGEURL')=%%">
+    <input type="hidden" name="submitted" value="1">
+    <input type="hidden" name="sk" value="%%=v(@sk)=%%">
+    <fieldset>
+      <legend>Topics</legend>
+      <label class="opt"><input type="checkbox" name="news" %%=IIF(@news=="false","","checked")=%%><span><b>News and course updates</b><br>New courses, intakes and study tips.</span></label>
+      <label class="opt"><input type="checkbox" name="events" %%=IIF(@events=="true","checked","")=%%><span><b>Events and webinars</b><br>Open days and live sessions.</span></label>
+      <label class="opt"><input type="checkbox" name="offers" %%=IIF(@offers=="true","checked","")=%%><span><b>Scholarships and offers</b><br>Fee discounts and funding.</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>How often?</legend>
+      <label class="opt"><input type="radio" name="frequency" value="weekly" %%=IIF(@freq=="weekly","checked","")=%%><span>Weekly digest</span></label>
+      <label class="opt"><input type="radio" name="frequency" value="monthly" %%=IIF(@freq=="weekly","","checked")=%%><span>Monthly roundup</span></label>
+    </fieldset>
+    <label class="opt danger"><input type="checkbox" name="unsub_all"><span><b>Unsubscribe from all marketing emails</b></span></label>
+    <button class="btn" type="submit">Save preferences</button>
+  </form>
+%%[ ENDIF ]%%
+</main>
+</body>
+</html>
