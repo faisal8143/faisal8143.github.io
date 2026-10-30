@@ -1,5 +1,11 @@
 %%[
 /*
+  ==========================================================================
+  NORTHWIND LEARNING | AMPSCRIPT PERSONALISATION BLOCK
+  Author: Faisal Irfan | github.com/faisal8143
+  Used in: emails/responsive-master-template.html (SFMC Content Builder)
+  Data Extensions: Course_Enquiries, Term_Config, Student_Status
+  ==========================================================================
   Personalisation block for the master template.
   - Pulls the subscriber's course enquiry from a Data Extension
   - Falls back to safe defaults so the email never renders empty values
