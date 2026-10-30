@@ -1,115 +1,166 @@
-<!DOCTYPE html>
+%%[
+/*
+  ==========================================================================
+  NORTHWIND LEARNING | SFMC CONTENT BUILDER MASTER TEMPLATE
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Personalised enrolment email for Salesforce Marketing Cloud.
+    - AMPscript header: DE lookups with safe fallbacks (see
+      sfmc/ampscript/personalization.amp for the annotated version)
+    - Hybrid layout: works in Outlook desktop without media queries,
+      stacks on mobile
+    - Bulletproof VML button, dark-mode overrides, alias-tracked links
+    - CAN-SPAM / Spam Act footer using SFMC system strings
+  ==========================================================================
+*/
+SET @firstName = AttributeValue("FirstName")
+IF Empty(@firstName) THEN SET @firstName = "there" ELSE SET @firstName = ProperCase(Trim(@firstName)) ENDIF
+
+SET @rows = LookupOrderedRows("Course_Enquiries", 1, "EnquiryDate DESC", "SubscriberKey", _subscriberkey)
+IF RowCount(@rows) > 0 THEN
+  SET @courseName = Field(Row(@rows, 1), "CourseName")
+  SET @courseCode = Field(Row(@rows, 1), "CourseCode")
+ELSE
+  SET @courseName = "your chosen course"
+  SET @courseCode = "GENERAL"
+ENDIF
+
+SET @termName = Lookup("Term_Config", "TermName",  "IsCurrent", "true")
+SET @closeRaw = Lookup("Term_Config", "CloseDate", "IsCurrent", "true")
+IF Empty(@termName) THEN SET @termName = "the upcoming term" ENDIF
+IF NOT Empty(@closeRaw) THEN SET @closeDate = FormatDate(@closeRaw, "d MMMM yyyy", "", "en-AU") ELSE SET @closeDate = "soon" ENDIF
+
+SET @ctaUrl = Concat("https://example.edu/enrol?course=", URLEncode(@courseCode, 1, 1), "&utm_source=sfmc&utm_medium=email&utm_campaign=", URLEncode(emailname_, 1, 1))
+SET @img = "https://faisal8143.github.io/email-dev-portfolio/assets/img/"
+]%%<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="x-apple-disable-message-reformatting">
-<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark">
-<title>Northwind Learning — Your next step</title>
+<title>Northwind Learning | Your next step</title>
 <!--[if mso]>
-<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
-<style>td,th,div,p,a,h1,h2{font-family:Arial,sans-serif !important;}</style>
+<noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<style>table,td,div,p,a,h1,h2{font-family:Arial,Helvetica,sans-serif !important;}</style>
 <![endif]-->
 <style>
-  body{margin:0;padding:0;width:100% !important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
-  table{border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;}
+  html,body{margin:0 !important;padding:0 !important;width:100% !important;}
+  body{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+  table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;}
+  td{mso-line-height-rule:exactly;}
   img{border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;display:block;}
-  a[x-apple-data-detectors]{color:inherit !important;text-decoration:none !important;}
-  @media (max-width:620px){
-    .container{width:100% !important;}
-    .px{padding-left:20px !important;padding-right:20px !important;}
-    .stack{display:block !important;width:100% !important;max-width:100% !important;}
-    .h1{font-size:26px !important;line-height:32px !important;}
+  a{text-decoration:none;}
+  a[x-apple-data-detectors],#MessageViewBody a{color:inherit !important;text-decoration:none !important;font:inherit !important;}
+  @media screen and (max-width:640px){
+    .wrapper{width:100% !important;}
+    .px{padding-left:24px !important;padding-right:24px !important;}
+    .stack{display:block !important;width:100% !important;max-width:100% !important;box-sizing:border-box !important;}
+    .fluid{width:100% !important;max-width:100% !important;height:auto !important;}
+    .h1{font-size:28px !important;line-height:34px !important;}
+    .btn-full{width:100% !important;}
+    .btn-full a{display:block !important;}
   }
   @media (prefers-color-scheme:dark){
-    .bg-body{background:#111418 !important;}
-    .bg-card{background:#1b2027 !important;}
-    .text{color:#e6e9ee !important;}
-    .muted{color:#a3acb9 !important;}
-    .brand{color:#6aa9ff !important;}
+    .dm-canvas{background:#0B1220 !important;}
+    .dm-card{background:#111A2C !important;}
+    .dm-head{color:#F1F5F9 !important;}
+    .dm-text{color:#CBD5E1 !important;}
+    .dm-muted{color:#94A3B8 !important;}
+    .dm-link{color:#7DB4FF !important;}
+    .logo-light{display:block !important;max-height:none !important;overflow:visible !important;}
+    .logo-dark{display:none !important;max-height:0 !important;overflow:hidden !important;}
   }
-  [data-ogsc] .text{color:#e6e9ee !important;}
-  [data-ogsc] .brand{color:#6aa9ff !important;}
-  [data-ogsb] .bg-card{background:#1b2027 !important;}
+  [data-ogsc] .dm-head{color:#F1F5F9 !important;}
+  [data-ogsc] .dm-text{color:#CBD5E1 !important;}
+  [data-ogsc] .dm-muted{color:#94A3B8 !important;}
+  [data-ogsb] .dm-canvas{background:#0B1220 !important;}
+  [data-ogsb] .dm-card{background:#111A2C !important;}
 </style>
 </head>
-<body class="bg-body" style="margin:0;padding:0;background:#f2f4f7;">
-<!-- Preheader -->
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Enrolments for the new term close soon. Here is what you need to know.&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+<body class="dm-canvas" style="margin:0;padding:0;background:#F2F4F7;" bgcolor="#F2F4F7">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#F2F4F7;">Enrolments for %%=v(@termName)=%% close on %%=v(@closeDate)=%%. Here is what you need to know.</div>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-body" style="background:#f2f4f7;">
+<div role="article" aria-roledescription="email" aria-label="Your next step with Northwind Learning" lang="en">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="dm-canvas" style="background:#F2F4F7;" bgcolor="#F2F4F7">
+<tr>
+<td align="center" style="padding:24px 12px;">
+<!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td><![endif]-->
+<table role="presentation" class="wrapper" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+
+  <!-- HEADER -->
   <tr>
-    <td align="center" style="padding:24px 10px;">
-      <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
-      <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+    <td class="dm-card px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:28px 40px;border-radius:12px 12px 0 0;">
+      <a href="https://faisal8143.github.io/email-dev-portfolio/" alias="Header logo" target="_blank">
+        <img class="logo-dark" src="%%=v(@img)=%%logo-dark.png" width="200" height="48" alt="Northwind Learning" style="width:200px;height:48px;">
+        <!--[if !mso]><!--><img class="logo-light" src="%%=v(@img)=%%logo-light.png" width="200" height="48" alt="Northwind Learning" style="display:none;max-height:0;overflow:hidden;width:200px;height:48px;"><!--<![endif]-->
+      </a>
+    </td>
+  </tr>
 
-        <!-- Header -->
+  <!-- HERO IMAGE -->
+  <tr>
+    <td class="dm-card" bgcolor="#FFFFFF" style="background:#FFFFFF;">
+      <a href="%%=RedirectTo(@ctaUrl)=%%" alias="Hero image" target="_blank"><img class="fluid" src="%%=v(@img)=%%hero-pardot.png" width="600" height="300" alt="Enrolments are open" style="width:600px;height:auto;max-width:600px;"></a>
+    </td>
+  </tr>
+
+  <!-- HERO COPY -->
+  <tr>
+    <td class="dm-card px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:36px 40px 40px;">
+      <h1 class="h1 dm-head" style="margin:0 0 14px;font-family:Arial,Helvetica,sans-serif;font-size:32px;line-height:38px;font-weight:bold;color:#0A1F44;">Hi %%=v(@firstName)=%%, your next step starts here</h1>
+      <p class="dm-text" style="margin:0 0 28px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#334155;">Enrolments for %%=v(@termName)=%% close on <strong>%%=v(@closeDate)=%%</strong>. Secure your place in %%=v(@courseName)=%% today.</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="btn-full">
         <tr>
-          <td class="px bg-card" style="background:#ffffff;padding:24px 40px;border-radius:8px 8px 0 0;">
-            <span class="brand" style="font-family:Arial,sans-serif;font-size:22px;font-weight:bold;color:#0b5cad;">Northwind Learning</span>
+          <td align="center" bgcolor="#0B5CAD" style="border-radius:8px;background:#0B5CAD;">
+            <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@ctaUrl)=%%" style="height:50px;v-text-anchor:middle;width:220px;" arcsize="16%" stroke="f" fillcolor="#0B5CAD"><w:anchorlock/><center style="color:#FFFFFF;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">Enrol now</center></v:roundrect><![endif]-->
+            <!--[if !mso]><!--><a href="%%=RedirectTo(@ctaUrl)=%%" alias="Hero CTA" target="_blank" style="display:inline-block;padding:15px 36px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:20px;font-weight:bold;color:#FFFFFF;text-decoration:none;border-radius:8px;">Enrol now</a><!--<![endif]-->
           </td>
         </tr>
-
-        <!-- Hero -->
-        <tr>
-          <td class="px bg-card" style="background:#ffffff;padding:8px 40px 24px;">
-            <h1 class="h1 text" style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:32px;line-height:38px;color:#14181f;">Hi %%=v(@firstName)=%%, your next step starts here</h1>
-            <p class="text" style="margin:0 0 20px;font-family:Arial,sans-serif;font-size:16px;line-height:24px;color:#3b4350;">Enrolments for %%=v(@termName)=%% close on <strong>%%=v(@closeDate)=%%</strong>. Secure your place in %%=v(@courseName)=%% today.</p>
-
-            <!-- Bulletproof button -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td align="center" bgcolor="#0b5cad" style="border-radius:6px;">
-                  <!--[if mso]>
-                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="%%=RedirectTo(@ctaUrl)=%%" style="height:48px;v-text-anchor:middle;width:220px;" arcsize="12%" stroke="f" fillcolor="#0b5cad">
-                  <w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">Enrol now</center>
-                  </v:roundrect>
-                  <![endif]-->
-                  <!--[if !mso]><!-->
-                  <a href="%%=RedirectTo(@ctaUrl)=%%" alias="Hero CTA" style="display:inline-block;padding:14px 32px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:20px;color:#ffffff;text-decoration:none;border-radius:6px;">Enrol now</a>
-                  <!--<![endif]-->
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- Two-column (stacks on mobile) -->
-        <tr>
-          <td class="px bg-card" style="background:#ffffff;padding:8px 40px 32px;">
-            <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0"><tr><td width="250" valign="top"><![endif]-->
-            <div class="stack" style="display:inline-block;width:250px;vertical-align:top;">
-              <h2 class="text" style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:18px;color:#14181f;">Study online</h2>
-              <p class="muted" style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:14px;line-height:21px;color:#5b6472;">Flexible study that fits around work and family.</p>
-            </div>
-            <!--[if mso]></td><td width="20"></td><td width="250" valign="top"><![endif]-->
-            <div class="stack" style="display:inline-block;width:250px;vertical-align:top;">
-              <h2 class="text" style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:18px;color:#14181f;">Talk to an advisor</h2>
-              <p class="muted" style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:14px;line-height:21px;color:#5b6472;">Get help choosing the right subjects.</p>
-            </div>
-            <!--[if mso]></td></tr></table><![endif]-->
-          </td>
-        </tr>
-
-        <!-- Footer -->
-        <tr>
-          <td class="px" style="padding:24px 40px;">
-            <p class="muted" style="margin:0;font-family:Arial,sans-serif;font-size:12px;line-height:18px;color:#7a8291;">
-              You are receiving this email because you enquired with Northwind Learning.<br>
-              %%Member_Busname%%, %%Member_Addr%%, %%Member_City%%<br>
-              <a href="%%profile_center_url%%" style="color:#7a8291;">Update preferences</a> &middot;
-              <a href="%%unsub_center_url%%" style="color:#7a8291;">Unsubscribe</a>
-            </p>
-          </td>
-        </tr>
-
       </table>
+    </td>
+  </tr>
+
+  <!-- TWO COLUMNS (hybrid: inline-block divs + MSO table) -->
+  <tr>
+    <td class="dm-card px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:0 40px 40px;">
+      <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0"><tr><td width="250" valign="top"><![endif]-->
+      <div class="stack" style="display:inline-block;width:250px;vertical-align:top;padding:0 0 24px;">
+        <img class="fluid" src="%%=v(@img)=%%card-online.png" width="250" height="150" alt="" style="width:250px;height:auto;border-radius:10px;">
+        <h2 class="dm-head" style="margin:16px 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;">Study online</h2>
+        <p class="dm-text" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#475569;">Flexible study that fits around work and family.</p>
+      </div>
+      <!--[if mso]></td><td width="20"></td><td width="250" valign="top"><![endif]-->
+      <div class="stack" style="display:inline-block;width:250px;vertical-align:top;padding:0 0 24px;">
+        <img class="fluid" src="%%=v(@img)=%%card-advisor.png" width="250" height="150" alt="" style="width:250px;height:auto;border-radius:10px;">
+        <h2 class="dm-head" style="margin:16px 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:bold;color:#0A1F44;">Talk to an advisor</h2>
+        <p class="dm-text" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#475569;">Get help choosing the right subjects.</p>
+      </div>
       <!--[if mso]></td></tr></table><![endif]-->
     </td>
   </tr>
+
+  <!-- FOOTER -->
+  <tr>
+    <td class="px" style="padding:28px 40px;">
+      <p class="dm-muted" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#64748B;text-align:center;">
+        You are receiving this email because you enquired with Northwind Learning.<br>
+        %%Member_Busname%%, %%Member_Addr%%, %%Member_City%%, %%Member_State%% %%Member_PostalCode%%<br>
+        <a href="%%profile_center_url%%" alias="Preferences" class="dm-link" style="color:#0B5CAD;text-decoration:underline;">Update preferences</a> &nbsp;&middot;&nbsp;
+        <a href="%%unsub_center_url%%" alias="Unsubscribe" class="dm-link" style="color:#0B5CAD;text-decoration:underline;">Unsubscribe</a>
+      </p>
+    </td>
+  </tr>
+
 </table>
+<!--[if mso]></td></tr></table><![endif]-->
+</td>
+</tr>
+</table>
+</div>
 </body>
 </html>
