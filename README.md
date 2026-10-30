@@ -18,14 +18,26 @@ Senior **Salesforce Marketing Cloud (SFMC)** and **Pardot (Account Engagement)**
 
 Every template is tested for Outlook desktop and 365, Gmail web and app, Apple Mail and iOS, dark mode, and mobile widths from 320px.
 
-## Marketing Cloud code
+## Case studies
+
+| Program | Platform | What it shows |
+|---|---|---|
+| [Enrolment nurture journey](sfmc/journeys/enrolment-nurture-journey.md) | SFMC | Architecture, data model, Journey Builder splits, exit criteria, Sales Cloud hand-off |
+| [B2B nurture + scoring & grading](pardot/programs/engagement-studio-nurture.md) | Pardot | Engagement Studio flow, scoring and grading tables, automation rules, MQL definition |
+
+## Marketing Cloud & Pardot code
 
 | File | What it shows |
 |---|---|
 | [`sfmc/ampscript/personalization.amp`](sfmc/ampscript/personalization.amp) | Ordered DE lookups, safe fallbacks, localised dates, UTM-tagged CTAs, conditional content |
 | [`sfmc/ssjs/cloudpage-form-handler.ssjs`](sfmc/ssjs/cloudpage-form-handler.ssjs) | CloudPage POST handler: validation, honeypot spam trap, DE upsert, error logging, JSON response |
+| [`sfmc/cloudpages/preference-center.html`](sfmc/cloudpages/preference-center.html) | CloudPage preference centre: UpsertData, LogUnsubEvent global unsubscribe, accessible form |
+| [`sfmc/ssjs/wsproxy-triggered-send.ssjs`](sfmc/ssjs/wsproxy-triggered-send.ssjs) | WSProxy triggered send with retry and logging |
+| [`sfmc/sql/dedupe-latest-enquiry.sql`](sfmc/sql/dedupe-latest-enquiry.sql) | ROW_NUMBER dedupe keeping the latest enquiry per person |
 | [`sfmc/sql/engaged-subscribers-90d.sql`](sfmc/sql/engaged-subscribers-90d.sql) | Automation Studio engagement scoring on `_Open`, `_Click`, `_Bounce` and `_Subscribers` |
 | [`pardot/form-styles.css`](pardot/form-styles.css) | Accessible, responsive styles for Pardot's default form markup |
+| [`pardot/landing-pages/layout-template.html`](pardot/landing-pages/layout-template.html) | Pardot layout template with editable regions and branded form card |
+| [`pardot/form-handler-integration.js`](pardot/form-handler-integration.js) | Custom form to Pardot form handler with attribution capture and validation |
 
 ## Repository structure
 

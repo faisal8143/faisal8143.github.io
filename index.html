@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Faisal Irfan | Senior SFMC & Email Developer</title>
+<title>Faisal Irfan | Senior Marketing Cloud & Pardot Developer</title>
 <meta name="description" content="Faisal Irfan, Senior Salesforce Marketing Cloud and Pardot developer. 8+ years building personalised, responsive emails and automated journeys for enterprise brands.">
 <meta name="theme-color" content="#0a0f1c">
 <meta property="og:title" content="Faisal Irfan | Senior SFMC & Email Developer">
@@ -162,6 +162,21 @@ pre{margin:0;padding:18px;overflow:auto;max-height:520px;color:var(--code-text);
 @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.steps{grid-template-columns:1fr}}
 
+
+/* Case studies */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:900px){.cases{grid-template-columns:1fr}}
+.case{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.case-head h3{font-size:22px;margin:10px 0 6px}.case-head p{margin:0 0 18px;color:var(--muted)}
+.case .pick-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0f766e;background:#ccfbf1;border-radius:999px;padding:3px 10px}
+.case .pick-tag.sf{color:#6d28d9;background:#ede9fe}
+.flow{list-style:none;margin:0 0 20px;padding:0;counter-reset:f;position:relative}
+.flow:before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--brand),var(--brand-2))}
+.flow li{counter-increment:f;position:relative;padding:0 0 16px 48px}
+.flow li:before{content:counter(f);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--card);border:2px solid var(--brand);color:var(--brand);font:700 13px var(--mono);display:grid;place-items:center}
+.flow b{display:block;font-size:15px}.flow span{color:var(--muted);font-size:14px}
+.case .tags{margin-bottom:16px}.case .gh-link{margin-top:auto}
+
 /* Skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media (max-width:900px){.skills{grid-template-columns:1fr 1fr}}
@@ -208,7 +223,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container nav-in">
     <a href="#top" class="logo" aria-label="Faisal Irfan, home"><span class="logo-mark">FI</span><span>Faisal Irfan</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#services">Services</a><a href="#work">Work</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#experience">Experience</a>
+      <a href="#services">Services</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#experience">Experience</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
@@ -222,7 +237,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#services">Services</a><a href="#work">Work</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -230,8 +245,8 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
 <div class="hero" id="top">
   <div class="container">
     <span class="badge"><span class="dot"></span>Available for full-time & freelance</span>
-    <h1>Senior <span class="grad">Salesforce Marketing Cloud</span> & Email Developer</h1>
-    <p class="lead">I build personalised, responsive emails and automated customer journeys that render everywhere, for enterprise brands across Australia, the UAE and Europe.</p>
+    <h1>Senior <span class="grad">Marketing Cloud &amp; Pardot</span> Developer</h1>
+    <p class="lead">I design the data, journeys and emails behind enterprise marketing programs in Salesforce Marketing Cloud and Pardot (Account Engagement): from SQL and AMPscript to Engagement Studio, scoring and Sales hand-off.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#work">View my work
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -252,7 +267,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
 <section id="services" class="alt">
   <div class="container">
     <div class="eyebrow">What I do</div>
-    <h2>End-to-end Marketing Cloud & email delivery</h2>
+    <h2>End-to-end Marketing Cloud &amp; Pardot delivery</h2>
     <p class="sub">From pixel-perfect templates to the data and automation behind them.</p>
     <div class="grid-3">
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
@@ -271,6 +286,42 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   </div>
 </section>
 
+<section id="cases" class="alt">
+  <div class="container">
+    <div class="eyebrow">Case studies</div>
+    <h2>End-to-end programs, not just emails</h2>
+    <p class="sub">How I design the data, automation and journeys behind the emails. Built for a fictional brand; patterns from real enterprise delivery.</p>
+    <div class="cases">
+      <article class="case reveal">
+        <div class="case-head"><span class="pick-tag sf">Marketing Cloud</span><h3>Enrolment nurture journey</h3>
+          <p>Turn a course enquiry into an application within 30 days.</p></div>
+        <ol class="flow">
+          <li><b>Capture</b><span>CloudPage SSJS handler writes every enquiry to a raw DE</span></li>
+          <li><b>Clean</b><span>Automation Studio SQL dedupes to one row per person every 15 min</span></li>
+          <li><b>Score</b><span>Data-view query segments Hot / Warm / Cold</span></li>
+          <li><b>Journey</b><span>Engagement split, decision split by segment, Sales Cloud task for Hot leads</span></li>
+          <li><b>Exit &amp; goal</b><span>Leaves the moment they apply; goal = application in 30 days</span></li>
+        </ol>
+        <ul class="tags"><li>Journey Builder</li><li>Automation Studio</li><li>SQL</li><li>AMPscript</li><li>SSJS</li><li>MC Connect</li></ul>
+        <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/sfmc/journeys/enrolment-nurture-journey.md" target="_blank" rel="noopener">Read the full design &rarr;</a>
+      </article>
+      <article class="case reveal">
+        <div class="case-head"><span class="pick-tag">Pardot</span><h3>B2B nurture + scoring &amp; grading</h3>
+          <p>Move marketing-qualified prospects to sales-ready in 45 days.</p></div>
+        <ol class="flow">
+          <li><b>Convert</b><span>Pardot layout template + styled form, or custom form via form handler</span></li>
+          <li><b>Nurture</b><span>Engagement Studio branches on opens, pricing-page visits and score</span></li>
+          <li><b>Qualify</b><span>Score &ge; 50 and grade &ge; B = MQL; decay rule keeps scores honest</span></li>
+          <li><b>Hand off</b><span>Assign to Salesforce queue, create task, notify owner</span></li>
+          <li><b>Recycle</b><span>Closed-lost opportunities reset and return to nurture</span></li>
+        </ol>
+        <ul class="tags"><li>Engagement Studio</li><li>Scoring &amp; grading</li><li>Automation rules</li><li>Form handlers</li><li>Salesforce sync</li></ul>
+        <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/pardot/programs/engagement-studio-nurture.md" target="_blank" rel="noopener">Read the full design &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="container">
     <div class="eyebrow">Work samples</div>
@@ -284,6 +335,11 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
         <button class="tab" role="tab" id="tab-amp" aria-selected="false" aria-controls="panel-amp" tabindex="-1"><b>AMPscript personalisation</b><span>Lookups · fallbacks · dynamic content</span></button>
         <button class="tab" role="tab" id="tab-ssjs" aria-selected="false" aria-controls="panel-ssjs" tabindex="-1"><b>SSJS CloudPage handler</b><span>Validation · DE upsert · logging</span></button>
         <button class="tab" role="tab" id="tab-sql" aria-selected="false" aria-controls="panel-sql" tabindex="-1"><b>SQL engagement scoring</b><span>Automation Studio · data views</span></button>
+        <button class="tab" role="tab" id="tab-pref" aria-selected="false" aria-controls="panel-pref" tabindex="-1"><b>SFMC preference centre</b><span>CloudPage · AMPscript · LogUnsubEvent</span></button>
+        <button class="tab" role="tab" id="tab-wsproxy" aria-selected="false" aria-controls="panel-wsproxy" tabindex="-1"><b>SSJS WSProxy triggered send</b><span>Transactional email from a CloudPage</span></button>
+        <button class="tab" role="tab" id="tab-dedupe" aria-selected="false" aria-controls="panel-dedupe" tabindex="-1"><b>SQL dedupe (latest per person)</b><span>Automation Studio · ROW_NUMBER</span></button>
+        <button class="tab" role="tab" id="tab-lp" aria-selected="false" aria-controls="panel-lp" tabindex="-1"><b>Pardot landing page layout</b><span>Layout template · editable regions</span></button>
+        <button class="tab" role="tab" id="tab-fh" aria-selected="false" aria-controls="panel-fh" tabindex="-1"><b>Custom form to Pardot form handler</b><span>JavaScript · attribution</span></button>
         <button class="tab" role="tab" id="tab-css" aria-selected="false" aria-controls="panel-css" tabindex="-1"><b>Pardot form styling</b><span>Account Engagement · CSS</span></button>
       </div>
       <div>
@@ -1307,6 +1363,370 @@ WHERE s.Status = &#x27;active&#x27;
         AND b.EventDate &gt;= DATEADD(DAY, -90, GETDATE())
   )</code></pre></div>
           <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/sfmc/sql/engaged-subscribers-90d.sql" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-pref" aria-labelledby="tab-pref" hidden>
+          <div class="panel-desc"><ul><li>Secure subscriber lookup from the email link, no raw email in the URL</li><li>Topics and frequency saved with UpsertData</li><li>Global unsubscribe via LogUnsubEvent keeps All Subscribers in sync</li><li>Accessible, mobile-first single-page form</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/cloudpages/preference-center.html</span><button class="copy" type="button" data-target="code-pref">Copy</button></div><pre tabindex="0"><code id="code-pref">%%[
+/*
+  ==========================================================================
+  NORTHWIND LEARNING | SFMC CLOUDPAGE PREFERENCE CENTRE
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  - Identifies the subscriber securely from an encrypted email link
+    (CloudPagesURL passes SubscriberKey, never a raw email in the URL)
+  - Reads and saves topic preferences in a Data Extension
+  - Global unsubscribe via LogUnsubEvent so All Subscribers stays in sync
+  - Single page: GET shows the form, POST saves and shows a confirmation
+  ==========================================================================
+*/
+SET @sk = AttributeValue(&quot;_subscriberkey&quot;)
+IF Empty(@sk) THEN SET @sk = RequestParameter(&quot;sk&quot;) ENDIF
+SET @valid = IIF(Empty(@sk), false, true)
+
+IF @valid AND RequestParameter(&quot;submitted&quot;) == &quot;1&quot; THEN
+  SET @news   = IIF(RequestParameter(&quot;news&quot;)   == &quot;on&quot;, &quot;true&quot;, &quot;false&quot;)
+  SET @events = IIF(RequestParameter(&quot;events&quot;) == &quot;on&quot;, &quot;true&quot;, &quot;false&quot;)
+  SET @offers = IIF(RequestParameter(&quot;offers&quot;) == &quot;on&quot;, &quot;true&quot;, &quot;false&quot;)
+  SET @freq   = RequestParameter(&quot;frequency&quot;)
+  IF IndexOf(&quot;weekly|monthly&quot;, @freq) == 0 THEN SET @freq = &quot;monthly&quot; ENDIF
+
+  UpsertData(&quot;Subscriber_Preferences&quot;, 1, &quot;SubscriberKey&quot;, @sk,
+    &quot;News&quot;, @news, &quot;Events&quot;, @events, &quot;Offers&quot;, @offers,
+    &quot;Frequency&quot;, @freq, &quot;UpdatedAt&quot;, Now())
+
+  IF RequestParameter(&quot;unsub_all&quot;) == &quot;on&quot; THEN
+    SET @jid = RequestParameter(&quot;jid&quot;)
+    SET @lid = RequestParameter(&quot;lid&quot;)
+    SET @rr = CreateObject(&quot;ExecuteRequest&quot;)
+    SetObjectProperty(@rr, &quot;Name&quot;, &quot;LogUnsubEvent&quot;)
+    SET @p1 = CreateObject(&quot;APIProperty&quot;)
+    SetObjectProperty(@p1, &quot;Name&quot;, &quot;SubscriberKey&quot;)
+    SetObjectProperty(@p1, &quot;Value&quot;, @sk)
+    AddObjectArrayItem(@rr, &quot;Parameters&quot;, @p1)
+    SET @p2 = CreateObject(&quot;APIProperty&quot;)
+    SetObjectProperty(@p2, &quot;Name&quot;, &quot;Reason&quot;)
+    SetObjectProperty(@p2, &quot;Value&quot;, &quot;Preference centre: unsubscribe from all&quot;)
+    AddObjectArrayItem(@rr, &quot;Parameters&quot;, @p2)
+    SET @status = InvokeExecute(@rr, @msg, @errCode)
+  ENDIF
+  SET @saved = true
+ENDIF
+
+IF @valid THEN
+  SET @row = LookupRows(&quot;Subscriber_Preferences&quot;, &quot;SubscriberKey&quot;, @sk)
+  IF RowCount(@row) &gt; 0 THEN
+    SET @r = Row(@row, 1)
+    SET @news = Field(@r, &quot;News&quot;)  SET @events = Field(@r, &quot;Events&quot;)
+    SET @offers = Field(@r, &quot;Offers&quot;)  SET @freq = Field(@r, &quot;Frequency&quot;)
+  ENDIF
+ENDIF
+]%%&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Email preferences | Northwind Learning&lt;/title&gt;
+&lt;style&gt;
+  :root{--navy:#0A1F44;--blue:#0B5CAD;--ink:#334155;--line:#E2E8F0;--bg:#F2F4F7}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.6 Arial,Helvetica,sans-serif;color:var(--ink)}
+  .card{max-width:560px;margin:40px auto;background:#fff;border-radius:14px;padding:32px;box-shadow:0 8px 24px rgba(16,24,40,.08)}
+  h1{color:var(--navy);font-size:26px;margin:0 0 8px}fieldset{border:0;padding:0;margin:24px 0}
+  legend{font-weight:bold;color:var(--navy);margin-bottom:10px}
+  label.opt{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;cursor:pointer}
+  input[type=checkbox],input[type=radio]{width:20px;height:20px;accent-color:var(--blue)}
+  .btn{background:var(--blue);color:#fff;border:0;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:bold;cursor:pointer;width:100%}
+  .ok{background:#ECFDF5;color:#065F46;padding:12px 16px;border-radius:10px}.danger{border-color:#FECACA;background:#FEF2F2}
+  @media(max-width:600px){.card{margin:0;border-radius:0;padding:24px 18px}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;card&quot;&gt;
+%%[ IF NOT @valid THEN ]%%
+  &lt;h1&gt;Link expired&lt;/h1&gt;
+  &lt;p&gt;Please use the &quot;Update preferences&quot; link in any of our recent emails.&lt;/p&gt;
+%%[ ELSE ]%%
+  &lt;h1&gt;Email preferences&lt;/h1&gt;
+  &lt;p&gt;Choose what you hear from us and how often.&lt;/p&gt;
+  %%[ IF @saved THEN ]%%&lt;p class=&quot;ok&quot; role=&quot;status&quot;&gt;Your preferences have been saved.&lt;/p&gt;%%[ ENDIF ]%%
+  &lt;form method=&quot;post&quot; action=&quot;%%=RequestParameter(&#x27;PAGEURL&#x27;)=%%&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;submitted&quot; value=&quot;1&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;sk&quot; value=&quot;%%=v(@sk)=%%&quot;&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;Topics&lt;/legend&gt;
+      &lt;label class=&quot;opt&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;news&quot; %%=IIF(@news==&quot;false&quot;,&quot;&quot;,&quot;checked&quot;)=%%&gt;&lt;span&gt;&lt;b&gt;News and course updates&lt;/b&gt;&lt;br&gt;New courses, intakes and study tips.&lt;/span&gt;&lt;/label&gt;
+      &lt;label class=&quot;opt&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;events&quot; %%=IIF(@events==&quot;true&quot;,&quot;checked&quot;,&quot;&quot;)=%%&gt;&lt;span&gt;&lt;b&gt;Events and webinars&lt;/b&gt;&lt;br&gt;Open days and live sessions.&lt;/span&gt;&lt;/label&gt;
+      &lt;label class=&quot;opt&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;offers&quot; %%=IIF(@offers==&quot;true&quot;,&quot;checked&quot;,&quot;&quot;)=%%&gt;&lt;span&gt;&lt;b&gt;Scholarships and offers&lt;/b&gt;&lt;br&gt;Fee discounts and funding.&lt;/span&gt;&lt;/label&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;How often?&lt;/legend&gt;
+      &lt;label class=&quot;opt&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;frequency&quot; value=&quot;weekly&quot; %%=IIF(@freq==&quot;weekly&quot;,&quot;checked&quot;,&quot;&quot;)=%%&gt;&lt;span&gt;Weekly digest&lt;/span&gt;&lt;/label&gt;
+      &lt;label class=&quot;opt&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;frequency&quot; value=&quot;monthly&quot; %%=IIF(@freq==&quot;weekly&quot;,&quot;&quot;,&quot;checked&quot;)=%%&gt;&lt;span&gt;Monthly roundup&lt;/span&gt;&lt;/label&gt;
+    &lt;/fieldset&gt;
+    &lt;label class=&quot;opt danger&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;unsub_all&quot;&gt;&lt;span&gt;&lt;b&gt;Unsubscribe from all marketing emails&lt;/b&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;Save preferences&lt;/button&gt;
+  &lt;/form&gt;
+%%[ ENDIF ]%%
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+          <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/sfmc/cloudpages/preference-center.html" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-wsproxy" aria-labelledby="tab-wsproxy" hidden>
+          <div class="panel-desc"><ul><li>WSProxy createItem for TriggeredSend, lighter than the Core library</li><li>Personalisation attributes passed per subscriber</li><li>One retry on transient errors</li><li>Outcome logged to a Send_Log DE</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/ssjs/wsproxy-triggered-send.ssjs</span><button class="copy" type="button" data-target="code-wsproxy">Copy</button></div><pre tabindex="0"><code id="code-wsproxy">&lt;script runat=&quot;server&quot;&gt;
+  /*
+    ========================================================================
+    NORTHWIND LEARNING | SSJS WSPROXY TRIGGERED SEND
+    Author: Faisal Irfan | github.com/faisal8143
+    ------------------------------------------------------------------------
+    Sends a transactional &quot;enquiry received&quot; email from a CloudPage using
+    WSProxy (faster and lighter than the Core library for SOAP calls).
+      - Looks up the Triggered Send Definition by external key
+      - Passes personalisation attributes
+      - Retries once on a transient error and logs the outcome
+    ========================================================================
+  */
+  Platform.Load(&quot;core&quot;, &quot;1.1.1&quot;);
+  var api = new Script.Util.WSProxy();
+
+  function sendEnquiryEmail(email, firstName, courseName) {
+    var payload = {
+      TriggeredSendDefinition: { CustomerKey: &quot;TSD_Enquiry_Received&quot; },
+      Subscribers: [{
+        EmailAddress: email,
+        SubscriberKey: email.toLowerCase(),
+        Attributes: [
+          { Name: &quot;FirstName&quot;,  Value: firstName || &quot;there&quot; },
+          { Name: &quot;CourseName&quot;, Value: courseName || &quot;your chosen course&quot; }
+        ]
+      }]
+    };
+    var res = api.createItem(&quot;TriggeredSend&quot;, payload);
+    if (res.Status !== &quot;OK&quot;) {           /* one retry for transient errors */
+      res = api.createItem(&quot;TriggeredSend&quot;, payload);
+    }
+    return res;
+  }
+
+  try {
+    var r = sendEnquiryEmail(
+      Request.GetFormField(&quot;email&quot;),
+      Request.GetFormField(&quot;firstName&quot;),
+      Request.GetFormField(&quot;courseName&quot;)
+    );
+    DataExtension.Init(&quot;Send_Log&quot;).Rows.Add({
+      SubscriberKey: String(Request.GetFormField(&quot;email&quot;)).toLowerCase(),
+      Status: r.Status,
+      Message: String(r.Results &amp;&amp; r.Results[0] ? r.Results[0].StatusMessage : &quot;&quot;).substring(0, 500),
+      LoggedAt: Platform.Function.Now()
+    });
+  } catch (e) {
+    Write(&quot;&lt;!-- send failed --&gt;&quot;);
+  }
+&lt;/script&gt;</code></pre></div>
+          <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/sfmc/ssjs/wsproxy-triggered-send.ssjs" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-dedupe" aria-labelledby="tab-dedupe" hidden>
+          <div class="panel-desc"><ul><li>ROW_NUMBER partitioned by normalised email</li><li>Keeps only the latest enquiry before journey entry</li><li>Trims and lower-cases keys to stop duplicates</li><li>Filters out invalid email patterns</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/sql/dedupe-latest-enquiry.sql</span><button class="copy" type="button" data-target="code-dedupe">Copy</button></div><pre tabindex="0"><code id="code-dedupe">/*
+  ==========================================================================
+  NORTHWIND LEARNING | DEDUPLICATE ENQUIRIES (LATEST PER SUBSCRIBER)
+  Author: Faisal Irfan | github.com/faisal8143
+  ==========================================================================
+  Automation Studio query. Source: Course_Enquiries_Raw (all form fills)
+  Target: Course_Enquiries (Overwrite, PK SubscriberKey)
+
+  Keeps only each subscriber&#x27;s most recent enquiry, normalises email case,
+  and drops rows without a valid-looking email address.
+*/
+
+SELECT
+    LOWER(LTRIM(RTRIM(e.EmailAddress)))  AS SubscriberKey,
+    LOWER(LTRIM(RTRIM(e.EmailAddress)))  AS EmailAddress,
+    e.FirstName,
+    e.CourseCode,
+    e.CourseName,
+    e.OptIn,
+    e.EnquiryDate
+FROM (
+    SELECT
+        r.*,
+        ROW_NUMBER() OVER (
+            PARTITION BY LOWER(LTRIM(RTRIM(r.EmailAddress)))
+            ORDER BY r.EnquiryDate DESC
+        ) AS rn
+    FROM Course_Enquiries_Raw r
+    WHERE r.EmailAddress LIKE &#x27;%_@_%._%&#x27;
+) e
+WHERE e.rn = 1</code></pre></div>
+          <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/sfmc/sql/dedupe-latest-enquiry.sql" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-lp" aria-labelledby="tab-lp" hidden>
+          <div class="panel-desc"><ul><li>%%content%% renders the Pardot form inside a branded card</li><li>pardot-region areas editable in the WYSIWYG editor</li><li>Two-column hero that stacks on mobile</li><li>Pairs with pardot/form-styles.css</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">pardot/landing-pages/layout-template.html</span><button class="copy" type="button" data-target="code-lp">Copy</button></div><pre tabindex="0"><code id="code-lp">&lt;!DOCTYPE html&gt;
+&lt;!--
+  ==========================================================================
+  NORTHWIND LEARNING | PARDOT (ACCOUNT ENGAGEMENT) LANDING PAGE LAYOUT
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Layout template for Pardot landing pages and forms.
+    - %%title%%, %%description%% and %%content%% are Pardot system tags;
+      %%content%% renders the Pardot form, styled by pardot/form-styles.css
+    - pardot-region / pardot-region-type let marketers edit copy and images
+      in the WYSIWYG editor without touching code
+    - Responsive two-column hero that stacks on mobile, accessible contrast
+  ==========================================================================
+--&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;%%title%%&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;%%description%%&quot;&gt;
+&lt;style&gt;
+  :root{--navy:#0A1F44;--blue:#0B5CAD;--teal:#19C3B1;--ink:#334155;--line:#E2E8F0;--bg:#F2F4F7}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:#fff;border-bottom:1px solid var(--line)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:64px 0}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .hero h1{font-size:40px;line-height:1.15;margin:0 0 16px}
+  .hero p{color:#CBD5E1;font-size:18px;margin:0 0 20px}
+  .ticks{list-style:none;padding:0;margin:0}
+  .ticks li{padding-left:30px;position:relative;margin:0 0 10px}
+  .ticks li:before{content:&quot;\2713&quot;;position:absolute;left:0;color:var(--teal);font-weight:bold}
+  .form-card{background:#fff;color:var(--ink);border-radius:16px;padding:28px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+  .form-card h2{color:var(--navy);margin:0 0 6px;font-size:22px}
+  .proof{padding:48px 0}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center}
+  .stat b{display:block;font-size:30px;color:var(--blue)}
+  footer{padding:28px 0;font-size:13px;color:#64748B;text-align:center}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}.hero{padding:40px 0}.hero h1{font-size:30px}.stats{grid-template-columns:1fr}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;div pardot-region=&quot;logo&quot; pardot-region-type=&quot;image&quot;&gt;&lt;img src=&quot;https://faisal8143.github.io/email-dev-portfolio/assets/img/logo-dark.png&quot; alt=&quot;Northwind Learning&quot; width=&quot;180&quot; height=&quot;43&quot;&gt;&lt;/div&gt;
+    &lt;a href=&quot;tel:+611300000000&quot; style=&quot;color:var(--blue);font-weight:bold;text-decoration:none&quot;&gt;1300 000 000&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;section class=&quot;hero&quot;&gt;
+  &lt;div class=&quot;wrap grid&quot;&gt;
+    &lt;div pardot-region=&quot;hero_copy&quot; pardot-region-type=&quot;wysiwyg&quot;&gt;
+      &lt;h1&gt;Download the 2027 course guide&lt;/h1&gt;
+      &lt;p&gt;Everything you need to choose the right online course, in one free guide.&lt;/p&gt;
+      &lt;ul class=&quot;ticks&quot;&gt;
+        &lt;li&gt;120+ online courses compared&lt;/li&gt;
+        &lt;li&gt;Fees, intakes and study load explained&lt;/li&gt;
+        &lt;li&gt;Career outcomes for every field&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-card&quot;&gt;
+      &lt;div pardot-region=&quot;form_heading&quot; pardot-region-type=&quot;wysiwyg&quot;&gt;
+        &lt;h2&gt;Get your free guide&lt;/h2&gt;
+        &lt;p&gt;It takes 30 seconds.&lt;/p&gt;
+      &lt;/div&gt;
+      %%content%%
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;proof&quot;&gt;
+  &lt;div class=&quot;wrap stats&quot; pardot-region=&quot;stats&quot; pardot-region-type=&quot;wysiwyg&quot;&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;b&gt;120+&lt;/b&gt;Online courses&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;b&gt;94%&lt;/b&gt;Student satisfaction&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;b&gt;3&lt;/b&gt;Intakes each year&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;footer&gt;
+  &lt;div class=&quot;wrap&quot; pardot-region=&quot;footer&quot; pardot-region-type=&quot;wysiwyg&quot;&gt;
+    &amp;copy; Northwind Learning &amp;middot; &lt;a href=&quot;https://example.edu/privacy&quot;&gt;Privacy policy&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+          <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/pardot/landing-pages/layout-template.html" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-fh" aria-labelledby="tab-fh" hidden>
+          <div class="panel-desc"><ul><li>Posts to a form handler via hidden iframe, keeping visitor tracking</li><li>Captures UTM and GCLID for attribution</li><li>Accessible inline validation with aria-invalid</li><li>Double-submit protection and success state</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">pardot/form-handler-integration.js</span><button class="copy" type="button" data-target="code-fh">Copy</button></div><pre tabindex="0"><code id="code-fh">/*
+  ==========================================================================
+  NORTHWIND LEARNING | CUSTOM FORM -&gt; PARDOT FORM HANDLER
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Posts a custom website form to a Pardot (Account Engagement) form
+  handler without leaving the page, while keeping Pardot&#x27;s visitor
+  tracking (cookies) and completion actions working.
+    - Client-side validation with accessible error messages
+    - Submits via a hidden iframe (form handlers do not support CORS)
+    - UTM and GCLID values captured into hidden fields for attribution
+    - Prevents double submits; shows a success state
+  ==========================================================================
+*/
+(function () {
+  var HANDLER_URL = &quot;https://go.example.edu/l/000000/2026-10-30/abcde&quot;; /* form handler endpoint */
+  var form = document.getElementById(&quot;enquiry-form&quot;);
+  if (!form) return;
+
+  /* 1. Capture attribution parameters into hidden fields */
+  var params = new URLSearchParams(window.location.search);
+  [&quot;utm_source&quot;, &quot;utm_medium&quot;, &quot;utm_campaign&quot;, &quot;utm_content&quot;, &quot;gclid&quot;].forEach(function (key) {
+    var field = form.querySelector(&#x27;[name=&quot;&#x27; + key + &#x27;&quot;]&#x27;);
+    if (field &amp;&amp; params.get(key)) field.value = params.get(key);
+  });
+
+  /* 2. Hidden iframe target keeps the visitor on the page */
+  var frame = document.createElement(&quot;iframe&quot;);
+  frame.name = &quot;pardot-target&quot;;
+  frame.title = &quot;Form submission&quot;;
+  frame.hidden = true;
+  document.body.appendChild(frame);
+
+  function setError(input, message) {
+    var id = input.id + &quot;-error&quot;;
+    var el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement(&quot;p&quot;);
+      el.id = id;
+      el.className = &quot;field-error&quot;;
+      input.insertAdjacentElement(&quot;afterend&quot;, el);
+    }
+    el.textContent = message;
+    input.setAttribute(&quot;aria-invalid&quot;, message ? &quot;true&quot; : &quot;false&quot;);
+    input.setAttribute(&quot;aria-describedby&quot;, id);
+  }
+
+  function validate() {
+    var ok = true;
+    var email = form.elements.email;
+    var name = form.elements.first_name;
+    setError(name, name.value.trim() ? &quot;&quot; : &quot;Please enter your first name.&quot;);
+    setError(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) ? &quot;&quot; : &quot;Please enter a valid email address.&quot;);
+    if (!name.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) ok = false;
+    return ok;
+  }
+
+  form.addEventListener(&quot;submit&quot;, function (e) {
+    if (!validate()) { e.preventDefault(); return; }
+    var btn = form.querySelector(&#x27;[type=&quot;submit&quot;]&#x27;);
+    btn.disabled = true;
+    btn.textContent = &quot;Sending...&quot;;
+    form.action = HANDLER_URL;
+    form.method = &quot;post&quot;;
+    form.target = &quot;pardot-target&quot;;
+    frame.addEventListener(&quot;load&quot;, function () {
+      form.hidden = true;
+      var done = document.getElementById(&quot;enquiry-success&quot;);
+      if (done) { done.hidden = false; done.focus(); }
+    }, { once: true });
+  });
+})();</code></pre></div>
+          <a class="gh-link" href="https://github.com/faisal8143/email-dev-portfolio/blob/main/pardot/form-handler-integration.js" target="_blank" rel="noopener">View on GitHub →</a>
         </div>
         <div class="panel" role="tabpanel" id="panel-css" aria-labelledby="tab-css" hidden>
           <div class="panel-desc"><ul><li>Styles Pardot default form markup, no HTML edits</li><li>Accessible focus and error states</li><li>16px inputs to prevent iOS zoom</li><li>Responsive submit button</li></ul></div>
