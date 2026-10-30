@@ -31,7 +31,7 @@ IF Empty(@termName) THEN SET @termName = "the upcoming term" ENDIF
 IF NOT Empty(@closeRaw) THEN SET @closeDate = FormatDate(@closeRaw, "d MMMM yyyy", "", "en-AU") ELSE SET @closeDate = "soon" ENDIF
 
 SET @ctaUrl = Concat("https://example.edu/enrol?course=", URLEncode(@courseCode, 1, 1), "&utm_source=sfmc&utm_medium=email&utm_campaign=", URLEncode(emailname_, 1, 1))
-SET @img = "https://faisal8143.github.io/email-dev-portfolio/assets/img/"
+SET @img = "https://faisal8143.github.io/assets/img/"
 ]%%<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -95,7 +95,7 @@ SET @img = "https://faisal8143.github.io/email-dev-portfolio/assets/img/"
   <!-- HEADER -->
   <tr>
     <td class="dm-card px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:28px 40px;border-radius:12px 12px 0 0;">
-      <a href="https://faisal8143.github.io/email-dev-portfolio/" alias="Header logo" target="_blank">
+      <a href="https://faisal8143.github.io/" alias="Header logo" target="_blank">
         <img class="logo-dark" src="%%=v(@img)=%%logo-dark.png" width="200" height="48" alt="Northwind Learning" style="width:200px;height:48px;">
         <!--[if !mso]><!--><img class="logo-light" src="%%=v(@img)=%%logo-light.png" width="200" height="48" alt="Northwind Learning" style="display:none;max-height:0;overflow:hidden;width:200px;height:48px;"><!--<![endif]-->
       </a>
