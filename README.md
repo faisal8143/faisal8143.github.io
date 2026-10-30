@@ -1,8 +1,8 @@
-# Faisal Irfan | Email & Marketing Cloud Developer Portfolio
+# Faisal Irfan | Senior Marketing Cloud & Pardot Developer
 
 Senior **Salesforce Marketing Cloud (SFMC)** and **Pardot (Account Engagement)** developer with 8+ years building personalised, responsive emails and automated journeys for enterprise brands in Australia, the UAE and Europe.
 
-**Live portfolio:** https://faisal8143.github.io/email-dev-portfolio/
+**Live portfolio:** https://faisal8143.github.io/
 **LinkedIn:** https://www.linkedin.com/in/faisalirfan-sfmc
 **Location:** Karachi, Pakistan. Open to remote work and relocation.
 
@@ -12,9 +12,9 @@ Senior **Salesforce Marketing Cloud (SFMC)** and **Pardot (Account Engagement)**
 
 | Template | Platform | Highlights | Preview |
 |---|---|---|---|
-| [`pardot-master-template.html`](emails/pardot-master-template.html) | Pardot | 11-block drag-and-drop library, `pardot-repeatable` / `pardot-region`, dark mode, VML buttons | [View](https://faisal8143.github.io/email-dev-portfolio/emails/previews/pardot-master.html) |
-| [`webinar-edm-dark.html`](emails/webinar-edm-dark.html) | Pardot | Dark-by-design campaign, two-session layout that restacks on mobile, images-off safe CTAs | [View](https://faisal8143.github.io/email-dev-portfolio/emails/previews/webinar-dark.html) |
-| [`responsive-master-template.html`](emails/responsive-master-template.html) | SFMC | AMPscript personalisation, hybrid layout, alias-tracked links, system-string footer | [View](https://faisal8143.github.io/email-dev-portfolio/emails/previews/sfmc-master.html) |
+| [`pardot-master-template.html`](emails/pardot-master-template.html) | Pardot | 11-block drag-and-drop library, `pardot-repeatable` / `pardot-region`, dark mode, VML buttons | [View](https://faisal8143.github.io/emails/previews/pardot-master.html) |
+| [`webinar-edm-dark.html`](emails/webinar-edm-dark.html) | Pardot | Dark-by-design campaign, two-session layout that restacks on mobile, images-off safe CTAs | [View](https://faisal8143.github.io/emails/previews/webinar-dark.html) |
+| [`responsive-master-template.html`](emails/responsive-master-template.html) | SFMC | AMPscript personalisation, hybrid layout, alias-tracked links, system-string footer | [View](https://faisal8143.github.io/emails/previews/sfmc-master.html) |
 
 Every template is tested for Outlook desktop and 365, Gmail web and app, Apple Mail and iOS, dark mode, and mobile widths from 320px.
 
@@ -42,7 +42,7 @@ Every template is tested for Outlook desktop and 365, Gmail web and app, Apple M
 ## Repository structure
 
 ```
-email-dev-portfolio/
+faisal8143.github.io/
 ├── index.html                  Portfolio site (GitHub Pages)
 ├── assets/img/                 Brand images used by the emails
 ├── emails/
