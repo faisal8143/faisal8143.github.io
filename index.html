@@ -171,13 +171,14 @@ pre{margin:0;padding:18px;overflow:auto;max-height:520px;color:var(--code-text);
 
 
 /* Gallery picker */
-.gallery-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 20px}
+.gallery-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:0 0 20px}
 .pick{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;color:var(--text);font:inherit;transition:border-color .15s,box-shadow .15s}
 .pick b{font-size:15px}.pick span{font-size:13px;color:var(--muted)}
 .pick:hover{border-color:var(--brand)}
 .pick[aria-selected="true"]{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 22%,transparent)}
 .pick .pick-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0f766e;background:#ccfbf1;border-radius:999px;padding:2px 8px;margin-bottom:6px}
 .pick .pick-tag.dark{color:#1e3a8a;background:#dbeafe}.pick .pick-tag.sf{color:#6d28d9;background:#ede9fe}
+.pick .pick-tag.braze{color:#9a3412;background:#ffedd5}.pick .pick-tag.mkto{color:#5b21b6;background:#f3e8ff}.pick .pick-tag.klav{color:#166534;background:#dcfce7}.pick .pick-tag.mc{color:#854d0e;background:#fef9c3}
 @media (max-width:700px){.gallery-pick{grid-template-columns:1fr}.pick{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px}.pick .pick-tag{margin:0}.pick span:last-child{width:100%}}
 /* Process */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -1897,7 +1898,7 @@ WHERE e.rn = 1</code></pre></div>
   <div class="container">
     <div class="eyebrow">Email gallery</div>
     <h2>Built to render everywhere</h2>
-    <p class="sub">Three production-style builds, rendered live with sample personalisation data. Pick an email, then switch to mobile to see it stack.</p>
+    <p class="sub">Production-style builds for Pardot, SFMC, Braze, Marketo, Klaviyo and Mailchimp, rendered live with sample personalisation data. Pick an email, switch to mobile to see it stack, or open the source to see the platform syntax.</p>
     <div class="gallery-pick" role="tablist" aria-label="Choose an email">
       <button type="button" role="tab" class="pick" aria-selected="true" data-src="emails/previews/pardot-master.html" data-code="emails/pardot-master-template.html">
         <span class="pick-tag">Pardot</span><b>Master template</b><span>11 drag-and-drop blocks</span></button>
@@ -1905,9 +1906,17 @@ WHERE e.rn = 1</code></pre></div>
         <span class="pick-tag dark">Pardot</span><b>Webinar eDM (dark)</b><span>Two-session invite</span></button>
       <button type="button" role="tab" class="pick" aria-selected="false" data-src="emails/previews/sfmc-master.html" data-code="emails/responsive-master-template.html">
         <span class="pick-tag sf">SFMC</span><b>AMPscript master</b><span>Personalised enrolment</span></button>
+      <button type="button" role="tab" class="pick" aria-selected="false" data-src="emails/previews/braze-course-progress.html" data-code="emails/braze-course-progress.html">
+        <span class="pick-tag braze">Braze</span><b>Course progress</b><span>Liquid, abort logic, live progress bar</span></button>
+      <button type="button" role="tab" class="pick" aria-selected="false" data-src="emails/previews/marketo-webinar-invite.html" data-code="emails/marketo-webinar-invite.html">
+        <span class="pick-tag mkto">Marketo</span><b>Webinar invite</b><span>Email 2.0 modules, variables, tokens</span></button>
+      <button type="button" role="tab" class="pick" aria-selected="false" data-src="emails/previews/klaviyo-abandoned-checkout.html" data-code="emails/klaviyo-abandoned-checkout.html">
+        <span class="pick-tag klav">Klaviyo</span><b>Abandoned checkout</b><span>Dynamic line-item loop</span></button>
+      <button type="button" role="tab" class="pick" aria-selected="false" data-src="emails/previews/mailchimp-newsletter.html" data-code="emails/mailchimp-newsletter.html">
+        <span class="pick-tag mc">Mailchimp</span><b>Monthly newsletter</b><span>Editable, repeatable articles</span></button>
     </div>
     <div class="preview-bar">
-      <a class="gh-link" id="openFull" href="emails/previews/pardot-master.html" target="_blank" rel="noopener">Open full size &#8599;</a>
+      <span><a class="gh-link" id="openFull" href="emails/previews/pardot-master.html" target="_blank" rel="noopener">Open full size &#8599;</a> &nbsp; <a class="gh-link" id="openCode" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/emails/pardot-master-template.html" target="_blank" rel="noopener">View source &#8599;</a></span>
       <div class="seg" role="group" aria-label="Preview size">
         <button type="button" data-view="desktop" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
         <button type="button" data-view="mobile" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Mobile</button>
@@ -2109,6 +2118,7 @@ WHERE e.rn = 1</code></pre></div>
   picks.forEach(function(b){b.addEventListener('click',function(){
     picks.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
     frame.src=b.getAttribute('data-src'); openFull.href=b.getAttribute('data-src');
+    var oc=document.getElementById('openCode'); if(oc&&b.getAttribute('data-code')) oc.href='https://github.com/faisal8143/faisal8143.github.io/blob/main/'+b.getAttribute('data-code');
   })});
 
   // Reveal on scroll

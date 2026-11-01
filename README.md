@@ -15,6 +15,10 @@ Senior **Salesforce Marketing Cloud (SFMC)** and **Pardot (Account Engagement)**
 | [`pardot-master-template.html`](emails/pardot-master-template.html) | Pardot | 11-block drag-and-drop library, `pardot-repeatable` / `pardot-region`, dark mode, VML buttons | [View](https://faisal8143.github.io/emails/previews/pardot-master.html) |
 | [`webinar-edm-dark.html`](emails/webinar-edm-dark.html) | Pardot | Dark-by-design campaign, two-session layout that restacks on mobile, images-off safe CTAs | [View](https://faisal8143.github.io/emails/previews/webinar-dark.html) |
 | [`responsive-master-template.html`](emails/responsive-master-template.html) | SFMC | AMPscript personalisation, hybrid layout, alias-tracked links, system-string footer | [View](https://faisal8143.github.io/emails/previews/sfmc-master.html) |
+| [`braze-course-progress.html`](emails/braze-course-progress.html) | Braze | Liquid personalisation with defaults, `abort_message` guard, attribute-driven progress bar | [View](https://faisal8143.github.io/emails/previews/braze-course-progress.html) |
+| [`marketo-webinar-invite.html`](emails/marketo-webinar-invite.html) | Marketo | Email 2.0 `mktoContainer` / `mktoModule`, string, colour and boolean variables, `{{my.}}` program tokens | [View](https://faisal8143.github.io/emails/previews/marketo-webinar-invite.html) |
+| [`klaviyo-abandoned-checkout.html`](emails/klaviyo-abandoned-checkout.html) | Klaviyo | Checkout Started flow email, `event.extra.line_items` loop, preference and unsubscribe tags | [View](https://faisal8143.github.io/emails/previews/klaviyo-abandoned-checkout.html) |
+| [`mailchimp-newsletter.html`](emails/mailchimp-newsletter.html) | Mailchimp | `mc:edit` regions, repeatable articles, `*\|IF:FNAME\|*` fallback greeting, compliance footer | [View](https://faisal8143.github.io/emails/previews/mailchimp-newsletter.html) |
 
 Every template is tested for Outlook desktop and 365, Gmail web and app, Apple Mail and iOS, dark mode, and mobile widths from 320px.
 
