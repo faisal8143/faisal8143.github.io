@@ -101,6 +101,12 @@ h2{font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:-.02em;margin:
 
 /* Services */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:700px){.grid-2{grid-template-columns:1fr}}
+.offer-meta{display:inline-block;margin-top:2px;padding:4px 10px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);font-size:12.5px;font-weight:600}
+.card ul.offer-list{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.card ul.offer-list li{margin:0 0 4px}
+.oss-link{display:inline-block;margin-top:12px;font-weight:600;font-size:14.5px}
 @media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.grid-3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
@@ -228,7 +234,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container nav-in">
     <a href="#top" class="logo" aria-label="Faisal Irfan, home"><span class="logo-mark">FI</span><span>Faisal Irfan</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#services">Services</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#experience">Experience</a>
+      <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#experience">Experience</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
@@ -242,7 +248,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#services">Services</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -251,7 +257,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container">
     <span class="badge"><span class="dot"></span>Available for full-time & freelance</span>
     <h1>Senior <span class="grad">Marketing Cloud &amp; Pardot</span> Developer</h1>
-    <p class="lead">I design the data, journeys and emails behind enterprise marketing programs in Salesforce Marketing Cloud and Pardot (Account Engagement): from SQL and AMPscript to Engagement Studio, scoring and Sales hand-off.</p>
+    <p class="lead">I design the data, journeys and emails behind enterprise marketing programs in Salesforce Marketing Cloud and Pardot (Account Engagement): from SQL and AMPscript to Engagement Studio, scoring and Sales hand-off. I also build on Braze, Marketo, Klaviyo and Mailchimp.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#work">View my work
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -287,6 +293,28 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
         <h3>Pardot / Account Engagement</h3><p>Email and landing page templates, forms, Engagement Studio programs, scoring and grading.</p></div>
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <h3>Marketing Cloud Next</h3><p>Certified on Salesforce's next-generation Marketing Cloud, with hands-on work in my own MC Next org.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="offers">
+  <div class="container">
+    <div class="eyebrow">Ways to work together</div>
+    <h2>Fixed-scope offers for teams and agencies</h2>
+    <p class="sub">Clear scope, fixed price. Salesforce partner agencies can white-label any of these.</p>
+    <div class="grid-2">
+      <div class="card reveal"><span class="offer-meta">1–2 weeks · fixed price</span>
+        <h3>MC Next readiness audit</h3><p>Know what moves, what has to be rebuilt and what it will cost before you start a Marketing Cloud Next migration.</p>
+        <ul class="offer-list"><li>Inventory of AMPscript, SSJS, LookupRows and CloudPages</li><li>Data extension, consent and identity review</li><li>Risk report and a phased migration roadmap</li></ul></div>
+      <div class="card reveal"><span class="offer-meta">Monthly retainer</span>
+        <h3>White-label build support</h3><p>Extra build capacity for agencies when the queue backs up, on AEST, GMT or US-morning hours.</p>
+        <ul class="offer-list"><li>Emails, Content Builder templates, journeys, SQL</li><li>CloudPages, preference centres, Pardot forms</li><li>Braze, Marketo, Klaviyo and Mailchimp builds</li></ul></div>
+      <div class="card reveal"><span class="offer-meta">Fixed price</span>
+        <h3>AI-ready template system</h3><p>A modular master template that AI-drafted content can drop into without breaking brand, accessibility or rendering.</p>
+        <ul class="offer-list"><li>Slot-based master template, dark-mode tested</li><li>Locked brand blocks and content rules</li><li>Ready for Agentforce and Einstein content</li></ul></div>
+      <div class="card reveal"><span class="offer-meta">Fixed price</span>
+        <h3>Pardot health check</h3><p>For B2B teams on Account Engagement who want templates, forms and lead flow working properly.</p>
+        <ul class="offer-list"><li>Master email and landing page templates</li><li>Form styling, handlers and validation</li><li>Sync, scoring and grading fixes</li></ul></div>
     </div>
   </div>
 </section>
@@ -1891,7 +1919,7 @@ WHERE e.rn = 1</code></pre></div>
     <p class="sub">A repeatable delivery process I have used with enterprise marketing teams across time zones.</p>
     <ol class="steps">
       <li class="card reveal"><span class="step-n">01</span><h3>Brief &amp; data</h3><p>Audience, data sources and success metrics agreed before any code.</p></li>
-      <li class="card reveal"><span class="step-n">02</span><h3>Build in a sandbox</h3><p>Templates, AMPscript and automations built and tested in my own org first.</p></li>
+      <li class="card reveal"><span class="step-n">02</span><h3>AI-assisted build in a sandbox</h3><p>AI tools draft templates, SQL and AMPscript for speed. I build and test everything in my own org first, and client data never goes into public AI tools.</p></li>
       <li class="card reveal"><span class="step-n">03</span><h3>QA across clients</h3><p>Rendering, links, personalisation fallbacks, dark mode and accessibility checked.</p></li>
       <li class="card reveal"><span class="step-n">04</span><h3>Deploy &amp; hand over</h3><p>Moved into the client org with documentation so marketers can run it themselves.</p></li>
     </ol>
@@ -1902,11 +1930,25 @@ WHERE e.rn = 1</code></pre></div>
   <div class="container">
     <div class="eyebrow">Toolkit</div>
     <h2>Skills & platforms</h2>
-    <p class="sub">The stack I use day to day across Marketing Cloud and Pardot programs.</p>
-    <div class="skills">
+    <p class="sub">Deepest on Salesforce, and comfortable building on the other major email and automation platforms.</p>
+    <div class="skills" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
       <div class="card reveal"><h3>Salesforce Marketing Cloud</h3><ul class="tags"><li>Journey Builder</li><li>Automation Studio</li><li>Email Studio</li><li>Content Builder</li><li>CloudPages</li><li>Contact Builder</li><li>Data Extensions</li><li>Marketing Cloud Next</li></ul></div>
       <div class="card reveal"><h3>Code</h3><ul class="tags"><li>AMPscript</li><li>SSJS</li><li>SQL</li><li>HTML email</li><li>CSS</li><li>JavaScript</li><li>REST / SOAP APIs</li></ul></div>
       <div class="card reveal"><h3>Pardot & email craft</h3><ul class="tags"><li>Account Engagement</li><li>Engagement Studio</li><li>Forms & handlers</li><li>Scoring & grading</li><li>Outlook / MSO fixes</li><li>Dark mode</li><li>Litmus testing</li></ul></div>
+      <div class="card reveal"><h3>Other platforms</h3><ul class="tags"><li>Braze</li><li>Marketo</li><li>Klaviyo</li><li>Mailchimp</li><li>Liquid</li><li>Canvas flows</li><li>Smart campaigns</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="opensource">
+  <div class="container">
+    <div class="eyebrow">Open source</div>
+    <h2>Tools I've built for Marketing Cloud developers</h2>
+    <p class="sub">Free, MIT-licensed and on GitHub.</p>
+    <div class="grid-3">
+      <div class="card reveal"><h3>ampscript-playground</h3><p>Write AMPscript and preview the rendered email in the browser, with mock subscribers and data extensions. No SFMC login needed.</p><a class="oss-link" href="https://github.com/faisal8143/ampscript-playground" target="_blank" rel="noopener">View on GitHub →</a></div>
+      <div class="card reveal"><h3>design-to-next</h3><p>Turn HTML, Figma and Canva emails into editable Marketing Cloud Next drag-and-drop emails, with a fidelity report.</p><a class="oss-link" href="https://github.com/faisal8143/design-to-next" target="_blank" rel="noopener">View on GitHub →</a></div>
+      <div class="card reveal"><h3>pardot-form-toolkit</h3><p>Drop-in CSS and JavaScript for Account Engagement forms: custom checkboxes, error states, UTM capture and a double-submit guard.</p><a class="oss-link" href="https://github.com/faisal8143/pardot-form-toolkit" target="_blank" rel="noopener">View on GitHub →</a></div>
     </div>
   </div>
 </section>
@@ -1940,7 +1982,7 @@ WHERE e.rn = 1</code></pre></div>
   <div class="container">
     <div class="contact reveal">
       <h2>Let's build your next campaign</h2>
-      <p>Open to full-time roles and freelance SFMC, Pardot and email development projects. Based in Karachi, open to remote work and relocation.</p>
+      <p>Open to full-time roles, freelance projects and white-label agency work across SFMC, MC Next, Pardot, Braze, Marketo, Klaviyo and Mailchimp. Based in Karachi, working AEST, GMT or US-morning hours, and open to relocation.</p>
       <div class="cta">
         <a class="btn btn-primary" href="https://www.linkedin.com/in/faisalirfan-sfmc" target="_blank" rel="noopener">Message me on LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/faisal8143" target="_blank" rel="noopener">See more on GitHub</a>
