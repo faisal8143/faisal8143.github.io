@@ -270,7 +270,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container nav-in">
     <a href="#top" class="logo" aria-label="Faisal Irfan, home"><span class="logo-mark">FI</span><span>Faisal Irfan</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#journey">Journeys</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
+      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#journey">Journeys</a><a href="#architecture">Architecture</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
@@ -284,7 +284,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#journey">Journeys</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#journey">Journeys</a><a href="#architecture">Architecture</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -3219,6 +3219,316 @@ window.JOURNEY = {
   window.journeyFmtHour = fmt;
 })();
 </code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/journeys/simulator.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="architecture" class="alt">
+  <div class="container">
+    <div class="eyebrow">Architecture</div>
+    <h2>The data model, and the move to Marketing Cloud Next</h2>
+    <p class="sub">Emails and journeys are the visible part. What decides whether a program survives two years of changes is the model underneath it &mdash; and whether anyone can explain why it is shaped that way. These two pieces are the ones I get asked about in senior interviews.</p>
+
+    <div class="ampx">
+      <a class="amp-cta" href="sfmc/data-model/data-model.html" target="_blank" rel="noopener">
+        <span class="amp-run">&#9783;</span>
+        <span><b>Explore the Contact Builder model</b><span>Attribute groups, field types, relationship cardinality &middot; click any group</span></span>
+      </a>
+      <div class="amp-pts">
+        <div><b>Contact Key is not Subscriber Key</b><span>In an email-only org they look identical, which hides the difference until SMS or push arrives and the same person is created twice.</span></div>
+        <div><b>One-to-many cannot drive a split</b><span>A decision split evaluates one value, so an attribute on a one-to-many relationship has to be aggregated into a one-to-one table first.</span></div>
+        <div><b>Raw and shaped stay separate</b><span>Append-only history in one table, one-row-per-person in another. Collapsing them is the usual cause of a contact getting two emails.</span></div>
+      </div>
+    </div>
+
+    <div class="work" style="margin-top:28px">
+      <div class="tabs" role="tablist" aria-label="Architecture samples">
+        <button class="tab" role="tab" id="tab-mcnext" aria-selected="true" aria-controls="panel-mcnext" tabindex="0"><b>MC Next readiness audit</b><span>Concept map &middot; inventory &middot; the decisions that are hard to undo</span></button>
+        <button class="tab" role="tab" id="tab-dmodel" aria-selected="false" aria-controls="panel-dmodel" tabindex="-1"><b>Data model source</b><span>Attribute groups, DEs, cardinality</span></button>
+      </div>
+      <div>
+        <div class="panel" role="tabpanel" id="panel-mcnext" aria-labelledby="tab-mcnext">
+          <div class="panel-desc"><ul><li>Salesforce Certified Marketing Cloud Next Consultant, with hands-on work in my own MC Next org</li><li>Maps each classic concept to its MC Next equivalent &mdash; Data Extensions to Data Cloud graphs, Subscriber Key to Unified Individual, Journey Builder to Flow, SQL audiences to segments</li><li>Shows the same personalisation fallback in AMPscript and in MC Next Handlebars, and what that reveals about migration effort</li><li>Marks unsettled mappings as <em>verify</em> rather than presenting them as settled &mdash; the platform is still changing release to release</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/mc-next/readiness-audit.md</span><button class="copy" type="button" data-target="code-mcnext">Copy</button></div><pre tabindex="0"><code id="code-mcnext"># Marketing Cloud Next: readiness audit
+
+**Author:** Faisal Irfan · [github.com/faisal8143](https://github.com/faisal8143)
+**Last reviewed:** November 2026 · Salesforce Certified Marketing Cloud Next Consultant
+
+What this is: the inventory and the decisions I work through before anyone
+commits to a Marketing Cloud Next migration date. The point of an audit is to
+find out what has to be rebuilt *before* the budget is set, not after.
+
+A caveat I keep in the document rather than hiding: Marketing Cloud Next is
+moving quickly, and some mappings below are not yet settled in Salesforce&#x27;s
+own documentation. Those are marked **verify**. An audit that presents
+unsettled things as settled is worse than no audit.
+
+---
+
+## 1. What the platform change actually is
+
+Classic Marketing Cloud is a standalone application with its own data store
+(Data Extensions), its own scripting (AMPscript, SSJS), its own query engine
+(SQL on data views) and its own orchestration (Journey Builder, Automation
+Studio).
+
+Marketing Cloud Next sits on the Salesforce core platform. Data lives in
+Data Cloud rather than in Data Extensions, audiences are segments rather than
+SQL query activities, and orchestration moves to Flow.
+
+The practical consequence: this is not a version upgrade. Content and logic
+are portable in principle, but the data layer underneath them is a different
+model, and most of the migration effort lands there.
+
+---
+
+## 2. Concept map
+
+| Classic Marketing Cloud | Marketing Cloud Next | Confidence |
+| --- | --- | --- |
+| Data Extensions | Data Cloud objects (DLOs/DMOs) assembled into data graphs | Settled |
+| Subscriber Key | Unified Individual, produced by identity resolution | Settled |
+| Contact Builder attribute groups | Data graphs around the unified profile | Settled |
+| `Lookup` / `LookupRows` | Graph navigation with `get` helpers | Settled |
+| SQL query activity for an audience | Data Cloud segment on unified data | Settled |
+| Journey Builder | Flow Builder | Settled |
+| AMPscript | Still runs; compiles to Handlebars underneath | Settled |
+| Personalisation syntax in new content | Handlebars helpers | Settled |
+| Unsubscribes / preference centre | Communication Subscriptions and Consent objects | Settled |
+| Automation Studio (imports, file drops, scripts) | Flow plus data stream ingestion — exact mapping per activity type | **Verify** |
+| SSJS and CloudPages | No documented equivalent found | **Verify** |
+| Content Builder templates | Migration path not documented in sources reviewed | **Verify** |
+
+---
+
+## 3. Personalisation, side by side
+
+The same fallback, written both ways.
+
+**AMPscript**
+
+```
+SET @firstName = AttributeValue(&quot;FirstName&quot;)
+IF Empty(@firstName) THEN
+  SET @firstName = &quot;there&quot;
+ELSE
+  SET @firstName = ProperCase(Trim(@firstName))
+ENDIF
+```
+
+**Marketing Cloud Next (Handlebars)**
+
+```
+{{fallback (get (get @root &quot;$dataGraph&quot;) &quot;ssot__FirstName__c&quot;) &quot;there&quot;}}
+```
+
+What this tells you about the migration:
+
+- The **logic** transfers. Conditions, fallbacks and data relationships are
+  the same problems, expressed differently.
+- The **data access** does not. `Lookup(&quot;DE&quot;, &quot;Field&quot;, &quot;Key&quot;, @value)` assumes
+  a table you query. `get` walks a graph already assembled around the person.
+  A template full of lookups is not a find-and-replace job; the data has to
+  exist on the graph first.
+- Complexity moves **upstream**. Work AMPscript used to do at send time —
+  joining, deduplicating, picking the latest row — belongs in the data model
+  and the segment before the send.
+
+---
+
+## 4. The inventory I take
+
+### Content and code
+- [ ] Every template, with a count of AMPscript blocks per template
+- [ ] Every `Lookup`, `LookupRows`, `LookupOrderedRows` call, with the DE it reads
+- [ ] SSJS blocks, what each one does, and whether it runs in an email or a CloudPage
+- [ ] CloudPages, with their purpose: form handler, preference centre, landing page
+- [ ] Content Builder blocks shared across templates
+
+### Data
+- [ ] Every Data Extension: row count, update frequency, who writes to it
+- [ ] Which DEs are sendable, and which are derived from others
+- [ ] Attribute groups and relationship cardinality
+- [ ] Data retention settings, which are easy to lose in a migration
+- [ ] Consent and preference data, and where a global unsubscribe is recorded
+
+### Automation and orchestration
+- [ ] Every automation: trigger, schedule, activities in order
+- [ ] SQL query activities, with the data views each one reads
+- [ ] File drops and imports, including the SFTP paths and file formats
+- [ ] Every journey: entry source, splits, goals, exit criteria, re-entry rules
+
+### Integrations
+- [ ] API integrations in and out, with auth method and call volume
+- [ ] Marketing Cloud Connect, and what it syncs
+- [ ] Anything reading the tracking data views for reporting
+
+---
+
+## 5. Decisions to make before any build starts
+
+These are the ones that are expensive to reverse:
+
+| Decision | Why it is hard to undo |
+| --- | --- |
+| Org strategy | Which Salesforce org Marketing Cloud Next runs in shapes everything downstream |
+| Real-time vs batch per source | A data stream&#x27;s refresh mode cannot be changed after creation |
+| Identity resolution rules | These decide who counts as the same person; changing them later re-resolves the whole profile base |
+| Consent model | Must be mapped before any contact is imported, not after |
+| Channel and credit model | Email, SMS and WhatsApp are tracked and billed differently |
+| Environment plan | Where testing happens, and how changes get promoted |
+
+---
+
+## 6. What the output looks like
+
+A readiness audit should end with three things, not an opinion:
+
+1. **An inventory** — every asset, categorised as portable, rebuild, or retire.
+2. **A risk register** — what breaks if it is migrated as-is, ranked.
+3. **A phased roadmap** — what moves first, what runs in parallel, and for how
+   long both platforms have to coexist.
+
+The honest finding on most audits is that a chunk of the estate should be
+retired rather than migrated. Templates nobody sends, automations that failed
+silently for a year, DEs with no writer. Migrating those costs real money and
+buys nothing.
+
+---
+
+## Sources
+
+Platform details above were checked against public documentation and
+practitioner writing in November 2026. Marketing Cloud Next is changing
+release to release, so verify anything marked **verify** against the current
+Salesforce documentation before relying on it in a client engagement.
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/mc-next/readiness-audit.md" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-dmodel" aria-labelledby="tab-dmodel" hidden>
+          <div class="panel-desc"><ul><li>The model as data: attribute groups, the data extensions inside them, field types and the relationship back to the Contact Key</li><li>Each data extension carries the reason it exists, which is the part that is usually undocumented</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/data-model/model.js</span><button class="copy" type="button" data-target="code-dmodel">Copy</button></div><pre tabindex="0"><code id="code-dmodel">/*
+  ==========================================================================
+  NORTHWIND LEARNING | CONTACT BUILDER DATA MODEL
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  The data model behind the journey and the emails, expressed the way Contact
+  Builder actually holds it: attribute groups, the data extensions inside
+  them, and the relationships that link each one back to the Contact Key.
+
+  The distinction that matters, and that gets missed most often:
+
+    Contact Key    Identifies the PERSON across every channel and every
+                   attribute group. Set in Contact Builder. Immutable.
+    Subscriber Key Identifies the person in the EMAIL channel&#x27;s All
+                   Subscribers list. For an email-only org these look the
+                   same, which is why the difference stays invisible until
+                   SMS or push is added and the same person arrives twice.
+
+  Relationship cardinality decides what a journey can do. A one-to-one
+  attribute can be used in a decision split directly. A one-to-many has to
+  be aggregated first, because a split cannot evaluate forty rows.
+  ==========================================================================
+*/
+window.DATA_MODEL = {
+  contactKey: &#x27;EmailAddress (lowercased)&#x27;,
+
+  groups: [
+    {
+      id: &#x27;identity&#x27;, name: &#x27;Identity&#x27;, kind: &#x27;system&#x27;, x: 430, y: 60,
+      blurb: &#x27;The single source of truth for who a person is. Every other group links back to this key.&#x27;,
+      des: [
+        { name: &#x27;Contact Record&#x27;, pk: &#x27;ContactKey&#x27;, fields: [
+          &#x27;ContactKey (Text 254, PK)&#x27;, &#x27;ContactID (Number, system)&#x27;, &#x27;EmailAddress (EmailAddress)&#x27;,
+          &#x27;FirstName (Text 50)&#x27;, &#x27;LastName (Text 50)&#x27;, &#x27;MobileNumber (Phone)&#x27;, &#x27;CreatedDate (Date)&#x27;
+        ], note: &#x27;Populated by Contact Builder. Never written to directly by an automation.&#x27; }
+      ]
+    },
+    {
+      id: &#x27;enquiry&#x27;, name: &#x27;Enquiries&#x27;, kind: &#x27;group&#x27;, x: 120, y: 240,
+      blurb: &#x27;Every course enquiry a person submits. One contact can have many enquiries, so anything a journey splits on has to be aggregated to one row first.&#x27;,
+      des: [
+        { name: &#x27;Course_Enquiries_Raw&#x27;, pk: &#x27;EnquiryID&#x27;, card: &#x27;many&#x27;, fields: [
+          &#x27;EnquiryID (Text 36, PK)&#x27;, &#x27;SubscriberKey (Text 254, FK)&#x27;, &#x27;EmailAddress (EmailAddress)&#x27;,
+          &#x27;CourseCode (Text 20)&#x27;, &#x27;CourseName (Text 100)&#x27;, &#x27;Fee (Decimal 10,2)&#x27;,
+          &#x27;EnquiryDate (Date)&#x27;, &#x27;Source (Text 50)&#x27;
+        ], note: &#x27;Landing page writes here. Append-only, never overwritten, so the full history survives.&#x27; },
+        { name: &#x27;Course_Enquiries&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, fields: [
+          &#x27;SubscriberKey (Text 254, PK)&#x27;, &#x27;CourseCode (Text 20)&#x27;, &#x27;CourseName (Text 100)&#x27;,
+          &#x27;Fee (Decimal 10,2)&#x27;, &#x27;EnquiryDate (Date)&#x27;
+        ], note: &#x27;One row per person: the latest enquiry, built by a ROW_NUMBER query every 15 minutes. This is the one AMPscript reads.&#x27; }
+      ]
+    },
+    {
+      id: &#x27;status&#x27;, name: &#x27;Student status&#x27;, kind: &#x27;group&#x27;, x: 430, y: 240,
+      blurb: &#x27;Derived attributes, rebuilt on a schedule rather than written by hand. Everything a decision split reads lives here.&#x27;,
+      des: [
+        { name: &#x27;Student_Status&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, fields: [
+          &#x27;SubscriberKey (Text 254, PK)&#x27;, &#x27;IsReturning (Boolean)&#x27;, &#x27;EngagementScore (Number)&#x27;,
+          &#x27;Segment (Text 10)&#x27;, &#x27;LastCalculated (Date)&#x27;
+        ], note: &#x27;Overwritten nightly from the engagement query. A journey decision split reads EngagementScore from here.&#x27; },
+        { name: &#x27;Engagement_Score_90d&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, fields: [
+          &#x27;SubscriberKey (Text 254, PK)&#x27;, &#x27;Opens90d (Number)&#x27;, &#x27;Clicks90d (Number)&#x27;,
+          &#x27;EngagementScore (Number)&#x27;, &#x27;Segment (Text 10)&#x27;, &#x27;CalculatedAt (Date)&#x27;
+        ], note: &#x27;Built from the _Open, _Click and _Bounce data views. Overwrite, not append: the score is a current state, not a log.&#x27; }
+      ]
+    },
+    {
+      id: &#x27;consent&#x27;, name: &#x27;Consent &amp; preferences&#x27;, kind: &#x27;group&#x27;, x: 740, y: 240,
+      blurb: &#x27;What a person agreed to receive. Kept separate from profile data so a preference change never depends on a profile update succeeding.&#x27;,
+      des: [
+        { name: &#x27;Subscriber_Preferences&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, fields: [
+          &#x27;SubscriberKey (Text 254, PK)&#x27;, &#x27;News (Boolean)&#x27;, &#x27;Events (Boolean)&#x27;,
+          &#x27;Offers (Boolean)&#x27;, &#x27;Frequency (Text 10)&#x27;, &#x27;UpdatedAt (Date)&#x27;
+        ], note: &#x27;Written by the preference centre CloudPage. Topic-level opt-outs live here; a global unsubscribe goes to All Subscribers via LogUnsubEvent, not here.&#x27; },
+        { name: &#x27;Suppression_Manual&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, fields: [
+          &#x27;SubscriberKey (Text 254, PK)&#x27;, &#x27;Reason (Text 100)&#x27;, &#x27;AddedBy (Text 50)&#x27;, &#x27;AddedDate (Date)&#x27;
+        ], note: &#x27;Client-supplied do-not-contact list. Checked in the audience query, never relied on as the only guard.&#x27; }
+      ]
+    },
+    {
+      id: &#x27;send&#x27;, name: &#x27;Sendable audience&#x27;, kind: &#x27;sendable&#x27;, x: 430, y: 430,
+      blurb: &#x27;What a send actually points at. Built fresh per campaign, with the suppression reason kept on a companion table so an audience drop is explainable.&#x27;,
+      des: [
+        { name: &#x27;Campaign_Audience&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, sendable: true, fields: [
+          &#x27;SubscriberKey (Text 254, PK, sendable)&#x27;, &#x27;EmailAddress (EmailAddress, relates on Subscriber Key)&#x27;,
+          &#x27;CourseCode (Text 20)&#x27;, &#x27;CourseName (Text 100)&#x27;, &#x27;EngagementScore (Number)&#x27;,
+          &#x27;Segment (Text 10)&#x27;, &#x27;HasEnquiry (Boolean)&#x27;, &#x27;BuiltAt (Date)&#x27;
+        ], note: &#x27;Sendable and testable. Overwrite on each build so a stale row can never be sent to.&#x27; },
+        { name: &#x27;Campaign_Suppressed&#x27;, pk: &#x27;SubscriberKey&#x27;, card: &#x27;one&#x27;, fields: [
+          &#x27;SubscriberKey (Text 254, PK)&#x27;, &#x27;Reason (Text 50)&#x27;, &#x27;BuiltAt (Date)&#x27;
+        ], note: &#x27;The other half of the audience build. &quot;Why is the list 4,000 smaller than last month&quot; takes one query, not an afternoon.&#x27; }
+      ]
+    }
+  ],
+
+  links: [
+    { from: &#x27;enquiry&#x27;, to: &#x27;identity&#x27;, card: &#x27;1:M&#x27;, label: &#x27;SubscriberKey → ContactKey&#x27; },
+    { from: &#x27;status&#x27;,  to: &#x27;identity&#x27;, card: &#x27;1:1&#x27;, label: &#x27;SubscriberKey → ContactKey&#x27; },
+    { from: &#x27;consent&#x27;, to: &#x27;identity&#x27;, card: &#x27;1:1&#x27;, label: &#x27;SubscriberKey → ContactKey&#x27; },
+    { from: &#x27;send&#x27;,    to: &#x27;enquiry&#x27;,  card: &#x27;build&#x27;, label: &#x27;latest enquiry&#x27; },
+    { from: &#x27;send&#x27;,    to: &#x27;status&#x27;,   card: &#x27;build&#x27;, label: &#x27;score + segment&#x27; },
+    { from: &#x27;send&#x27;,    to: &#x27;consent&#x27;,  card: &#x27;build&#x27;, label: &#x27;suppression&#x27; }
+  ],
+
+  /* Design rules worth being asked about in an interview */
+  rules: [
+    { t: &#x27;Raw and shaped are different tables&#x27;,
+      d: &#x27;Course_Enquiries_Raw is append-only so nothing is ever lost. Course_Enquiries is overwritten to one row per person so AMPscript and journey splits have a single predictable row to read. Collapsing these into one table is the most common cause of &quot;why did this contact get two emails&quot;.&#x27; },
+    { t: &#x27;One-to-many cannot drive a split&#x27;,
+      d: &#x27;A decision split evaluates one value. An attribute sitting on a one-to-many relationship has to be aggregated into a one-to-one table first, which is what the 15-minute dedupe query exists for.&#x27; },
+    { t: &#x27;Derived values are rebuilt, never edited&#x27;,
+      d: &#x27;EngagementScore is overwritten by a scheduled query. Nothing writes to it by hand, so the value can always be explained by re-running the query.&#x27; },
+    { t: &#x27;Consent is its own group&#x27;,
+      d: &#x27;Preferences are kept apart from profile data so a preference update never depends on a profile import succeeding. Topic opt-outs live in the DE; a global unsubscribe goes to All Subscribers through LogUnsubEvent so every channel honours it.&#x27; },
+    { t: &#x27;Contact Key is not Subscriber Key&#x27;,
+      d: &#x27;Contact Key identifies the person across channels; Subscriber Key identifies them in the email channel. In an email-only org they look identical, which hides the problem until SMS or push arrives and the same person is created twice.&#x27; },
+    { t: &#x27;The sendable DE is disposable&#x27;,
+      d: &#x27;Campaign_Audience is rebuilt per send and overwritten. Nothing of value lives only there, so it can be dropped and rebuilt at any time without losing history.&#x27; }
+  ]
+};
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/data-model/model.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
         </div>
       </div>
     </div>

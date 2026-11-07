@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Builder data model | Faisal Irfan</title>
+<meta name="description" content="The Salesforce Marketing Cloud data model behind a nurture program: attribute groups, data extensions, relationship cardinality and the rules that keep it predictable.">
+<style>
+  :root{
+    --bg:#0B1220; --panel:#131E33; --panel2:#1A2742; --line:#27395E;
+    --text:#E2E8F0; --dim:#94A3B8; --blue:#5B9DFF; --teal:#5EEAD4; --amber:#FBBF24;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 var(--font)}
+  a{color:var(--blue)}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line);padding:22px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .back{color:var(--dim);text-decoration:none;font-size:14px}.back:hover{color:var(--blue)}
+  .badge{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);
+    border:1px solid rgba(94,234,212,.35);background:rgba(94,234,212,.09);border-radius:999px;padding:5px 12px}
+
+  .intro{padding:36px 0 22px}
+  h1{font-size:clamp(25px,3.4vw,36px);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}
+  h1 em{font-style:normal;color:var(--teal)}
+  .lede{color:var(--dim);max-width:76ch;margin:0 0 6px;font-size:16px}
+
+  .keys{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 26px}
+  .key{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+    border-radius:12px;padding:16px 18px}
+  .key b{display:block;font-size:14.5px;margin:0 0 4px}
+  .key span{font-size:13.5px;color:var(--dim);line-height:1.55}
+
+  .layout{display:grid;grid-template-columns:1fr 400px;gap:20px;align-items:start;padding:0 0 46px}
+  .canvas{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:10px;overflow-x:auto}
+  svg{display:block;width:100%;min-width:900px;height:auto}
+  .grp rect{fill:#1A2742;stroke:#2F4470;stroke-width:1.5;cursor:pointer;transition:fill .18s,stroke .18s}
+  .grp:hover rect{stroke:var(--blue)}
+  .grp.on rect{fill:#0E4F47;stroke:var(--teal);stroke-width:2.5}
+  .grp.system rect{stroke:#7C6CF0}
+  .grp.sendable rect{stroke:#FBBF24}
+  .grp .t{fill:#E2E8F0;font:700 13px var(--font);pointer-events:none}
+  .grp .s{fill:#7D8CA8;font:10.5px var(--font);pointer-events:none}
+  .lk{stroke:#2F4470;stroke-width:1.8;fill:none}
+  .lk.build{stroke-dasharray:5 4;stroke:#3F5680}
+  .lkl{fill:#7D8CA8;font:600 10px var(--mono)}
+
+  .side{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden;
+    position:sticky;top:18px}
+  .side-h{padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel2)}
+  .side-h b{font-size:14.5px}
+  .side-h span{display:block;font-size:12.5px;color:var(--dim);margin:3px 0 0;line-height:1.5}
+  .side-b{max-height:560px;overflow:auto;padding:4px 0}
+  .de{padding:14px 18px;border-bottom:1px solid rgba(39,57,94,.55)}
+  .de:last-child{border-bottom:0}
+  .de h4{margin:0 0 3px;font-size:13.5px;font-family:var(--mono);color:var(--teal)}
+  .de .card{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    border-radius:999px;padding:2px 8px;margin:0 0 8px}
+  .c-one{color:#0C4A6E;background:#7DD3FC}.c-many{color:#78350F;background:#FCD34D}
+  .c-send{color:#064E3B;background:#6EE7B7}
+  .de ul{margin:0 0 9px;padding:0;list-style:none}
+  .de li{font-family:var(--mono);font-size:11.8px;color:#AEBACD;padding:2px 0;line-height:1.45}
+  .de li .pk{color:var(--amber)}
+  .de p{margin:0;font-size:12.8px;color:var(--dim);line-height:1.55}
+
+  .rules{padding:0 0 60px}
+  .rules h2{font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+  .rules .sub{color:var(--dim);margin:0 0 20px;font-size:14.5px;max-width:72ch}
+  .rl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .rl div{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:17px 19px}
+  .rl b{display:block;font-size:14px;margin:0 0 6px;color:var(--teal)}
+  .rl span{font-size:13.3px;color:var(--dim);line-height:1.6}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--dim);font-size:13px}
+  @media (max-width:1000px){.layout{grid-template-columns:1fr}.side{position:static}.rl{grid-template-columns:1fr}}
+  @media (max-width:700px){.keys{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="back" href="../../index.html">&larr; Faisal Irfan</a>
+    <span class="badge">Contact Builder &middot; data model</span>
+  </div>
+</header>
+
+<div class="wrap intro">
+  <h1>The data model underneath it all, <em>and why it is shaped this way</em></h1>
+  <p class="lede">Emails and journeys are the visible part. What decides whether a program is maintainable is the model beneath it: which attribute groups exist, what links back to the Contact Key, and whether a given attribute can drive a decision split at all. Click any group to see its data extensions, field types and the reason each one exists.</p>
+
+  <div class="keys">
+    <div class="key"><b>Contact Key</b><span>Identifies the person across every channel and attribute group. Set in Contact Builder, and immutable once assigned.</span></div>
+    <div class="key"><b>Subscriber Key</b><span>Identifies the person in the email channel's All Subscribers list. In an email-only org these look identical &mdash; which hides the difference until SMS or push arrives and the same person is created twice.</span></div>
+  </div>
+</div>
+
+<div class="wrap layout">
+  <div class="canvas"><svg id="cv" viewBox="0 0 900 530" role="img" aria-label="Data model diagram"></svg></div>
+  <div class="side">
+    <div class="side-h"><b id="sideTitle"></b><span id="sideBlurb"></span></div>
+    <div class="side-b" id="sideBody"></div>
+  </div>
+</div>
+
+<div class="wrap rules">
+  <h2>Rules this model follows</h2>
+  <p class="sub">Each of these exists because the alternative caused a problem once. These are the answers I would give if asked why the model looks like this.</p>
+  <div class="rl" id="rules"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Built by Faisal Irfan for a fictional brand &mdash; client work is under NDA.
+    <a href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/data-model/model.js">Model source</a> &middot;
+    <a href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/sql/subscriber-attributes-suppression.sql">The audience query that reads it</a>
+  </div>
+</footer>
+
+<script src="model.js"></script>
+<script src="diagram.js"></script>
+</body>
+</html>
