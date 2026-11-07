@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Faisal Irfan | Senior Marketing Cloud & Pardot Developer</title>
-<meta name="description" content="Faisal Irfan, Senior Salesforce Marketing Cloud, MC Next and Pardot developer. 8+ years and 8 certifications. Freelance and white-label builds, MC Next readiness audits and AI-ready email templates.">
+<meta name="description" content="Faisal Irfan, senior Marketing Cloud, Pardot and GoHighLevel developer. 8+ years and 8 certifications. Funnels, landing pages, CRM automation and email systems, freelance and white-label.">
 <meta name="theme-color" content="#0a0f1c">
 <meta property="og:title" content="Faisal Irfan | Senior Marketing Cloud & Pardot Developer">
-<meta property="og:description" content="Case studies, journeys and production code for Salesforce Marketing Cloud and Pardot (Account Engagement).">
+<meta property="og:description" content="Case studies, funnels, journeys and production code for GoHighLevel, Salesforce Marketing Cloud and Pardot.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://faisal8143.github.io/">
 <meta property="og:image" content="https://faisal8143.github.io/assets/img/og-portfolio.png">
@@ -166,6 +166,14 @@ pre{margin:0;padding:18px;overflow:auto;max-height:520px;color:var(--code-text);
 .device iframe{display:block;width:100%;height:760px;border:0;border-radius:12px;background:#f2f4f7}
 .device.mobile iframe{border-radius:24px;height:720px}
 .checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center}
+.device.wide{max-width:1040px}
+.device.wide iframe{height:720px}
+.device.wide.mobile{max-width:400px}
+.device.wide.mobile iframe{height:720px}
+.pick .pick-tag.ghl{color:#7c2d12;background:#fed7aa}
+.pick .pick-tag.ghl2{color:#9d174d;background:#fce7f3}
+.pick .pick-tag.ghl3{color:#115e59;background:#ccfbf1}
+.ghl-note{max-width:760px;margin:26px auto 0;text-align:center;font-size:14px;color:var(--muted)}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:500}
 .chip svg{width:14px;height:14px;color:var(--ok)}
 
@@ -248,7 +256,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container nav-in">
     <a href="#top" class="logo" aria-label="Faisal Irfan, home"><span class="logo-mark">FI</span><span>Faisal Irfan</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
+      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
@@ -262,7 +270,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -1894,7 +1902,7 @@ WHERE e.rn = 1</code></pre></div>
   </div>
 </section>
 
-<section id="preview" class="alt">
+<section id="preview" class="alt" data-gallery>
   <div class="container">
     <div class="eyebrow">Email gallery</div>
     <h2>Built to render everywhere</h2>
@@ -1916,14 +1924,14 @@ WHERE e.rn = 1</code></pre></div>
         <span class="pick-tag mc">Mailchimp</span><b>Monthly newsletter</b><span>Editable, repeatable articles</span></button>
     </div>
     <div class="preview-bar">
-      <span><a class="gh-link" id="openFull" href="emails/previews/pardot-master.html" target="_blank" rel="noopener">Open full size &#8599;</a> &nbsp; <a class="gh-link" id="openCode" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/emails/pardot-master-template.html" target="_blank" rel="noopener">View source &#8599;</a></span>
+      <span><a class="gh-link js-open-full" href="emails/previews/pardot-master.html" target="_blank" rel="noopener">Open full size &#8599;</a> &nbsp; <a class="gh-link js-open-code" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/emails/pardot-master-template.html" target="_blank" rel="noopener">View source &#8599;</a></span>
       <div class="seg" role="group" aria-label="Preview size">
         <button type="button" data-view="desktop" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
         <button type="button" data-view="mobile" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Mobile</button>
       </div>
     </div>
-    <div class="device" id="device">
-      <iframe id="emailFrame" src="emails/previews/pardot-master.html" title="Email template preview"></iframe>
+    <div class="device">
+      <iframe class="js-frame" src="emails/previews/pardot-master.html" title="Email template preview"></iframe>
     </div>
     <div class="checks">
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Outlook desktop &amp; 365</span>
@@ -1932,6 +1940,730 @@ WHERE e.rn = 1</code></pre></div>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Dark mode</span>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Images-off safe CTAs</span>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Accessible markup</span>
+    </div>
+  </div>
+</section>
+
+<section id="ghl" data-gallery>
+  <div class="container">
+    <div class="eyebrow">GoHighLevel</div>
+    <h2>Funnels, forms and CRM automation</h2>
+    <p class="sub">Three funnel steps built the way I build them in GoHighLevel &mdash; opt-in, webinar registration and calendar booking. Each one is a working page: fill it in and watch the states change. Switch to mobile to see the sticky CTA and stacked layout.</p>
+
+    <div class="gallery-pick" role="tablist" aria-label="Choose a funnel step">
+      <button type="button" role="tab" class="pick" aria-selected="true" data-src="ghl/funnels/course-guide-optin.html" data-code="ghl/funnels/course-guide-optin.html">
+        <span class="pick-tag ghl">Step 1</span><b>Lead magnet opt-in</b><span>Two-step form &middot; partial capture</span></button>
+      <button type="button" role="tab" class="pick" aria-selected="false" data-src="ghl/funnels/webinar-registration.html" data-code="ghl/funnels/webinar-registration.html">
+        <span class="pick-tag ghl2">Step 2</span><b>Webinar registration</b><span>Countdown &middot; session routing</span></button>
+      <button type="button" role="tab" class="pick" aria-selected="false" data-src="ghl/funnels/book-a-call.html" data-code="ghl/funnels/book-a-call.html">
+        <span class="pick-tag ghl3">Step 3</span><b>Calendar booking</b><span>Slot grid in the visitor's timezone</span></button>
+    </div>
+
+    <div class="preview-bar">
+      <span><a class="gh-link js-open-full" href="ghl/funnels/course-guide-optin.html" target="_blank" rel="noopener">Open full size &#8599;</a> &nbsp; <a class="gh-link js-open-code" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/ghl/funnels/course-guide-optin.html" target="_blank" rel="noopener">View source &#8599;</a></span>
+      <div class="seg" role="group" aria-label="Preview size">
+        <button type="button" data-view="desktop" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
+        <button type="button" data-view="mobile" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Mobile</button>
+      </div>
+    </div>
+
+    <div class="device wide">
+      <iframe class="js-frame" src="ghl/funnels/course-guide-optin.html" title="GoHighLevel funnel preview"></iframe>
+    </div>
+
+    <div class="checks">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>UTM &amp; gclid capture</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Partial-lead capture</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Double-submit guard</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Visitor-timezone slots</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>dataLayer events for GTM</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Accessible, reduced-motion safe</span>
+    </div>
+
+    <p class="ghl-note">Webhook URLs are blank in these demos, so nothing is sent anywhere. In a live sub-account each form posts to a GHL inbound webhook and the Make.com scenario below takes over.</p>
+  </div>
+</section>
+
+<section id="ghl-code" class="alt">
+  <div class="container">
+    <div class="eyebrow">Platform code</div>
+    <h2>What goes into the sub-account</h2>
+    <p class="sub">The parts that make a GoHighLevel build behave like a hand-coded one: a theme that styles the native elements, a script that keeps attribution alive through the funnel, and the automation layer behind it.</p>
+    <div class="work">
+      <div class="tabs" role="tablist" aria-label="GoHighLevel code samples">
+        <button class="tab" role="tab" id="tab-ghlcss" aria-selected="true" aria-controls="panel-ghlcss" tabindex="0"><b>Funnel theme (custom CSS)</b><span>Forms &middot; surveys &middot; calendars &middot; order forms</span></button>
+        <button class="tab" role="tab" id="tab-ghljs" aria-selected="false" aria-controls="panel-ghljs" tabindex="-1"><b>Attribution &amp; form script</b><span>UTMs through iframes &middot; GTM events</span></button>
+        <button class="tab" role="tab" id="tab-ghlmake" aria-selected="false" aria-controls="panel-ghlmake" tabindex="-1"><b>Make.com scenario</b><span>Enrichment &middot; scoring &middot; routing</span></button>
+      </div>
+      <div>
+        <div class="panel" role="tabpanel" id="panel-ghlcss" aria-labelledby="tab-ghlcss">
+          <div class="panel-desc"><ul><li>Targets GoHighLevel's own generated classes, so marketers keep full drag-and-drop editing</li><li>16px inputs stop iOS Safari zooming the page on focus; checkboxes meet the 44px touch target</li><li>Six brand tokens at the top are the whole job when a new client comes on</li><li>Covers the four native elements that ship looking unstyled: forms, surveys, calendars, order forms</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">ghl/custom-css/funnel-theme.css</span><button class="copy" type="button" data-target="code-ghlcss">Copy</button></div><pre tabindex="0"><code id="code-ghlcss">/*
+  ==========================================================================
+  NORTHWIND LEARNING | GOHIGHLEVEL FUNNEL THEME
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Paste into: Funnel &gt; Settings &gt; Custom CSS (or Agency &gt; Custom CSS to
+  theme every sub-account funnel at once).
+
+  Targets GoHighLevel&#x27;s own generated classes, so no element in the builder
+  has to be touched and marketers keep full drag-and-drop editing.
+
+  Covers the four native elements that ship unstyled-looking:
+    1. Forms          .hl_form-builder / .ghl-form
+    2. Surveys        .survey-container
+    3. Calendars      .calendar-picker / #booking-widget
+    4. Order forms    .order-form / .payment-section
+
+  Everything is driven by the tokens in :root, so a new client brand is a
+  six-line change at the top of this file.
+  ==========================================================================
+*/
+
+:root {
+  --nw-navy:   #0A1F44;
+  --nw-blue:   #0B5CAD;
+  --nw-blue-d: #094A8B;
+  --nw-teal:   #19C3B1;
+  --nw-ink:    #334155;
+  --nw-muted:  #64748B;
+  --nw-line:   #CBD5E1;
+  --nw-err:    #C62828;
+  --nw-radius: 10px;
+  --nw-font:   -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   1. FORMS
+   GHL wraps every field in .form-builder--item and renders the input itself
+   as .form-builder--input. Styling the wrapper keeps spacing consistent even
+   when a marketer reorders fields in the builder.
+   -------------------------------------------------------------------------- */
+
+.hl_form-builder,
+.ghl-form {
+  font-family: var(--nw-font);
+  color: var(--nw-ink);
+}
+
+.form-builder--item { margin: 0 0 16px; }
+
+.form-builder--item label,
+.hl_form-builder label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--nw-navy);
+  margin: 0 0 6px;
+}
+
+/* Required marker: GHL only adds the attribute, never a visual cue */
+.form-builder--item input[required] + label::after,
+.form-builder--item label.required::after {
+  content: &quot; *&quot;;
+  color: var(--nw-err);
+}
+
+.form-builder--input,
+.hl_form-builder input[type=&quot;text&quot;],
+.hl_form-builder input[type=&quot;email&quot;],
+.hl_form-builder input[type=&quot;tel&quot;],
+.hl_form-builder input[type=&quot;number&quot;],
+.hl_form-builder select,
+.hl_form-builder textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  /* 16px minimum stops iOS Safari zooming the page on focus */
+  font: 16px/1.3 var(--nw-font);
+  color: var(--nw-ink);
+  background: #fff;
+  border: 1.5px solid var(--nw-line);
+  border-radius: var(--nw-radius);
+  transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-builder--input:focus,
+.hl_form-builder input:focus,
+.hl_form-builder select:focus,
+.hl_form-builder textarea:focus {
+  outline: 0;
+  border-color: var(--nw-blue);
+  box-shadow: 0 0 0 4px rgba(11, 92, 173, .16);
+}
+
+/* Keyboard users still get a visible ring when focus-visible is supported */
+.form-builder--input:focus-visible { outline: 2px solid var(--nw-blue); outline-offset: 2px; }
+
+.form-builder--input::placeholder { color: #94A3B8; }
+
+/* Phone field: GHL injects an intl-tel-input wrapper that breaks the radius */
+.form-builder--item .iti { width: 100%; }
+.form-builder--item .iti__flag-container { border-radius: var(--nw-radius) 0 0 var(--nw-radius); }
+
+/* Error state */
+.form-builder--item.error .form-builder--input,
+.form-builder--input[aria-invalid=&quot;true&quot;] { border-color: var(--nw-err); }
+
+.form-builder--item .error-message,
+.hl_form-builder .error-message {
+  display: block;
+  color: var(--nw-err);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 6px 0 0;
+}
+
+/* Checkboxes and radios: GHL ships these at browser-default size, which is
+   below the 44px touch target recommendation on mobile */
+.hl_form-builder input[type=&quot;checkbox&quot;],
+.hl_form-builder input[type=&quot;radio&quot;] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  accent-color: var(--nw-blue);
+  margin: 0 10px 0 0;
+}
+
+.hl_form-builder .checkbox-item,
+.hl_form-builder .radio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--nw-line);
+  border-radius: var(--nw-radius);
+  margin: 0 0 8px;
+  cursor: pointer;
+}
+.hl_form-builder .checkbox-item:hover,
+.hl_form-builder .radio-item:hover { border-color: var(--nw-blue); }
+
+/* Consent / fine print under the form */
+.hl_form-builder .form-builder--item.disclaimer label {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--nw-muted);
+  line-height: 1.5;
+}
+
+/* Submit button */
+.hl_form-builder button[type=&quot;submit&quot;],
+.ghl-form button[type=&quot;submit&quot;],
+.form-builder--submit {
+  width: 100%;
+  padding: 16px 24px;
+  font: 700 17px/1.2 var(--nw-font);
+  color: #fff;
+  background: var(--nw-blue);
+  border: 0;
+  border-radius: var(--nw-radius);
+  cursor: pointer;
+  transition: background .15s, transform .08s;
+}
+.hl_form-builder button[type=&quot;submit&quot;]:hover,
+.form-builder--submit:hover { background: var(--nw-blue-d); }
+.hl_form-builder button[type=&quot;submit&quot;]:active { transform: translateY(1px); }
+
+/* Submitting state, set by the script in ghl/js/ghl-attribution-and-forms.js */
+.hl_form-builder button[type=&quot;submit&quot;][disabled] { opacity: .65; cursor: progress; }
+
+/* --------------------------------------------------------------------------
+   2. SURVEYS
+   Same input styling plus the step progress bar, which GHL renders as a
+   plain div with an inline width percentage.
+   -------------------------------------------------------------------------- */
+
+.survey-container { font-family: var(--nw-font); }
+
+.survey-container .progress-bar,
+.survey-container .hl-survey-progress {
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 0 0 24px;
+}
+.survey-container .progress-bar &gt; div,
+.survey-container .hl-survey-progress &gt; div {
+  height: 100%;
+  background: var(--nw-blue);
+  border-radius: 99px;
+  transition: width .3s ease;
+}
+
+.survey-container .slide-buttons { display: flex; gap: 12px; }
+.survey-container .btn-back {
+  flex: 0 0 auto;
+  background: none;
+  color: var(--nw-muted);
+  border: 1.5px solid var(--nw-line);
+  border-radius: var(--nw-radius);
+  padding: 14px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.survey-container .btn-next { flex: 1; }
+
+/* --------------------------------------------------------------------------
+   3. CALENDAR / BOOKING WIDGET
+   -------------------------------------------------------------------------- */
+
+#booking-widget,
+.calendar-picker { font-family: var(--nw-font); }
+
+.calendar-picker .slot,
+#booking-widget .time-slot {
+  border: 1.5px solid var(--nw-line);
+  background: #fff;
+  color: var(--nw-navy);
+  font: 600 14px/1 var(--nw-font);
+  font-variant-numeric: tabular-nums;
+  padding: 12px 6px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: border-color .12s, background .12s, color .12s;
+}
+.calendar-picker .slot:hover,
+#booking-widget .time-slot:hover { border-color: var(--nw-blue); background: #F4F8FD; }
+
+.calendar-picker .slot.selected,
+#booking-widget .time-slot.selected,
+#booking-widget .time-slot[aria-pressed=&quot;true&quot;] {
+  background: var(--nw-blue);
+  border-color: var(--nw-blue);
+  color: #fff;
+}
+
+.calendar-picker .slot[disabled],
+#booking-widget .time-slot.unavailable {
+  opacity: .32;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  background: #F8FAFC;
+}
+
+/* The timezone line is the single highest-value element on a booking page
+   and GHL renders it at 11px grey. Make it readable. */
+#booking-widget .timezone-selector,
+.calendar-picker .tz-label {
+  font-size: 13px;
+  color: var(--nw-ink);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4. ORDER FORM
+   -------------------------------------------------------------------------- */
+
+.order-form .product-item,
+.payment-section .product-item {
+  border: 1.5px solid var(--nw-line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0 0 10px;
+}
+.order-form .product-item.selected { border-color: var(--nw-blue); background: #F4F8FD; }
+
+.order-form .order-summary {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px;
+}
+.order-form .order-summary .total {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--nw-navy);
+  border-top: 1px solid #E2E8F0;
+  margin: 12px 0 0;
+  padding: 12px 0 0;
+}
+
+/* Trust row under the pay button */
+.order-form .secure-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--nw-muted);
+  margin: 14px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. GLOBAL FIXES
+   Small things that cost conversions on every GHL funnel out of the box.
+   -------------------------------------------------------------------------- */
+
+/* GHL sections add horizontal padding at desktop only; phones get edge-to-edge
+   text without this */
+@media (max-width: 640px) {
+  .c-section &gt; .c-row,
+  .c-column { padding-left: 18px !important; padding-right: 18px !important; }
+
+  /* Stacked buttons are easier to hit than a side-by-side pair under 640px */
+  .hl_form-builder button[type=&quot;submit&quot;] { padding: 17px 20px; font-size: 17px; }
+}
+
+/* Sticky mobile CTA: add class nw-sticky-cta to a one-button row */
+.nw-sticky-cta {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  background: rgba(255, 255, 255, .97);
+  border-top: 1px solid #E2E8F0;
+  box-shadow: 0 -6px 22px rgba(10, 31, 68, .12);
+  padding: 10px 16px;
+}
+@media (min-width: 641px) { .nw-sticky-cta { display: none; } }
+
+/* Respect reduced-motion preferences across every animated element above */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Hide the GHL footer badge on white-label funnels (agency plan only) */
+.ghl-footer-badge, #ghl-badge { display: none !important; }
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/ghl/custom-css/funnel-theme.css" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-ghljs" aria-labelledby="tab-ghljs" hidden>
+          <div class="panel-desc"><ul><li>GHL embeds forms in an iframe, so parent-page UTMs never reach them &mdash; this appends them to every form iframe and every internal link</li><li>First-touch attribution persists across funnel steps in sessionStorage</li><li>Listens for GHL's postMessage submit event and pushes a GA4/Ads conversion to the dataLayer</li><li>Double-submit guard with a 12-second release so a failed request never strands the visitor</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">ghl/js/ghl-attribution-and-forms.js</span><button class="copy" type="button" data-target="code-ghljs">Copy</button></div><pre tabindex="0"><code id="code-ghljs">/*
+  ==========================================================================
+  NORTHWIND LEARNING | GOHIGHLEVEL ATTRIBUTION + FORM ENHANCEMENTS
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Paste into: Funnel &gt; Settings &gt; Tracking Code &gt; Footer.
+
+  Solves the four things GHL funnels lose by default:
+
+    1. ATTRIBUTION SURVIVES THE FUNNEL
+       GHL embeds forms in an iframe, so utm_* parameters on the parent URL
+       never reach the form. They are also lost on step 2 of any funnel.
+       Fixed by persisting first-touch values and appending them to every
+       form iframe src on the page.
+
+    2. NO DOUBLE SUBMITS
+       The native submit button stays live while the request is in flight,
+       so an impatient click creates duplicate contacts and fires the
+       workflow twice.
+
+    3. SUBMISSION EVENTS REACH GTM
+       GHL posts a message to the parent window on submit, but nothing
+       listens, so GA4/Ads conversions never fire from a funnel step.
+
+    4. SCROLL + ENGAGEMENT SIGNAL
+       Pushes a single qualified-engagement event so CRO tests have a
+       secondary metric when conversion volume is thin.
+
+  Dependencies: none. Safe to load on every funnel step.
+  ==========================================================================
+*/
+(function () {
+  &#x27;use strict&#x27;;
+
+  var CONFIG = {
+    storageKey: &#x27;nw_attr&#x27;,
+    /* Parameters mapped to GHL custom fields of the same name */
+    params: [&#x27;utm_source&#x27;, &#x27;utm_medium&#x27;, &#x27;utm_campaign&#x27;, &#x27;utm_term&#x27;, &#x27;utm_content&#x27;,
+             &#x27;gclid&#x27;, &#x27;fbclid&#x27;, &#x27;msclkid&#x27;, &#x27;ttclid&#x27;],
+    /* First touch wins: a visitor who arrives on paid then returns direct
+       should still be attributed to the paid click */
+    firstTouch: true,
+    formSelector: &#x27;iframe[src*=&quot;leadconnectorhq.com&quot;], iframe[src*=&quot;msgsndr.com&quot;], iframe.ghl-form-iframe&#x27;,
+    engagementDepth: 0.5,     // fraction of the page scrolled
+    engagementSeconds: 20
+  };
+
+  /* ---------------------------------------------------------------------
+     1. Capture and persist attribution
+     --------------------------------------------------------------------- */
+
+  function readStore() {
+    try { return JSON.parse(sessionStorage.getItem(CONFIG.storageKey)) || {}; }
+    catch (e) { return {}; }
+  }
+
+  function writeStore(data) {
+    try { sessionStorage.setItem(CONFIG.storageKey, JSON.stringify(data)); } catch (e) {}
+  }
+
+  function collect() {
+    var qs = new URLSearchParams(window.location.search);
+    var stored = readStore();
+    var out = {};
+
+    CONFIG.params.forEach(function (key) {
+      var fresh = qs.get(key);
+      if (CONFIG.firstTouch) {
+        out[key] = stored[key] || fresh || &#x27;&#x27;;
+      } else {
+        out[key] = fresh || stored[key] || &#x27;&#x27;;
+      }
+    });
+
+    /* Referrer is only meaningful on the entry page of the session */
+    out.referrer = stored.referrer ||
+      (document.referrer &amp;&amp; document.referrer.indexOf(location.hostname) === -1 ? document.referrer : &#x27;direct&#x27;);
+    out.landing_page = stored.landing_page || location.href.split(&#x27;#&#x27;)[0];
+
+    writeStore(out);
+    return out;
+  }
+
+  var attribution = collect();
+
+  /* ---------------------------------------------------------------------
+     2. Push attribution into every GHL form iframe
+     GHL reads query parameters off the iframe src and maps them onto
+     custom fields with matching keys.
+     --------------------------------------------------------------------- */
+
+  function decorate(iframe) {
+    if (iframe.dataset.nwDecorated) return;
+
+    var src = iframe.getAttribute(&#x27;src&#x27;);
+    if (!src) return;
+
+    var url;
+    try { url = new URL(src, location.origin); } catch (e) { return; }
+
+    var added = false;
+    Object.keys(attribution).forEach(function (key) {
+      if (attribution[key] &amp;&amp; !url.searchParams.has(key)) {
+        url.searchParams.set(key, attribution[key]);
+        added = true;
+      }
+    });
+
+    iframe.dataset.nwDecorated = &#x27;1&#x27;;
+    /* Only reload the iframe when something actually changed */
+    if (added) iframe.setAttribute(&#x27;src&#x27;, url.toString());
+  }
+
+  function decorateAll() {
+    document.querySelectorAll(CONFIG.formSelector).forEach(decorate);
+  }
+
+  decorateAll();
+
+  /* GHL injects forms after page load and on step transitions */
+  if (window.MutationObserver) {
+    new MutationObserver(decorateAll).observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  /* Carry attribution onto internal links so the next funnel step keeps it
+     even if sessionStorage is blocked */
+  document.addEventListener(&#x27;click&#x27;, function (e) {
+    var a = e.target.closest &amp;&amp; e.target.closest(&#x27;a[href]&#x27;);
+    if (!a) return;
+    var href = a.getAttribute(&#x27;href&#x27;);
+    if (!href || href.charAt(0) === &#x27;#&#x27; || /^(mailto|tel):/.test(href)) return;
+
+    var url;
+    try { url = new URL(href, location.href); } catch (err) { return; }
+    if (url.hostname !== location.hostname) return;
+
+    CONFIG.params.forEach(function (key) {
+      if (attribution[key] &amp;&amp; !url.searchParams.has(key)) url.searchParams.set(key, attribution[key]);
+    });
+    a.setAttribute(&#x27;href&#x27;, url.toString());
+  }, true);
+
+  /* ---------------------------------------------------------------------
+     3. Double-submit guard on native GHL forms rendered inline
+     --------------------------------------------------------------------- */
+
+  document.addEventListener(&#x27;submit&#x27;, function (e) {
+    var form = e.target;
+    if (!form.matches(&#x27;.hl_form-builder, .ghl-form, form[data-ghl]&#x27;)) return;
+
+    if (form.dataset.nwSubmitting === &#x27;1&#x27;) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return;
+    }
+    form.dataset.nwSubmitting = &#x27;1&#x27;;
+
+    var btn = form.querySelector(&#x27;button[type=&quot;submit&quot;], input[type=&quot;submit&quot;]&#x27;);
+    if (btn) {
+      btn.disabled = true;
+      btn.dataset.nwLabel = btn.textContent;
+      btn.textContent = &#x27;Sending…&#x27;;
+    }
+
+    /* Release after 12s so a failed request does not strand the visitor */
+    setTimeout(function () {
+      form.dataset.nwSubmitting = &#x27;&#x27;;
+      if (btn) {
+        btn.disabled = false;
+        if (btn.dataset.nwLabel) btn.textContent = btn.dataset.nwLabel;
+      }
+    }, 12000);
+  }, true);
+
+  /* ---------------------------------------------------------------------
+     4. Relay GHL&#x27;s iframe submission message to the data layer
+     --------------------------------------------------------------------- */
+
+  window.addEventListener(&#x27;message&#x27;, function (event) {
+    if (!/leadconnectorhq\.com|msgsndr\.com/.test(event.origin)) return;
+
+    var data = event.data;
+    if (typeof data === &#x27;string&#x27;) {
+      try { data = JSON.parse(data); } catch (e) { return; }
+    }
+    if (!data || !data.type) return;
+
+    if (data.type === &#x27;form-submitted&#x27; || data.type === &#x27;hl_form_submit&#x27;) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: &#x27;generate_lead&#x27;,
+        form_id: data.formId || &#x27;&#x27;,
+        funnel_step: document.body.dataset.step || location.pathname,
+        utm_source: attribution.utm_source || &#x27;&#x27;,
+        utm_campaign: attribution.utm_campaign || &#x27;&#x27;
+      });
+    }
+
+    /* GHL sends the iframe&#x27;s rendered height; without this the form is
+       cut off on mobile whenever a validation message appears */
+    if (data.type === &#x27;resize&#x27; &amp;&amp; data.height) {
+      document.querySelectorAll(CONFIG.formSelector).forEach(function (f) {
+        if (f.contentWindow === event.source) f.style.height = data.height + &#x27;px&#x27;;
+      });
+    }
+  }, false);
+
+  /* ---------------------------------------------------------------------
+     5. Qualified engagement, fired once
+     --------------------------------------------------------------------- */
+
+  (function engagement() {
+    var fired = false, deep = false, stayed = false;
+
+    function maybe() {
+      if (fired || !deep || !stayed) return;
+      fired = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: &#x27;qualified_engagement&#x27;, page: location.pathname });
+    }
+
+    setTimeout(function () { stayed = true; maybe(); }, CONFIG.engagementSeconds * 1000);
+
+    window.addEventListener(&#x27;scroll&#x27;, function onScroll() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max &gt; 0 &amp;&amp; window.scrollY / max &gt;= CONFIG.engagementDepth) {
+        deep = true;
+        window.removeEventListener(&#x27;scroll&#x27;, onScroll);
+        maybe();
+      }
+    }, { passive: true });
+  })();
+})();
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/ghl/js/ghl-attribution-and-forms.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-ghlmake" aria-labelledby="tab-ghlmake" hidden>
+          <div class="panel-desc"><ul><li>Webhook from a GHL workflow into Make for the work GHL workflows do badly: lookups, joins, scoring</li><li>Lead score as one expression instead of ten workflow branches</li><li>Idempotent on contact_id plus stage, because GHL retries failed webhooks</li><li>Error handler writes every failure to a sheet, so nothing is silently dropped</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">ghl/automation/make-ghl-sync.md</span><button class="copy" type="button" data-target="code-ghlmake">Copy</button></div><pre tabindex="0"><code id="code-ghlmake"># Make.com scenario: GoHighLevel lead enrichment and routing
+
+**Author:** Faisal Irfan · [github.com/faisal8143](https://github.com/faisal8143)
+**Brand:** Northwind Learning (fictional, for demonstration)
+
+The problem this solves: GHL workflows are good at sequencing, and poor at
+anything that needs a lookup, a conditional join, or a second system. Running
+enrichment inside Make keeps the GHL workflow readable and puts the branching
+logic where it can be tested without re-triggering a live contact.
+
+---
+
+## Trigger
+
+**Module:** `Webhooks → Custom webhook` — `nw-ghl-new-lead`
+
+Fired by a GHL workflow action (*Webhook → POST*) on the **Contact Created**
+and **Form Submitted** triggers.
+
+```json
+{
+  &quot;contact_id&quot;: &quot;{{contact.id}}&quot;,
+  &quot;email&quot;: &quot;{{contact.email}}&quot;,
+  &quot;phone&quot;: &quot;{{contact.phone}}&quot;,
+  &quot;first_name&quot;: &quot;{{contact.first_name}}&quot;,
+  &quot;field_of_study&quot;: &quot;{{contact.field_of_study}}&quot;,
+  &quot;utm_source&quot;: &quot;{{contact.utm_source}}&quot;,
+  &quot;utm_campaign&quot;: &quot;{{contact.utm_campaign}}&quot;,
+  &quot;gclid&quot;: &quot;{{contact.gclid}}&quot;,
+  &quot;form_variant&quot;: &quot;{{contact.form_variant}}&quot;,
+  &quot;stage&quot;: &quot;{{contact.stage}}&quot;
+}
+```
+
+---
+
+## Steps
+
+| # | Module | What it does |
+| --- | --- | --- |
+| 1 | Webhook | Receives the payload above |
+| 2 | Tools → Set variables | Normalises email to lowercase, strips spaces from phone, converts the phone to E.164 using the country from the GHL location |
+| 3 | Router | Splits on `stage` — `partial` and `complete` take different paths |
+| 4a | HTTP → Make a request | Email verification API; writes `email_valid` and `email_risk` back as custom fields |
+| 4b | Google Sheets → Search rows | Course catalogue lookup on `field_of_study`, returning the advisor who owns that field |
+| 5 | GoHighLevel → Update contact | Writes `advisor_owner`, `email_valid`, `lead_score` |
+| 6 | GoHighLevel → Add tag | `course-{{field_of_study}}` plus `paid` or `organic` from `utm_source` |
+| 7 | Filter | Only continues when `email_valid = true` and `stage = complete` |
+| 8 | GoHighLevel → Add to workflow | Routes into the matching nurture sequence |
+| 9 | Slack → Create a message | Posts high-intent leads (score ≥ 40) into `#admissions` for same-day follow-up |
+| 10 | Error handler | On any failure, writes the payload to a Google Sheet and posts to `#integration-errors` so nothing is silently dropped |
+
+---
+
+## Scoring logic (step 5)
+
+Scored inside a Make `Tools → Set variable` rather than in GHL, so the rule
+is one expression instead of ten workflow branches:
+
+```
+{{
+  ( if(1.utm_source = &quot;google&quot;; 20; if(1.utm_source = &quot;meta&quot;; 10; 5)) ) +
+  ( if(1.gclid != emptystring; 15; 0) ) +
+  ( if(1.field_of_study = &quot;Still deciding&quot;; 0; 15) ) +
+  ( if(1.phone != emptystring; 10; 0) )
+}}
+```
+
+| Score | Band | Routing |
+| --- | --- | --- |
+| 40+ | Hot | Slack alert, advisor calls same day, 3-step SMS sequence |
+| 20–39 | Warm | 5-email nurture, call attempt at day 3 |
+| Under 20 | Cold | Monthly newsletter only |
+
+---
+
+## Notes from running this in production
+
+- **Make the webhook idempotent.** GHL retries a failed webhook, and without
+  a dedupe on `contact_id` + `stage` you get two Slack pings and a doubled
+  score. A data store with a 10-minute TTL key handles it.
+- **Never write back into a field the GHL workflow also writes.** Two systems
+  owning one field produces a race that only shows up under load.
+- **Partials are worth capturing.** Step-1 emails that never finish step 2
+  convert at a meaningful rate on a single reminder email, and they only
+  exist because the form fires at step 1.
+- **Watch the operations count.** The router doubling every branch is the
+  usual cause of a plan running out mid-month; filters belong before the
+  router, not after it.
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/ghl/automation/make-ghl-sync.md" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1960,6 +2692,7 @@ WHERE e.rn = 1</code></pre></div>
       <div class="card reveal"><h3>Code</h3><ul class="tags"><li>AMPscript</li><li>SSJS</li><li>SQL</li><li>HTML email</li><li>CSS</li><li>JavaScript</li><li>REST / SOAP APIs</li></ul></div>
       <div class="card reveal"><h3>Pardot & email craft</h3><ul class="tags"><li>Account Engagement</li><li>Engagement Studio</li><li>Forms & handlers</li><li>Scoring & grading</li><li>Outlook / MSO fixes</li><li>Dark mode</li><li>Litmus testing</li></ul></div>
       <div class="card reveal"><h3>Other platforms</h3><ul class="tags"><li>Braze</li><li>Marketo</li><li>Klaviyo</li><li>Mailchimp</li><li>Liquid</li><li>Canvas flows</li><li>Smart campaigns</li></ul></div>
+      <div class="card reveal"><h3>CRM funnels &amp; web</h3><ul class="tags"><li>GoHighLevel</li><li>Funnels &amp; landing pages</li><li>WordPress</li><li>HubSpot</li><li>Make.com</li><li>Figma</li><li>A/B testing &amp; CRO</li></ul></div>
     </div>
   </div>
 </section>
@@ -2084,12 +2817,18 @@ WHERE e.rn = 1</code></pre></div>
   mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');mb.setAttribute('aria-expanded','false')})});
   window.addEventListener('resize',function(){if(window.innerWidth>860){mm.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
 
-  // Tabs
-  var tabs=[].slice.call(document.querySelectorAll('.tabs [role="tab"]'));
-  function select(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){select(t)});
-    t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowDown'||k==='ArrowRight')n=tabs[(i+1)%tabs.length];if(k==='ArrowUp'||k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();select(n);n.focus()}});
+  // Tabs - scoped per tablist so several code sections can coexist
+  document.querySelectorAll('.tabs').forEach(function(group){
+    var tabs=[].slice.call(group.querySelectorAll('[role="tab"]'));
+    function select(t){tabs.forEach(function(x){
+      var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;
+      var pane=document.getElementById(x.getAttribute('aria-controls'));
+      if(pane) pane.hidden=!on;
+    })}
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){select(t)});
+      t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowDown'||k==='ArrowRight')n=tabs[(i+1)%tabs.length];if(k==='ArrowUp'||k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();select(n);n.focus()}});
+    });
   });
 
   // Copy buttons
@@ -2102,24 +2841,24 @@ WHERE e.rn = 1</code></pre></div>
     });
   });
 
-  // Preview toggle
-  var dev=document.getElementById('device');
-  document.querySelectorAll('.seg button').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===btn?'true':'false')});
-      dev.classList.toggle('mobile',btn.getAttribute('data-view')==='mobile');
+  // Galleries (emails + GHL funnels) - scoped per section
+  document.querySelectorAll('[data-gallery]').forEach(function(sec){
+    var frame=sec.querySelector('.js-frame'), dev=sec.querySelector('.device');
+    var openFull=sec.querySelector('.js-open-full'), openCode=sec.querySelector('.js-open-code');
+    sec.querySelectorAll('.seg button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        sec.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===btn?'true':'false')});
+        if(dev) dev.classList.toggle('mobile',btn.getAttribute('data-view')==='mobile');
+      });
     });
+    var picks=[].slice.call(sec.querySelectorAll('.pick'));
+    picks.forEach(function(b){b.addEventListener('click',function(){
+      picks.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+      if(frame) frame.src=b.getAttribute('data-src');
+      if(openFull) openFull.href=b.getAttribute('data-src');
+      if(openCode&&b.getAttribute('data-code')) openCode.href='https://github.com/faisal8143/faisal8143.github.io/blob/main/'+b.getAttribute('data-code');
+    })});
   });
-
-
-  // Email picker
-  var frame=document.getElementById('emailFrame'),openFull=document.getElementById('openFull');
-  var picks=[].slice.call(document.querySelectorAll('.pick'));
-  picks.forEach(function(b){b.addEventListener('click',function(){
-    picks.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
-    frame.src=b.getAttribute('data-src'); openFull.href=b.getAttribute('data-src');
-    var oc=document.getElementById('openCode'); if(oc&&b.getAttribute('data-code')) oc.href='https://github.com/faisal8143/faisal8143.github.io/blob/main/'+b.getAttribute('data-code');
-  })});
 
   // Reveal on scroll
   var els=document.querySelectorAll('.reveal');

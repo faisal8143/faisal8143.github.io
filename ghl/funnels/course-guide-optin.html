@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free 2027 Course Guide | Northwind Learning</title>
+<meta name="description" content="Download the free 2027 course guide: 120+ online courses compared, fees, intakes and career outcomes.">
+<!--
+  ==========================================================================
+  NORTHWIND LEARNING | GOHIGHLEVEL FUNNEL — STEP 1: LEAD MAGNET OPT-IN
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Built as a GHL funnel step. In the platform this is a one-column section
+  stack with the custom CSS below pasted into Funnel Settings > Custom CSS
+  and the JS into Settings > Tracking Code (Footer).
+
+    - Two-step opt-in: email first, phone + course second. Asking for one
+      field up front lifts step-1 completion; step 2 is where the
+      qualifying data is captured, and partials are already in the CRM.
+    - Hidden attribution fields (utm_*, gclid, fbclid, page_url, referrer)
+      map 1:1 to GHL custom fields so the contact record carries the source.
+    - Single visible CTA per viewport, sticky on mobile.
+    - Submits to a GHL inbound webhook; the success state is rendered
+      client-side so the visitor never leaves the page.
+    - No layout shift: fonts are system, images are sized, nothing lazy
+      above the fold.
+
+  BRAND TOKENS
+    Navy #0A1F44   Blue #0B5CAD   Teal #19C3B1
+    Ink  #334155   Line #E2E8F0   Canvas #F2F4F7
+  ==========================================================================
+-->
+<style>
+  :root{
+    --navy:#0A1F44; --blue:#0B5CAD; --blue-dk:#094A8B; --teal:#19C3B1;
+    --ink:#334155; --muted:#64748B; --line:#E2E8F0; --bg:#F2F4F7; --card:#fff;
+    --radius:14px; --shadow:0 20px 44px rgba(10,31,68,.16);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--font)}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- top bar ---------- */
+  .bar{background:var(--navy);color:#fff;font-size:14px;text-align:center;padding:10px 20px}
+  .bar b{color:var(--teal)}
+  header{background:#fff;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);font-size:18px;letter-spacing:-.01em}
+  .logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;display:grid;place-items:center;font-size:14px}
+  .tel{color:var(--blue);font-weight:700;text-decoration:none;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{background:
+      radial-gradient(900px 420px at 88% -10%,rgba(25,195,177,.22),transparent 60%),
+      linear-gradient(135deg,var(--navy) 0%,#0d2d63 55%,var(--blue) 100%);
+    color:#fff;padding:60px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--teal);background:rgba(25,195,177,.14);
+    border:1px solid rgba(25,195,177,.35);border-radius:999px;padding:6px 14px;margin:0 0 20px}
+  h1{font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 18px;color:#fff}
+  .lede{font-size:18px;line-height:1.6;color:#CBD5E1;margin:0 0 26px;max-width:46ch}
+  .ticks{list-style:none;padding:0;margin:0 0 30px}
+  .ticks li{position:relative;padding:0 0 0 34px;margin:0 0 13px;color:#E2E8F0}
+  .ticks li svg{position:absolute;left:0;top:4px;width:20px;height:20px;color:var(--teal)}
+  .proof{display:flex;align-items:center;gap:14px;border-top:1px solid rgba(255,255,255,.16);padding-top:22px}
+  .faces{display:flex}
+  .faces span{width:38px;height:38px;border-radius:50%;border:2px solid var(--navy);margin-left:-11px;
+    display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff}
+  .faces span:first-child{margin-left:0}
+  .f1{background:#2563EB}.f2{background:#0F766E}.f3{background:#7C3AED}.f4{background:#B45309}
+  .proof p{margin:0;font-size:14px;color:#CBD5E1}
+  .proof b{color:#fff;display:block}
+
+  /* ---------- form card ---------- */
+  .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:30px;position:relative}
+  .card-flag{position:absolute;top:-13px;left:30px;background:var(--teal);color:#06281f;font-size:12px;
+    font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:5px 14px}
+  .card h2{color:var(--navy);font-size:23px;line-height:1.25;margin:8px 0 6px;letter-spacing:-.01em}
+  .card .sub{color:var(--muted);font-size:15px;margin:0 0 22px}
+
+  .steps{display:flex;gap:8px;margin:0 0 22px}
+  .steps i{flex:1;height:5px;border-radius:99px;background:var(--line);transition:background .25s}
+  .steps i.on{background:var(--blue)}
+
+  .fld{margin:0 0 15px}
+  .fld label{display:block;font-size:13.5px;font-weight:700;color:var(--navy);margin:0 0 6px}
+  .fld input,.fld select{width:100%;padding:13px 15px;font:16px/1.3 var(--font);color:var(--ink);
+    background:#fff;border:1.5px solid #CBD5E1;border-radius:10px;transition:border-color .15s,box-shadow .15s}
+  .fld input:focus,.fld select:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(11,92,173,.16)}
+  .fld input[aria-invalid="true"]{border-color:#C62828}
+  /* Space is reserved so clearing an error never shifts the button under a tapping finger */
+  .err{display:block;min-height:18px;color:#C62828;font-size:13px;line-height:18px;margin:5px 0 0}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  .btn{display:block;width:100%;padding:16px 22px;font:700 17px/1.2 var(--font);color:#fff;
+    background:var(--blue);border:0;border-radius:11px;cursor:pointer;transition:background .15s,transform .08s}
+  .btn:hover{background:var(--blue-dk)}
+  .btn:active{transform:translateY(1px)}
+  .btn[disabled]{opacity:.65;cursor:progress}
+  .btn-back{width:auto;background:none;color:var(--muted);font-weight:600;font-size:14px;
+    border:0;padding:12px 0 0;cursor:pointer;text-decoration:underline}
+  .micro{display:flex;align-items:center;justify-content:center;gap:7px;color:var(--muted);
+    font-size:12.5px;margin:14px 0 0;text-align:center}
+  .micro svg{width:14px;height:14px;flex:none}
+
+  .done{display:none;text-align:center;padding:14px 0 6px}
+  .done.show{display:block}
+  .done .ring{width:66px;height:66px;border-radius:50%;background:#ECFDF5;display:grid;place-items:center;margin:0 auto 18px}
+  .done .ring svg{width:32px;height:32px;color:#059669}
+  .done h2{margin:0 0 8px}
+  .done p{color:var(--muted);margin:0 0 20px}
+  .done .btn{background:var(--navy)}
+
+  /* ---------- below fold ---------- */
+  .logos{background:#fff;border-bottom:1px solid var(--line);padding:26px 0}
+  .logos p{text-align:center;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 16px}
+  .logo-row{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;align-items:center}
+  .logo-row span{font-weight:800;font-size:17px;color:#94A3B8;letter-spacing:-.01em}
+
+  section.pad{padding:68px 0}
+  h2.sec{text-align:center;color:var(--navy);font-size:clamp(25px,3.2vw,33px);line-height:1.2;
+    letter-spacing:-.02em;margin:0 0 12px}
+  p.sec{text-align:center;color:var(--muted);max-width:60ch;margin:0 auto 42px}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .tile .ic{width:46px;height:46px;border-radius:12px;background:#EEF4FF;color:var(--blue);
+    display:grid;place-items:center;margin:0 0 16px}
+  .tile .ic svg{width:23px;height:23px}
+  .tile h3{color:var(--navy);font-size:17.5px;margin:0 0 8px}
+  .tile p{margin:0;font-size:15px;color:var(--muted)}
+
+  .stats{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:44px 0;text-align:center}
+  .stat b{display:block;font-size:36px;line-height:1.1;color:var(--blue);letter-spacing:-.02em}
+  .stat span{font-size:14px;color:var(--muted)}
+
+  .quote{max-width:720px;margin:0 auto;text-align:center}
+  .quote p{font:italic 21px/1.6 Georgia,"Times New Roman",serif;color:var(--navy);margin:0 0 20px}
+  .quote cite{font-style:normal;font-size:14px;color:var(--muted)}
+  .quote cite b{display:block;color:var(--ink);font-size:15px}
+
+  .cta{background:var(--navy);color:#fff;text-align:center;padding:62px 0}
+  .cta h2{color:#fff;font-size:clamp(24px,3vw,31px);margin:0 0 10px;letter-spacing:-.02em}
+  .cta p{color:#CBD5E1;margin:0 0 26px}
+  .cta a{display:inline-block;background:var(--teal);color:#06281f;font-weight:800;font-size:17px;
+    text-decoration:none;padding:16px 42px;border-radius:11px}
+
+  footer{background:#071534;color:#94A3B8;font-size:13px;padding:30px 0;text-align:center}
+  footer a{color:#CBD5E1}
+
+  /* ---------- sticky mobile CTA ---------- */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;padding:11px 16px;
+    background:rgba(255,255,255,.97);border-top:1px solid var(--line);
+    box-shadow:0 -6px 22px rgba(10,31,68,.12)}
+  .sticky a{display:block;text-align:center;background:var(--blue);color:#fff;font-weight:700;
+    text-decoration:none;padding:14px;border-radius:10px}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .grid3{grid-template-columns:1fr}
+    .stat-row{grid-template-columns:1fr 1fr;gap:28px 20px}
+  }
+  @media (max-width:640px){
+    .hero{padding:40px 0 48px}
+    header .wrap{height:62px}
+    .tel{display:none}
+    section.pad{padding:48px 0}
+    .card{padding:24px 20px}
+    .row2{grid-template-columns:1fr}
+    .sticky{display:block}
+    body{padding-bottom:78px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar">Applications for <b>Term 1, 2027</b> close 15 January &middot; guide updated this month</div>
+
+<header>
+  <div class="wrap">
+    <div class="logo"><span class="logo-mark">NL</span>Northwind Learning</div>
+    <a class="tel" href="tel:+611300000000">1300 000 000</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Free download &middot; 48 pages</span>
+      <h1>Choose the right online course without the guesswork</h1>
+      <p class="lede">The 2027 Course Guide compares every Northwind course side by side &mdash; fees, intakes, study load and where graduates actually end up.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>120+ online courses compared on one page</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Real fees, payment options and FEE-HELP eligibility</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Weekly study hours so you can plan around work</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Graduate outcomes and salary ranges by field</li>
+      </ul>
+      <div class="proof">
+        <div class="faces"><span class="f1">AK</span><span class="f2">MR</span><span class="f3">JL</span><span class="f4">SP</span></div>
+        <p><b>4,100+ downloads this year</b>Joined by students in every state and territory</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="card-flag">Instant access</span>
+
+      <form id="optin" novalidate>
+        <div class="steps" aria-hidden="true"><i class="on" id="bar1"></i><i id="bar2"></i></div>
+
+        <!-- STEP 1 -->
+        <div data-step="1">
+          <h2>Get the 2027 Course Guide</h2>
+          <p class="sub">Enter your email and it lands in your inbox in under a minute.</p>
+          <div class="fld">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+            <span class="err" id="email-err" role="alert"></span>
+          </div>
+          <button class="btn" type="button" data-next>Send me the guide &rarr;</button>
+          <p class="micro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            No spam. Unsubscribe in one click.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div data-step="2" hidden>
+          <h2>Where should we send it?</h2>
+          <p class="sub">Two more fields and we will tailor the guide to your field.</p>
+          <div class="row2">
+            <div class="fld">
+              <label for="first_name">First name</label>
+              <input id="first_name" name="first_name" type="text" autocomplete="given-name" placeholder="Alex" required>
+              <span class="err" id="first_name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label for="phone">Mobile</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required>
+              <span class="err" id="phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="field_of_study">Field of study</label>
+            <select id="field_of_study" name="field_of_study" required>
+              <option value="">Choose a field&hellip;</option>
+              <option>Business &amp; management</option>
+              <option>Health &amp; community services</option>
+              <option>Information technology</option>
+              <option>Education &amp; training</option>
+              <option>Engineering &amp; trades</option>
+              <option>Still deciding</option>
+            </select>
+            <span class="err" id="field_of_study-err" role="alert"></span>
+          </div>
+          <button class="btn" type="submit" id="submitBtn">Download the guide</button>
+          <button class="btn-back" type="button" data-back>&larr; Back</button>
+        </div>
+
+        <!-- Hidden attribution fields -> GHL custom fields -->
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term">
+        <input type="hidden" name="utm_content"><input type="hidden" name="gclid">
+        <input type="hidden" name="fbclid"><input type="hidden" name="page_url">
+        <input type="hidden" name="referrer"><input type="hidden" name="form_variant" value="two-step-a">
+        <!-- Honeypot: hidden from people, filled by bots -->
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="company_website">Company website</label>
+          <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+      </form>
+
+      <div class="done" id="done" role="status">
+        <div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h2>Your guide is on its way</h2>
+        <p>Check your inbox &mdash; it arrives within a minute. Not there? Look in Promotions or Spam.</p>
+        <a class="btn" href="#book" style="text-decoration:none;line-height:1.2">Book a 15-min course chat</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="logos">
+  <div class="wrap">
+    <p>Partnered with</p>
+    <div class="logo-row"><span>MERIDIAN</span><span>Kelso TAFE</span><span>BRIGHTPATH</span><span>海 Harbour Inst.</span><span>CLARENDON</span></div>
+  </div>
+</div>
+
+<section class="pad">
+  <div class="wrap">
+    <h2 class="sec">What is inside the guide</h2>
+    <p class="sec">Written by our course advisors, not a marketing team. Everything you would normally have to ring up and ask.</p>
+    <div class="grid3">
+      <div class="tile">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>Every course, side by side</h3>
+        <p>Duration, entry requirements, credit transfer and what each qualification actually lets you do.</p>
+      </div>
+      <div class="tile">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Fees with nothing hidden</h3>
+        <p>Per-subject pricing, payment plans, FEE-HELP eligibility and the total cost of finishing.</p>
+      </div>
+      <div class="tile">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Where graduates land</h3>
+        <p>Employment rates, common job titles and salary ranges 12 months after finishing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stat-row">
+    <div class="stat"><b>120+</b><span>Online courses</span></div>
+    <div class="stat"><b>94%</b><span>Student satisfaction</span></div>
+    <div class="stat"><b>3</b><span>Intakes each year</span></div>
+    <div class="stat"><b>1:1</b><span>Advisor support</span></div>
+  </div>
+</div>
+
+<section class="pad">
+  <div class="wrap quote">
+    <p>&ldquo;I had three courses shortlisted and no idea how to pick. The fee tables and the graduate outcomes section made the decision in an evening.&rdquo;</p>
+    <cite><b>Priya M.</b>Diploma of Business, graduated 2026</cite>
+  </div>
+</section>
+
+<div class="cta" id="book">
+  <div class="wrap">
+    <h2>Still weighing up your options?</h2>
+    <p>Talk to a course advisor for 15 minutes. No pressure, no sales script.</p>
+    <a href="book-a-call.html">Book a free course chat &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 Northwind Learning &middot; Level 10, 100 Example Street, Melbourne VIC 3000 &middot;
+    <a href="#">Privacy policy</a><br>
+    <span style="opacity:.65">Demo funnel built by Faisal Irfan for a fictional brand. Not a real institution.</span>
+  </div>
+</footer>
+
+<div class="sticky"><a href="#optin">Get the free course guide &rarr;</a></div>
+
+<script>
+/*
+  Funnel logic. In GoHighLevel this lives in Settings > Tracking Code (Footer).
+  - Captures attribution parameters into hidden fields that map to GHL custom fields
+  - Validates per step so step 1 stays a single field
+  - Fires the step-1 partial so the contact exists in the CRM before step 2
+  - Guards against double submits and bot fills
+*/
+(function () {
+  'use strict';
+  var form = document.getElementById('optin');
+  if (!form) return;
+
+  var WEBHOOK = ''; // GHL inbound webhook URL. Empty in this demo, so nothing is sent.
+  var s1 = form.querySelector('[data-step="1"]');
+  var s2 = form.querySelector('[data-step="2"]');
+  var bar2 = document.getElementById('bar2');
+  var sent = false;
+
+  /* ---- 1. attribution ---- */
+  var qs = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach(function (k) {
+    var f = form.elements[k];
+    if (f) f.value = qs.get(k) || sessionStorage.getItem('nw_' + k) || '';
+    if (f && f.value) { try { sessionStorage.setItem('nw_' + k, f.value); } catch (e) {} }
+  });
+  form.elements.page_url.value = location.href.split('#')[0];
+  form.elements.referrer.value = document.referrer || 'direct';
+
+  /* ---- 2. validation ---- */
+  var RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var RE_PHONE = /^[0-9+()\s-]{8,}$/;
+
+  function setErr(el, msg) {
+    var box = document.getElementById(el.id + '-err');
+    if (box) box.textContent = msg || '';
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  function checkEmail() {
+    var el = form.elements.email;
+    return setErr(el, RE_EMAIL.test(el.value.trim()) ? '' : 'Please enter a valid email address.');
+  }
+  function checkStep2() {
+    var ok = true;
+    ok = setErr(form.elements.first_name, form.elements.first_name.value.trim() ? '' : 'Please enter your first name.') && ok;
+    ok = setErr(form.elements.phone, RE_PHONE.test(form.elements.phone.value.trim()) ? '' : 'Please enter a valid mobile number.') && ok;
+    ok = setErr(form.elements.field_of_study, form.elements.field_of_study.value ? '' : 'Please choose a field of study.') && ok;
+    return ok;
+  }
+
+  /* ---- 3. send ---- */
+  function send(payload) {
+    if (!WEBHOOK) return Promise.resolve();          // demo mode
+    return fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true                                 // survives the page unloading
+    }).catch(function () { /* never block the visitor on a network error */ });
+  }
+  function values() {
+    var out = {};
+    [].forEach.call(form.elements, function (el) {
+      if (el.name && el.type !== 'button' && el.type !== 'submit') out[el.name] = el.value;
+    });
+    return out;
+  }
+
+  /* ---- 4. steps ---- */
+  form.querySelector('[data-next]').addEventListener('click', function () {
+    if (!checkEmail()) { form.elements.email.focus(); return; }
+    send(Object.assign(values(), { stage: 'partial' }));   // contact exists after step 1
+    s1.hidden = true; s2.hidden = false; bar2.classList.add('on');
+    form.elements.first_name.focus();
+  });
+  form.querySelector('[data-back]').addEventListener('click', function () {
+    s2.hidden = true; s1.hidden = false; bar2.classList.remove('on');
+    form.elements.email.focus();
+  });
+  form.elements.email.addEventListener('blur', checkEmail);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sent) return;
+    if (form.elements.company_website.value) { show(); return; }  // bot: look successful, store nothing
+    if (!checkStep2()) return;
+    sent = true;
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    send(Object.assign(values(), { stage: 'complete' })).then(show, show);
+  });
+
+  function show() {
+    form.style.display = 'none';
+    document.getElementById('done').classList.add('show');
+    if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', form: 'course-guide-optin' });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Webinar: AI in the Classroom | Northwind Learning</title>
+<meta name="description" content="Free 45-minute live session on practical AI tools for teachers. Two time zones, live Q&amp;A.">
+<!--
+  ==========================================================================
+  NORTHWIND LEARNING | GOHIGHLEVEL FUNNEL — WEBINAR REGISTRATION
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+    - Evergreen countdown driven by the event datetime, with a sold-out /
+      replay state once it passes, so the page never goes stale
+    - Session picker writes to a GHL custom field, which routes the contact
+      into the matching workflow (APAC vs EMEA reminder sequence)
+    - Dark, high-contrast layout: one job on the page, register
+    - Scroll-depth and registration events pushed to dataLayer for GTM
+  ==========================================================================
+-->
+<style>
+  :root{
+    --bg:#040A1E; --panel:#0B1633; --panel2:#111F3F; --line:#1E3A8A;
+    --blue:#2563EB; --blue-dk:#1D4ED8; --teal:#5EEAD4; --mist:#CBD5E1; --dim:#94A3B8;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--mist);font:16px/1.65 var(--font)}
+  img{max-width:100%;height:auto;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  header{padding:22px 0;border-bottom:1px solid rgba(30,58,138,.5)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff;font-size:17px}
+  .logo-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--teal));
+    color:#04142e;display:grid;place-items:center;font-size:13px;font-weight:900}
+  .live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--teal);border:1px solid rgba(94,234,212,.4);
+    background:rgba(94,234,212,.1);border-radius:999px;padding:6px 14px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+  .hero{padding:52px 0 64px;background:radial-gradient(760px 380px at 15% 0%,rgba(37,99,235,.3),transparent 62%)}
+  .grid{display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:start}
+  h1{font-size:clamp(29px,4.2vw,44px);line-height:1.1;letter-spacing:-.025em;color:#fff;margin:0 0 18px}
+  h1 em{font-style:normal;color:var(--teal)}
+  .lede{font-size:17.5px;line-height:1.65;margin:0 0 28px;max-width:48ch}
+
+  .count{display:flex;gap:10px;margin:0 0 30px}
+  .cbox{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 8px;text-align:center}
+  .cbox b{display:block;font-size:30px;line-height:1.1;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .cbox span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+  .learn{list-style:none;padding:0;margin:0 0 30px}
+  .learn li{position:relative;padding:0 0 0 36px;margin:0 0 15px}
+  .learn li svg{position:absolute;left:0;top:3px;width:22px;height:22px;color:var(--teal)}
+  .learn b{color:#fff;display:block;margin:0 0 2px}
+  .learn span{font-size:15px;color:var(--dim)}
+
+  .host{display:flex;align-items:center;gap:15px;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;padding:16px 18px}
+  .host .av{width:56px;height:56px;border-radius:50%;flex:none;background:linear-gradient(135deg,#7C3AED,#2563EB);
+    display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px}
+  .host p{margin:0;font-size:14px;color:var(--dim)}
+  .host b{display:block;color:#fff;font-size:16.5px}
+
+  /* form */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;
+    box-shadow:0 24px 54px rgba(0,0,0,.42);position:sticky;top:20px}
+  .card h2{color:#fff;font-size:22px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
+  .card .sub{color:var(--dim);font-size:14.5px;margin:0 0 22px}
+  .seats{display:flex;align-items:center;gap:9px;background:rgba(94,234,212,.09);
+    border:1px solid rgba(94,234,212,.3);border-radius:10px;padding:10px 14px;margin:0 0 20px;
+    font-size:13.5px;color:var(--teal)}
+
+  fieldset{border:0;padding:0;margin:0 0 18px}
+  legend{font-size:13.5px;font-weight:700;color:#fff;margin:0 0 9px;padding:0}
+  .ses{display:block;border:1.5px solid #27406F;border-radius:11px;padding:13px 15px;margin:0 0 9px;
+    cursor:pointer;transition:border-color .15s,background .15s}
+  .ses:hover{border-color:var(--blue)}
+  .ses input{position:absolute;opacity:0;width:0;height:0}
+  .ses:has(input:checked){border-color:var(--teal);background:rgba(94,234,212,.08)}
+  .ses input:focus-visible+.ses-in{outline:2px solid var(--teal);outline-offset:4px}
+  .ses-in{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .ses b{color:#fff;font-size:15px;display:block}
+  .ses span{font-size:13px;color:var(--dim)}
+  .ses .tz{font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);
+    border:1px solid rgba(94,234,212,.35);border-radius:999px;padding:3px 10px;white-space:nowrap}
+
+  .fld{margin:0 0 14px}
+  .fld label{display:block;font-size:13.5px;font-weight:700;color:#fff;margin:0 0 6px}
+  .fld input,.fld select{width:100%;padding:13px 15px;font:16px/1.3 var(--font);color:#fff;
+    background:#0A152F;border:1.5px solid #27406F;border-radius:10px}
+  .fld input::placeholder{color:#5A6B8C}
+  .fld input:focus,.fld select:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 4px rgba(94,234,212,.16)}
+  .fld input[aria-invalid="true"]{border-color:#F87171}
+  .err{display:block;min-height:18px;color:#F87171;font-size:13px;line-height:18px;margin:5px 0 0}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+
+  .btn{display:block;width:100%;padding:16px;font:800 17px/1.2 var(--font);color:#04142e;background:var(--teal);
+    border:0;border-radius:11px;cursor:pointer;transition:filter .15s,transform .08s}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:active{transform:translateY(1px)}
+  .btn[disabled]{opacity:.6;cursor:progress}
+  .micro{text-align:center;font-size:12.5px;color:var(--dim);margin:13px 0 0}
+
+  .done{display:none;text-align:center}
+  .done.show{display:block}
+  .done .ring{width:64px;height:64px;border-radius:50%;background:rgba(94,234,212,.14);
+    display:grid;place-items:center;margin:0 auto 18px}
+  .done .ring svg{width:30px;height:30px;color:var(--teal)}
+  .done h2{margin:0 0 8px}
+  .done p{color:var(--dim);margin:0 0 18px;font-size:15px}
+  .done .ics{display:inline-block;border:1.5px solid var(--teal);color:var(--teal);text-decoration:none;
+    font-weight:700;padding:12px 24px;border-radius:10px;font-size:15px}
+
+  .agenda{border-top:1px solid rgba(30,58,138,.5);padding:58px 0}
+  .agenda h2{color:#fff;font-size:clamp(24px,3vw,31px);letter-spacing:-.02em;margin:0 0 30px;text-align:center}
+  .rows{max-width:720px;margin:0 auto}
+  .r{display:grid;grid-template-columns:86px 1fr;gap:20px;padding:19px 0;border-bottom:1px solid rgba(30,58,138,.45)}
+  .r:last-child{border-bottom:0}
+  .r time{color:var(--teal);font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}
+  .r b{color:#fff;display:block;margin:0 0 3px}
+  .r p{margin:0;font-size:15px;color:var(--dim)}
+
+  footer{border-top:1px solid rgba(30,58,138,.5);padding:28px 0;text-align:center;font-size:13px;color:var(--dim)}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr;gap:34px}
+    .card{position:static}
+  }
+  @media (max-width:640px){
+    .hero{padding:34px 0 44px}
+    .card{padding:22px 18px}
+    .row2{grid-template-columns:1fr}
+    .r{grid-template-columns:1fr;gap:4px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo"><span class="logo-mark">NL</span>Northwind Learning</div>
+    <span class="live"><i class="dot"></i>Free live session</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>AI in the classroom: <em>faster feedback you can actually defend</em></h1>
+      <p class="lede">A practical 45-minute session on AI marking workflows that keep teachers making the final call &mdash; and that you can explain to students and parents.</p>
+
+      <div class="count" id="count" role="timer" aria-label="Time until the webinar starts">
+        <div class="cbox"><b id="d">00</b><span>Days</span></div>
+        <div class="cbox"><b id="h">00</b><span>Hrs</span></div>
+        <div class="cbox"><b id="m">00</b><span>Min</span></div>
+        <div class="cbox"><b id="s">00</b><span>Sec</span></div>
+      </div>
+
+      <ul class="learn">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          <b>Rubrics the model actually follows</b><span>Set criteria up so suggestions match your marking standard, not a generic one.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          <b>Every suggestion traceable</b><span>Keep each piece of feedback linked to the student work it came from.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          <b>Privacy and approval steps</b><span>What to turn off, what to log, and where a human has to sign off.</span></li>
+      </ul>
+
+      <div class="host">
+        <div class="av">AR</div>
+        <div><b>Dr Alex Rivera</b><p>Head of Learning Design, Northwind Learning</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <form id="reg" novalidate>
+        <h2>Save your seat</h2>
+        <p class="sub">Free to attend. Replay sent to everyone who registers.</p>
+        <div class="seats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg><span id="seats">312 registered &middot; 88 seats left</span></div>
+
+        <fieldset>
+          <legend>Pick your session</legend>
+          <label class="ses"><input type="radio" name="session" value="APAC 11:00 AM AEDT" checked>
+            <span class="ses-in"><span><b>11:00 AM AEDT</b><span>Wed 18 Nov &middot; Sydney, Melbourne</span></span><span class="tz">APAC</span></span></label>
+          <label class="ses"><input type="radio" name="session" value="EMEA 3:00 PM GMT">
+            <span class="ses-in"><span><b>3:00 PM GMT</b><span>Wed 18 Nov &middot; London, Dublin</span></span><span class="tz">EMEA</span></span></label>
+        </fieldset>
+
+        <div class="row2">
+          <div class="fld"><label for="first_name">First name</label>
+            <input id="first_name" name="first_name" type="text" autocomplete="given-name" placeholder="Alex" required>
+            <span class="err" id="first_name-err" role="alert"></span></div>
+          <div class="fld"><label for="last_name">Last name</label>
+            <input id="last_name" name="last_name" type="text" autocomplete="family-name" placeholder="Rivera" required>
+            <span class="err" id="last_name-err" role="alert"></span></div>
+        </div>
+        <div class="fld"><label for="email">Work email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@school.edu.au" required>
+          <span class="err" id="email-err" role="alert"></span></div>
+        <div class="fld"><label for="role">Your role</label>
+          <select id="role" name="role" required>
+            <option value="">Choose one&hellip;</option>
+            <option>Classroom teacher</option><option>Head of department</option>
+            <option>Principal / executive</option><option>Learning designer</option>
+            <option>IT / systems</option><option>Other</option>
+          </select>
+          <span class="err" id="role-err" role="alert"></span></div>
+
+        <button class="btn" type="submit" id="go">Reserve my seat</button>
+        <p class="micro">45 minutes including live Q&amp;A. Replay sent either way.</p>
+
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign"><input type="hidden" name="gclid">
+        <input type="hidden" name="visitor_timezone"><input type="hidden" name="page_url">
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="company_website">Website</label>
+          <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+      </form>
+
+      <div class="done" id="done" role="status">
+        <div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h2>You are registered</h2>
+        <p id="doneLine">Confirmation and joining link are in your inbox. We will remind you 24 hours and 15 minutes before.</p>
+        <a class="ics" href="#" id="ics">Add to calendar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="agenda">
+  <div class="wrap">
+    <h2>What we will cover</h2>
+    <div class="rows">
+      <div class="r"><time>0:00</time><div><b>Where AI marking goes wrong</b><p>Three failure modes from schools that rolled it out too fast.</p></div></div>
+      <div class="r"><time>0:08</time><div><b>Building a rubric the model follows</b><p>Live walkthrough from a real assessment task.</p></div></div>
+      <div class="r"><time>0:22</time><div><b>Keeping the audit trail</b><p>Linking every suggestion to the evidence behind it.</p></div></div>
+      <div class="r"><time>0:33</time><div><b>Privacy, consent and approval</b><p>What to document before parents ask.</p></div></div>
+      <div class="r"><time>0:40</time><div><b>Live Q&amp;A</b><p>Bring your hardest objection.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 Northwind Learning &middot; Demo funnel built by Faisal Irfan for a fictional brand.
+  </div>
+</footer>
+
+<script>
+/*
+  - Countdown falls back to a replay state once the event passes
+  - Session choice is submitted as a GHL custom field and routes the
+    contact into the matching reminder workflow
+  - Visitor timezone captured so the CRM can show local times
+*/
+(function () {
+  'use strict';
+  var EVENT = new Date('2026-11-18T11:00:00+11:00');   // APAC session, AEDT
+  var form = document.getElementById('reg');
+  var WEBHOOK = '';                                     // GHL inbound webhook; empty = demo
+
+  /* ---- countdown ---- */
+  var d = document.getElementById('d'), h = document.getElementById('h'),
+      m = document.getElementById('m'), s = document.getElementById('s');
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function tick() {
+    var left = EVENT - new Date();
+    if (left <= 0) {
+      document.getElementById('count').innerHTML =
+        '<div class="cbox" style="flex:1"><b style="font-size:19px">Replay available</b>' +
+        '<span>Register to watch on demand</span></div>';
+      return;
+    }
+    var sec = Math.floor(left / 1000);
+    d.textContent = pad(Math.floor(sec / 86400));
+    h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    m.textContent = pad(Math.floor(sec % 3600 / 60));
+    s.textContent = pad(sec % 60);
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+  /* ---- attribution + timezone ---- */
+  var qs = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','gclid'].forEach(function (k) {
+    if (form.elements[k]) form.elements[k].value = qs.get(k) || '';
+  });
+  form.elements.page_url.value = location.href.split('#')[0];
+  try { form.elements.visitor_timezone.value = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+
+  /* ---- validation ---- */
+  var RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function setErr(el, msg) {
+    var b = document.getElementById(el.id + '-err');
+    if (b) b.textContent = msg || '';
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  function valid() {
+    var ok = true;
+    ok = setErr(form.elements.first_name, form.elements.first_name.value.trim() ? '' : 'Required.') && ok;
+    ok = setErr(form.elements.last_name, form.elements.last_name.value.trim() ? '' : 'Required.') && ok;
+    ok = setErr(form.elements.email, RE.test(form.elements.email.value.trim()) ? '' : 'Enter a valid email address.') && ok;
+    ok = setErr(form.elements.role, form.elements.role.value ? '' : 'Please choose your role.') && ok;
+    return ok;
+  }
+
+  /* ---- submit ---- */
+  var sent = false;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sent) return;
+    if (form.elements.company_website.value) { finish(); return; }
+    if (!valid()) return;
+    sent = true;
+    var btn = document.getElementById('go');
+    btn.disabled = true; btn.textContent = 'Reserving…';
+
+    var payload = {};
+    [].forEach.call(form.elements, function (el) {
+      if (!el.name || el.type === 'submit') return;
+      if (el.type === 'radio' && !el.checked) return;
+      payload[el.name] = el.value;
+    });
+
+    (WEBHOOK
+      ? fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                         body: JSON.stringify(payload), keepalive: true }).catch(function () {})
+      : Promise.resolve()
+    ).then(finish, finish);
+  });
+
+  function finish() {
+    var picked = form.querySelector('input[name="session"]:checked');
+    form.style.display = 'none';
+    document.getElementById('done').classList.add('show');
+    if (picked) {
+      document.getElementById('doneLine').textContent =
+        'You are booked into the ' + picked.value + ' session. The joining link is in your inbox, ' +
+        'and we will remind you 24 hours and 15 minutes before.';
+    }
+    document.getElementById('ics').href = icsLink();
+    if (window.dataLayer) window.dataLayer.push({ event: 'webinar_register', session: picked && picked.value });
+  }
+
+  /* ---- calendar file, built in the browser ---- */
+  function icsLink() {
+    function z(dt) { return dt.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'; }
+    var end = new Date(EVENT.getTime() + 45 * 60000);
+    var ics = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Northwind Learning//Webinar//EN', 'BEGIN:VEVENT',
+      'UID:' + Date.now() + '@northwind.example',
+      'DTSTAMP:' + z(new Date()), 'DTSTART:' + z(EVENT), 'DTEND:' + z(end),
+      'SUMMARY:AI in the classroom (Northwind Learning)',
+      'DESCRIPTION:Joining link is in your confirmation email.',
+      'END:VEVENT', 'END:VCALENDAR'
+    ].join('\r\n');
+    return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+  }
+})();
+</script>
+</body>
+</html>

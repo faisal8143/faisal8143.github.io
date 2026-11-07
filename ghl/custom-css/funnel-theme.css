@@ -1,0 +1,330 @@
+/*
+  ==========================================================================
+  NORTHWIND LEARNING | GOHIGHLEVEL FUNNEL THEME
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Paste into: Funnel > Settings > Custom CSS (or Agency > Custom CSS to
+  theme every sub-account funnel at once).
+
+  Targets GoHighLevel's own generated classes, so no element in the builder
+  has to be touched and marketers keep full drag-and-drop editing.
+
+  Covers the four native elements that ship unstyled-looking:
+    1. Forms          .hl_form-builder / .ghl-form
+    2. Surveys        .survey-container
+    3. Calendars      .calendar-picker / #booking-widget
+    4. Order forms    .order-form / .payment-section
+
+  Everything is driven by the tokens in :root, so a new client brand is a
+  six-line change at the top of this file.
+  ==========================================================================
+*/
+
+:root {
+  --nw-navy:   #0A1F44;
+  --nw-blue:   #0B5CAD;
+  --nw-blue-d: #094A8B;
+  --nw-teal:   #19C3B1;
+  --nw-ink:    #334155;
+  --nw-muted:  #64748B;
+  --nw-line:   #CBD5E1;
+  --nw-err:    #C62828;
+  --nw-radius: 10px;
+  --nw-font:   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   1. FORMS
+   GHL wraps every field in .form-builder--item and renders the input itself
+   as .form-builder--input. Styling the wrapper keeps spacing consistent even
+   when a marketer reorders fields in the builder.
+   -------------------------------------------------------------------------- */
+
+.hl_form-builder,
+.ghl-form {
+  font-family: var(--nw-font);
+  color: var(--nw-ink);
+}
+
+.form-builder--item { margin: 0 0 16px; }
+
+.form-builder--item label,
+.hl_form-builder label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--nw-navy);
+  margin: 0 0 6px;
+}
+
+/* Required marker: GHL only adds the attribute, never a visual cue */
+.form-builder--item input[required] + label::after,
+.form-builder--item label.required::after {
+  content: " *";
+  color: var(--nw-err);
+}
+
+.form-builder--input,
+.hl_form-builder input[type="text"],
+.hl_form-builder input[type="email"],
+.hl_form-builder input[type="tel"],
+.hl_form-builder input[type="number"],
+.hl_form-builder select,
+.hl_form-builder textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  /* 16px minimum stops iOS Safari zooming the page on focus */
+  font: 16px/1.3 var(--nw-font);
+  color: var(--nw-ink);
+  background: #fff;
+  border: 1.5px solid var(--nw-line);
+  border-radius: var(--nw-radius);
+  transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-builder--input:focus,
+.hl_form-builder input:focus,
+.hl_form-builder select:focus,
+.hl_form-builder textarea:focus {
+  outline: 0;
+  border-color: var(--nw-blue);
+  box-shadow: 0 0 0 4px rgba(11, 92, 173, .16);
+}
+
+/* Keyboard users still get a visible ring when focus-visible is supported */
+.form-builder--input:focus-visible { outline: 2px solid var(--nw-blue); outline-offset: 2px; }
+
+.form-builder--input::placeholder { color: #94A3B8; }
+
+/* Phone field: GHL injects an intl-tel-input wrapper that breaks the radius */
+.form-builder--item .iti { width: 100%; }
+.form-builder--item .iti__flag-container { border-radius: var(--nw-radius) 0 0 var(--nw-radius); }
+
+/* Error state */
+.form-builder--item.error .form-builder--input,
+.form-builder--input[aria-invalid="true"] { border-color: var(--nw-err); }
+
+.form-builder--item .error-message,
+.hl_form-builder .error-message {
+  display: block;
+  color: var(--nw-err);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 6px 0 0;
+}
+
+/* Checkboxes and radios: GHL ships these at browser-default size, which is
+   below the 44px touch target recommendation on mobile */
+.hl_form-builder input[type="checkbox"],
+.hl_form-builder input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  accent-color: var(--nw-blue);
+  margin: 0 10px 0 0;
+}
+
+.hl_form-builder .checkbox-item,
+.hl_form-builder .radio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--nw-line);
+  border-radius: var(--nw-radius);
+  margin: 0 0 8px;
+  cursor: pointer;
+}
+.hl_form-builder .checkbox-item:hover,
+.hl_form-builder .radio-item:hover { border-color: var(--nw-blue); }
+
+/* Consent / fine print under the form */
+.hl_form-builder .form-builder--item.disclaimer label {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--nw-muted);
+  line-height: 1.5;
+}
+
+/* Submit button */
+.hl_form-builder button[type="submit"],
+.ghl-form button[type="submit"],
+.form-builder--submit {
+  width: 100%;
+  padding: 16px 24px;
+  font: 700 17px/1.2 var(--nw-font);
+  color: #fff;
+  background: var(--nw-blue);
+  border: 0;
+  border-radius: var(--nw-radius);
+  cursor: pointer;
+  transition: background .15s, transform .08s;
+}
+.hl_form-builder button[type="submit"]:hover,
+.form-builder--submit:hover { background: var(--nw-blue-d); }
+.hl_form-builder button[type="submit"]:active { transform: translateY(1px); }
+
+/* Submitting state, set by the script in ghl/js/ghl-attribution-and-forms.js */
+.hl_form-builder button[type="submit"][disabled] { opacity: .65; cursor: progress; }
+
+/* --------------------------------------------------------------------------
+   2. SURVEYS
+   Same input styling plus the step progress bar, which GHL renders as a
+   plain div with an inline width percentage.
+   -------------------------------------------------------------------------- */
+
+.survey-container { font-family: var(--nw-font); }
+
+.survey-container .progress-bar,
+.survey-container .hl-survey-progress {
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 0 0 24px;
+}
+.survey-container .progress-bar > div,
+.survey-container .hl-survey-progress > div {
+  height: 100%;
+  background: var(--nw-blue);
+  border-radius: 99px;
+  transition: width .3s ease;
+}
+
+.survey-container .slide-buttons { display: flex; gap: 12px; }
+.survey-container .btn-back {
+  flex: 0 0 auto;
+  background: none;
+  color: var(--nw-muted);
+  border: 1.5px solid var(--nw-line);
+  border-radius: var(--nw-radius);
+  padding: 14px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.survey-container .btn-next { flex: 1; }
+
+/* --------------------------------------------------------------------------
+   3. CALENDAR / BOOKING WIDGET
+   -------------------------------------------------------------------------- */
+
+#booking-widget,
+.calendar-picker { font-family: var(--nw-font); }
+
+.calendar-picker .slot,
+#booking-widget .time-slot {
+  border: 1.5px solid var(--nw-line);
+  background: #fff;
+  color: var(--nw-navy);
+  font: 600 14px/1 var(--nw-font);
+  font-variant-numeric: tabular-nums;
+  padding: 12px 6px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: border-color .12s, background .12s, color .12s;
+}
+.calendar-picker .slot:hover,
+#booking-widget .time-slot:hover { border-color: var(--nw-blue); background: #F4F8FD; }
+
+.calendar-picker .slot.selected,
+#booking-widget .time-slot.selected,
+#booking-widget .time-slot[aria-pressed="true"] {
+  background: var(--nw-blue);
+  border-color: var(--nw-blue);
+  color: #fff;
+}
+
+.calendar-picker .slot[disabled],
+#booking-widget .time-slot.unavailable {
+  opacity: .32;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  background: #F8FAFC;
+}
+
+/* The timezone line is the single highest-value element on a booking page
+   and GHL renders it at 11px grey. Make it readable. */
+#booking-widget .timezone-selector,
+.calendar-picker .tz-label {
+  font-size: 13px;
+  color: var(--nw-ink);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4. ORDER FORM
+   -------------------------------------------------------------------------- */
+
+.order-form .product-item,
+.payment-section .product-item {
+  border: 1.5px solid var(--nw-line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0 0 10px;
+}
+.order-form .product-item.selected { border-color: var(--nw-blue); background: #F4F8FD; }
+
+.order-form .order-summary {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px;
+}
+.order-form .order-summary .total {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--nw-navy);
+  border-top: 1px solid #E2E8F0;
+  margin: 12px 0 0;
+  padding: 12px 0 0;
+}
+
+/* Trust row under the pay button */
+.order-form .secure-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--nw-muted);
+  margin: 14px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. GLOBAL FIXES
+   Small things that cost conversions on every GHL funnel out of the box.
+   -------------------------------------------------------------------------- */
+
+/* GHL sections add horizontal padding at desktop only; phones get edge-to-edge
+   text without this */
+@media (max-width: 640px) {
+  .c-section > .c-row,
+  .c-column { padding-left: 18px !important; padding-right: 18px !important; }
+
+  /* Stacked buttons are easier to hit than a side-by-side pair under 640px */
+  .hl_form-builder button[type="submit"] { padding: 17px 20px; font-size: 17px; }
+}
+
+/* Sticky mobile CTA: add class nw-sticky-cta to a one-button row */
+.nw-sticky-cta {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  background: rgba(255, 255, 255, .97);
+  border-top: 1px solid #E2E8F0;
+  box-shadow: 0 -6px 22px rgba(10, 31, 68, .12);
+  padding: 10px 16px;
+}
+@media (min-width: 641px) { .nw-sticky-cta { display: none; } }
+
+/* Respect reduced-motion preferences across every animated element above */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Hide the GHL footer badge on white-label funnels (agency plan only) */
+.ghl-footer-badge, #ghl-badge { display: none !important; }
