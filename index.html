@@ -174,6 +174,20 @@ pre{margin:0;padding:18px;overflow:auto;max-height:520px;color:var(--code-text);
 .pick .pick-tag.ghl2{color:#9d174d;background:#fce7f3}
 .pick .pick-tag.ghl3{color:#115e59;background:#ccfbf1}
 .ghl-note{max-width:760px;margin:26px auto 0;text-align:center;font-size:14px;color:var(--muted)}
+.ampx{display:grid;grid-template-columns:1fr 1.25fr;gap:20px;align-items:stretch;margin:0 0 22px}
+.amp-cta{display:flex;align-items:center;gap:18px;text-decoration:none;color:inherit;
+  background:var(--card);border:1.5px solid var(--brand);border-radius:16px;padding:24px;
+  box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.amp-cta:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(16,24,40,.16)}
+.amp-run{flex:none;width:54px;height:54px;border-radius:50%;background:var(--brand);color:#fff;
+  display:grid;place-items:center;font-size:19px;padding-left:4px}
+.amp-cta b{display:block;font-size:17px;margin:0 0 4px}
+.amp-cta span span{font-size:14px;color:var(--muted);line-height:1.5}
+.amp-pts{display:grid;gap:10px}
+.amp-pts div{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 18px}
+.amp-pts b{display:block;font-size:14.5px;margin:0 0 2px}
+.amp-pts span{font-size:13.5px;color:var(--muted);line-height:1.5}
+@media (max-width:860px){.ampx{grid-template-columns:1fr}}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:500}
 .chip svg{width:14px;height:14px;color:var(--ok)}
 
@@ -256,7 +270,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container nav-in">
     <a href="#top" class="logo" aria-label="Faisal Irfan, home"><span class="logo-mark">FI</span><span>Faisal Irfan</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
+      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
@@ -270,7 +284,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -1940,6 +1954,940 @@ WHERE e.rn = 1</code></pre></div>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Dark mode</span>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Images-off safe CTAs</span>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Accessible markup</span>
+    </div>
+  </div>
+</section>
+
+<section id="ampscript" class="alt">
+  <div class="container">
+    <div class="eyebrow">Live AMPscript</div>
+    <h2>One template, four subscribers, running in your browser</h2>
+    <p class="sub">Most portfolios show you an email. This one shows you the logic deciding what each subscriber receives. Pick a person and the AMPscript is parsed and executed live against their Data Extension rows &mdash; greeting, course, urgency banner, call to action and fee all change because the code decided they should. No Marketing Cloud login, nothing pre-rendered.</p>
+
+    <div class="ampx">
+      <a class="amp-cta" href="sfmc/ampscript/dynamic-demo.html" target="_blank" rel="noopener">
+        <span class="amp-run">&#9654;</span>
+        <span><b>Open the live demo</b><span>Four subscribers &middot; resolved variables &middot; the reasoning behind every branch</span></span>
+      </a>
+      <div class="amp-pts">
+        <div><b>Fallback on every lookup</b><span>A missing row or blank attribute can never render &ldquo;Hi ,&rdquo; or an empty course name.</span></div>
+        <div><b>Branching you can see</b><span>Urgency tiers, engagement segments and returning-student blocks, each shown with the value that triggered it.</span></div>
+        <div><b>A 400-line interpreter</b><span>Dependency-free JavaScript that parses and evaluates the AMPscript subset, so personalisation logic is reviewable before a send.</span></div>
+      </div>
+    </div>
+
+    <div class="checks">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>AMPscript</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Data Extension lookups</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Conditional content</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Subscriber attributes</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Suppression &amp; segmentation</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Tracked, UTM-tagged CTAs</span>
+    </div>
+  </div>
+</section>
+
+<section id="ampscript-code">
+  <div class="container">
+    <div class="eyebrow">The code</div>
+    <h2>Patterns, data and the interpreter</h2>
+    <p class="sub">The personalisation block from the demo, the pattern library behind how I write AMPscript, the audience query that feeds it, and the interpreter that makes the whole thing reviewable.</p>
+    <div class="work">
+      <div class="tabs" role="tablist" aria-label="AMPscript code samples">
+        <button class="tab" role="tab" id="tab-amptpl" aria-selected="true" aria-controls="panel-amptpl" tabindex="0"><b>Personalisation block</b><span>The AMPscript from the live demo</span></button>
+        <button class="tab" role="tab" id="tab-amppat" aria-selected="false" aria-controls="panel-amppat" tabindex="-1"><b>AMPscript patterns</b><span>10 production patterns &middot; pre-send checklist</span></button>
+        <button class="tab" role="tab" id="tab-ampsql" aria-selected="false" aria-controls="panel-ampsql" tabindex="-1"><b>Audience &amp; suppression SQL</b><span>Attributes, suppression, send fatigue</span></button>
+        <button class="tab" role="tab" id="tab-ampeng" aria-selected="false" aria-controls="panel-ampeng" tabindex="-1"><b>The interpreter</b><span>Lexer, parser, evaluator</span></button>
+      </div>
+      <div>
+        <div class="panel" role="tabpanel" id="panel-amptpl" aria-labelledby="tab-amptpl">
+          <div class="panel-desc"><ul><li>Every lookup has a fallback written to read as a complete sentence, so no send can render an empty value</li><li>RowCount guards every Row() call &mdash; calling Row() on an empty set throws and kills the whole send</li><li>Urgency tier and engagement segment drive the banner, the subject and the call to action from one source of truth</li><li>Tracked CTA built once with URLEncode and UTM parameters</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/ampscript/template.amp</span><button class="copy" type="button" data-target="code-amptpl">Copy</button></div><pre tabindex="0"><code id="code-amptpl">%%[
+/*
+  ==========================================================================
+  NORTHWIND LEARNING | ENROLMENT REMINDER — AMPSCRIPT PERSONALISATION BLOCK
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  One template, every subscriber. The rules below decide what each person
+  sees, and every lookup has a fallback so no send can render an empty value.
+
+  Data Extensions
+    Course_Enquiries   SubscriberKey, CourseName, CourseCode, Fee, EnquiryDate
+    Term_Config        TermName, CloseDate, IsCurrent
+    Student_Status     SubscriberKey, IsReturning, EngagementScore
+  ==========================================================================
+*/
+
+/* --- 1. Greeting. Never render &quot;Hi ,&quot; --- */
+SET @firstName = AttributeValue(&quot;FirstName&quot;)
+IF Empty(@firstName) THEN
+  SET @firstName = &quot;there&quot;
+ELSE
+  SET @firstName = ProperCase(Trim(@firstName))
+ENDIF
+
+/* --- 2. Most recent enquiry, with a neutral fallback --- */
+SET @rows = LookupOrderedRows(&quot;Course_Enquiries&quot;, 1, &quot;EnquiryDate DESC&quot;, &quot;SubscriberKey&quot;, _subscriberkey)
+IF RowCount(@rows) &gt; 0 THEN
+  SET @row        = Row(@rows, 1)
+  SET @courseName = Field(@row, &quot;CourseName&quot;)
+  SET @courseCode = Field(@row, &quot;CourseCode&quot;)
+  SET @fee        = Field(@row, &quot;Fee&quot;)
+  SET @hasEnquiry = true
+ELSE
+  SET @courseName = &quot;your chosen course&quot;
+  SET @courseCode = &quot;GENERAL&quot;
+  SET @fee        = 0
+  SET @hasEnquiry = false
+ENDIF
+
+/* --- 3. Term and deadline --- */
+SET @termName = Lookup(&quot;Term_Config&quot;, &quot;TermName&quot;,  &quot;IsCurrent&quot;, &quot;true&quot;)
+SET @closeRaw = Lookup(&quot;Term_Config&quot;, &quot;CloseDate&quot;, &quot;IsCurrent&quot;, &quot;true&quot;)
+IF Empty(@termName) THEN SET @termName = &quot;the upcoming term&quot; ENDIF
+IF Empty(@closeRaw) THEN
+  SET @closeDate = &quot;soon&quot;
+  SET @daysLeft  = 999
+ELSE
+  SET @closeDate = FormatDate(@closeRaw, &quot;d MMMM yyyy&quot;)
+  SET @daysLeft  = DateDiff(Now(), @closeRaw, &quot;D&quot;)
+ENDIF
+
+/* --- 4. Urgency tier drives the banner and the subject --- */
+IF @daysLeft &lt;= 7 THEN
+  SET @urgency  = &quot;closing&quot;
+  SET @banner   = Concat(&quot;Applications close in &quot;, @daysLeft, &quot; days&quot;)
+ELSEIF @daysLeft &lt;= 30 THEN
+  SET @urgency  = &quot;soon&quot;
+  SET @banner   = Concat(&quot;Applications close on &quot;, @closeDate)
+ELSE
+  SET @urgency  = &quot;open&quot;
+  SET @banner   = Concat(&quot;Enrolments are open for &quot;, @termName)
+ENDIF
+
+/* --- 5. Engagement score decides the call to action --- */
+SET @score = Lookup(&quot;Student_Status&quot;, &quot;EngagementScore&quot;, &quot;SubscriberKey&quot;, _subscriberkey)
+IF Empty(@score) THEN SET @score = 0 ENDIF
+
+IF @score &gt;= 40 THEN
+  SET @segment = &quot;Hot&quot;
+  SET @ctaText = &quot;Finish your application&quot;
+  SET @ctaPath = &quot;/apply&quot;
+ELSEIF @score &gt;= 20 THEN
+  SET @segment = &quot;Warm&quot;
+  SET @ctaText = &quot;Talk to an advisor&quot;
+  SET @ctaPath = &quot;/advisor&quot;
+ELSE
+  SET @segment = &quot;Cold&quot;
+  SET @ctaText = &quot;Explore the course&quot;
+  SET @ctaPath = &quot;/courses&quot;
+ENDIF
+
+/* --- 6. Returning students skip the intro block --- */
+SET @isReturning = Lookup(&quot;Student_Status&quot;, &quot;IsReturning&quot;, &quot;SubscriberKey&quot;, _subscriberkey)
+
+/* --- 7. Tracked CTA with UTM parameters --- */
+SET @ctaUrl = Concat(&quot;https://example.edu&quot;, @ctaPath,
+                     &quot;?course=&quot;, URLEncode(@courseCode),
+                     &quot;&amp;utm_source=sfmc&amp;utm_medium=email&amp;utm_campaign=enrolment_reminder&quot;)
+
+/* --- 8. Fee, formatted for display --- */
+IF @fee &gt; 0 THEN
+  SET @feeDisplay = FormatNumber(@fee, &quot;C&quot;)
+ELSE
+  SET @feeDisplay = &quot;&quot;
+ENDIF
+]%%
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/ampscript/template.amp" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-amppat" aria-labelledby="tab-amppat" hidden>
+          <div class="panel-desc"><ul><li>Ten patterns with the reasoning: each one exists because something went wrong in a real send</li><li>Covers fallbacks, ordered lookups, date locales, loops, boolean handling and failing soft on CloudPages</li><li>Ends with the pre-send checklist I run before anything goes out</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/ampscript/patterns.md</span><button class="copy" type="button" data-target="code-amppat">Copy</button></div><pre tabindex="0"><code id="code-amppat"># AMPscript patterns I ship
+
+**Author:** Faisal Irfan · [github.com/faisal8143](https://github.com/faisal8143)
+**Brand:** Northwind Learning (fictional, for demonstration)
+
+Production patterns, written out with the reasoning. Every one of these exists
+because something went wrong in a real send once.
+
+---
+
+## 1. No lookup without a fallback
+
+The single most common cause of an embarrassing send is a blank personalisation
+value. Every `Lookup` gets a default, and the default is written to read as a
+complete sentence.
+
+```
+SET @firstName = AttributeValue(&quot;FirstName&quot;)
+IF Empty(@firstName) THEN
+  SET @firstName = &quot;there&quot;
+ELSE
+  SET @firstName = ProperCase(Trim(@firstName))
+ENDIF
+```
+
+`Trim` before `ProperCase`, not after: a leading space makes `ProperCase`
+capitalise the space and leave the first letter lowercase.
+
+---
+
+## 2. Most recent row, not just any row
+
+`LookupRows` returns rows in no guaranteed order. If you want the latest
+enquiry, say so.
+
+```
+SET @rows = LookupOrderedRows(&quot;Course_Enquiries&quot;, 1, &quot;EnquiryDate DESC&quot;,
+                              &quot;SubscriberKey&quot;, _subscriberkey)
+IF RowCount(@rows) &gt; 0 THEN
+  SET @row  = Row(@rows, 1)
+  SET @name = Field(@row, &quot;CourseName&quot;)
+ELSE
+  SET @name = &quot;your chosen course&quot;
+ENDIF
+```
+
+Always guard with `RowCount` before `Row`. Calling `Row` on an empty set
+throws and kills the whole send, not just that subscriber&#x27;s content block.
+
+---
+
+## 3. Dates: format at the edge, compute in the middle
+
+Store and compare raw dates. Format only at the point of output, and give the
+locale explicitly so an Australian send does not render US dates.
+
+```
+SET @closeRaw  = Lookup(&quot;Term_Config&quot;, &quot;CloseDate&quot;, &quot;IsCurrent&quot;, &quot;true&quot;)
+SET @daysLeft  = DateDiff(Now(), @closeRaw, &quot;D&quot;)
+SET @closeDate = FormatDate(@closeRaw, &quot;d MMMM yyyy&quot;, &quot;&quot;, &quot;en-AU&quot;)
+```
+
+`DateDiff(Now(), …)` counts from the current timestamp, so a deadline stored
+at midnight reads one day short. Store deadlines at end of day.
+
+---
+
+## 4. Tiered urgency instead of one static line
+
+```
+IF @daysLeft &lt;= 7 THEN
+  SET @urgency = &quot;closing&quot;
+  SET @banner  = Concat(&quot;Applications close in &quot;, @daysLeft, &quot; days&quot;)
+ELSEIF @daysLeft &lt;= 30 THEN
+  SET @urgency = &quot;soon&quot;
+  SET @banner  = Concat(&quot;Applications close on &quot;, @closeDate)
+ELSE
+  SET @urgency = &quot;open&quot;
+  SET @banner  = Concat(&quot;Enrolments are open for &quot;, @termName)
+ENDIF
+```
+
+The tier name also becomes a CSS class on the banner, so the colour and the
+copy can never disagree with each other.
+
+---
+
+## 5. Conditional HTML, not conditional variables
+
+Gate the markup itself. An `IF` opened in one block closes in a later one, and
+everything between them is what gets conditionally rendered.
+
+```
+%%[ IF @isReturning == &quot;true&quot; THEN ]%%
+  &lt;div class=&quot;welcome-back&quot;&gt;Your credits carry over automatically.&lt;/div&gt;
+%%[ ELSE ]%%
+  &lt;p&gt;New to Northwind? Here is how your first term works.&lt;/p&gt;
+%%[ ENDIF ]%%
+```
+
+Building two strings in variables and outputting one works, but it puts HTML
+inside AMPscript where no one will find it to edit later.
+
+---
+
+## 6. Loop a row set for line items
+
+```
+SET @items = LookupRows(&quot;Cart_Items&quot;, &quot;SubscriberKey&quot;, _subscriberkey)
+SET @count = RowCount(@items)
+
+IF @count &gt; 0 THEN
+  FOR @i = 1 TO @count DO
+    SET @item = Row(@items, @i)
+%%[ ]%%
+    &lt;tr&gt;
+      &lt;td&gt;%%=v(Field(@item, &quot;ProductName&quot;))=%%&lt;/td&gt;
+      &lt;td align=&quot;right&quot;&gt;%%=FormatNumber(Field(@item, &quot;Price&quot;), &quot;C&quot;)=%%&lt;/td&gt;
+    &lt;/tr&gt;
+%%[
+  NEXT @i
+ENDIF
+]%%
+```
+
+Cap the loop. A data error that returns 40,000 rows will otherwise time the
+send out rather than fail loudly.
+
+---
+
+## 7. Tracked links, built once
+
+```
+SET @ctaUrl = Concat(&quot;https://example.edu/apply&quot;,
+                     &quot;?course=&quot;, URLEncode(@courseCode, 1, 1),
+                     &quot;&amp;utm_source=sfmc&amp;utm_medium=email&quot;,
+                     &quot;&amp;utm_campaign=&quot;, URLEncode(emailname_, 1, 1))
+```
+
+Then in the HTML: `href=&quot;%%=RedirectTo(@ctaUrl)=%%&quot;` with an `alias` attribute
+so the click report reads as link names, not a list of identical URLs.
+
+`URLEncode(value, 1, 1)` — the second argument encodes reserved characters, the
+third encodes the `%` sign itself. Miss them and a course code with a space
+silently breaks the landing page.
+
+---
+
+## 8. Treat booleans as strings
+
+Data Extension boolean fields come back as the strings `&quot;True&quot;`/`&quot;False&quot;`, and
+the casing varies by how the row was written.
+
+```
+SET @isReturning = Lowercase(Lookup(&quot;Student_Status&quot;, &quot;IsReturning&quot;,
+                                    &quot;SubscriberKey&quot;, _subscriberkey))
+IF @isReturning == &quot;true&quot; THEN
+```
+
+Comparing against the unquoted `true` keyword works sometimes and fails
+silently the rest of the time. Lowercase it and compare against a string.
+
+---
+
+## 9. Fail soft, log hard
+
+In a CloudPage, wrap anything that touches data so a visitor never sees a stack
+trace, and write the error somewhere you will actually look.
+
+```
+%%[
+SET @ok = true
+SET @email = RequestParameter(&quot;email&quot;)
+IF Empty(@email) OR IndexOf(@email, &quot;@&quot;) == 0 THEN
+  SET @ok = false
+  SET @msg = &quot;Please enter a valid email address.&quot;
+ENDIF
+
+IF @ok == true THEN
+  UpsertData(&quot;Subscriber_Preferences&quot;, 1, &quot;SubscriberKey&quot;, @email,
+             &quot;UpdatedAt&quot;, Now())
+ENDIF
+]%%
+```
+
+---
+
+## 10. Make the send self-documenting
+
+A one-line comment block at the top of every template, naming the Data
+Extensions it reads and who wrote it, saves the next developer twenty minutes.
+The footer of a test send carrying `segment`, `score` and the key variable
+values turns QA from guesswork into reading.
+
+```
+&lt;span style=&quot;color:#94A3B8&quot;&gt;
+  Segment: %%=v(@segment)=%% · score %%=v(@score)=%% · days to close %%=v(@daysLeft)=%%
+&lt;/span&gt;
+```
+
+Strip it with an `IF` on a `IsTest` attribute rather than by hand, because by
+hand means it ships to production once.
+
+---
+
+## What I check before any send goes out
+
+| Check | Why |
+| --- | --- |
+| Every `Lookup` has a fallback | Blank personalisation is the most visible failure |
+| `RowCount` guards every `Row` | An empty set throws and kills the send |
+| Dates formatted with an explicit locale | Prevents US dates in an AU send |
+| Booleans lowercased before comparison | DE booleans arrive as inconsistent strings |
+| Loops capped | A data error should not time out the send |
+| Test send with the debug footer | Confirms the logic, not just the rendering |
+| Litmus across Outlook, Gmail, Apple Mail, dark mode | Rendering is separate from logic |
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/ampscript/patterns.md" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-ampsql" aria-labelledby="tab-ampsql" hidden>
+          <div class="panel-desc"><ul><li>Builds the sendable audience and applies every suppression rule in one pass</li><li>Keeps the suppression reason on the row, so a drop in audience size is explainable without re-running anything</li><li>Includes send-fatigue suppression: anyone who already got three sends in seven days</li><li>Window function picks the latest enquiry per subscriber rather than an arbitrary row</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/sql/subscriber-attributes-suppression.sql</span><button class="copy" type="button" data-target="code-ampsql">Copy</button></div><pre tabindex="0"><code id="code-ampsql">/*
+  ==========================================================================
+  NORTHWIND LEARNING | SUBSCRIBER ATTRIBUTES + SUPPRESSION BUILD
+  Author: Faisal Irfan | github.com/faisal8143
+  ==========================================================================
+  Automation Studio query. Builds the sendable audience for a campaign by
+  combining subscriber attributes with every suppression rule in one pass.
+
+  Source      Course_Enquiries, Student_Status, Subscriber_Preferences,
+              Suppression_Manual, _Subscribers, _Bounce, _Unsubscribe, _Sent
+  Target      Campaign_Audience (Overwrite)
+  Primary key SubscriberKey
+
+  Why one query rather than a chain of filters: a filter chain hides WHY a
+  subscriber was dropped. This keeps the reason on the row, so the count can
+  be explained to a client without re-running anything.
+*/
+
+WITH latest_enquiry AS (
+    /* One row per subscriber: the most recent enquiry only */
+    SELECT
+        SubscriberKey,
+        CourseCode,
+        CourseName,
+        Fee,
+        EnquiryDate
+    FROM (
+        SELECT
+            e.*,
+            ROW_NUMBER() OVER (PARTITION BY e.SubscriberKey
+                               ORDER BY e.EnquiryDate DESC) AS rn
+        FROM Course_Enquiries e
+        WHERE e.EmailAddress LIKE &#x27;%_@_%._%&#x27;
+    ) ranked
+    WHERE rn = 1
+),
+
+fatigue AS (
+    /* Anyone who already received 3+ sends in the last 7 days */
+    SELECT SubscriberKey, COUNT(*) AS Sends7d
+    FROM _Sent
+    WHERE EventDate &gt;= DATEADD(DAY, -7, GETDATE())
+    GROUP BY SubscriberKey
+    HAVING COUNT(*) &gt;= 3
+),
+
+suppression AS (
+    /* Every reason to exclude someone, unioned, with the reason kept */
+    SELECT SubscriberKey, &#x27;Hard bounce&#x27;        AS Reason
+    FROM _Bounce
+    WHERE BounceCategory = &#x27;Hard bounce&#x27;
+      AND EventDate &gt;= DATEADD(DAY, -180, GETDATE())
+
+    UNION
+    SELECT SubscriberKey, &#x27;Unsubscribed&#x27;
+    FROM _Unsubscribe
+
+    UNION
+    SELECT SubscriberKey, &#x27;Opted out of this topic&#x27;
+    FROM Subscriber_Preferences
+    WHERE News = &#x27;false&#x27;
+
+    UNION
+    SELECT SubscriberKey, &#x27;Manual suppression&#x27;
+    FROM Suppression_Manual
+
+    UNION
+    SELECT SubscriberKey, &#x27;Send fatigue&#x27;
+    FROM fatigue
+)
+
+SELECT
+    s.SubscriberKey,
+    s.EmailAddress,
+
+    /* Attributes the email personalises on */
+    le.CourseCode,
+    le.CourseName,
+    le.Fee,
+    le.EnquiryDate,
+    ISNULL(st.EngagementScore, 0)                        AS EngagementScore,
+    ISNULL(st.IsReturning, &#x27;false&#x27;)                      AS IsReturning,
+
+    CASE
+        WHEN ISNULL(st.EngagementScore, 0) &gt;= 40 THEN &#x27;Hot&#x27;
+        WHEN ISNULL(st.EngagementScore, 0) &gt;= 20 THEN &#x27;Warm&#x27;
+        ELSE &#x27;Cold&#x27;
+    END                                                  AS Segment,
+
+    /* A subscriber with no enquiry row still gets the generic version */
+    CASE WHEN le.SubscriberKey IS NULL THEN &#x27;false&#x27; ELSE &#x27;true&#x27; END AS HasEnquiry,
+
+    GETDATE()                                            AS BuiltAt
+
+FROM _Subscribers s
+LEFT JOIN latest_enquiry le ON le.SubscriberKey = s.SubscriberKey
+LEFT JOIN Student_Status   st ON st.SubscriberKey = s.SubscriberKey
+WHERE s.Status = &#x27;active&#x27;
+  AND NOT EXISTS (SELECT 1 FROM suppression x WHERE x.SubscriberKey = s.SubscriberKey)
+
+/*
+  --------------------------------------------------------------------------
+  Companion query, same sources, target Campaign_Suppressed (Overwrite).
+  Run it alongside the build so the dropped count is always explainable:
+
+    SELECT x.SubscriberKey, x.Reason, GETDATE() AS BuiltAt
+    FROM suppression x
+    INNER JOIN _Subscribers s ON s.SubscriberKey = x.SubscriberKey
+
+  &quot;Why is the audience 4,000 lower than last month&quot; then takes one query,
+  not an afternoon.
+  --------------------------------------------------------------------------
+*/
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/sql/subscriber-attributes-suppression.sql" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-ampeng" aria-labelledby="tab-ampeng" hidden>
+          <div class="panel-desc"><ul><li>Tokenizer, recursive-descent parser and evaluator for the AMPscript subset, with no dependencies</li><li>Flattens the template into one program so an IF opened in one block can gate the HTML before its ENDIF</li><li>Implements the documented behaviour of the lookup, string, date and number functions closely enough to preview real personalisation logic</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/ampscript/engine.js</span><button class="copy" type="button" data-target="code-ampeng">Copy</button></div><pre tabindex="0"><code id="code-ampeng">/*
+  ==========================================================================
+  MINI AMPSCRIPT EVALUATOR  (browser, dependency-free)
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Evaluates the subset of AMPscript used by the demo template so the page can
+  render a real Marketing Cloud email against different subscriber rows
+  without a Marketing Cloud login.
+
+  Supported
+    blocks        %%[ ... ]%%            statement block
+    inline        %%=v(@x)=%%            output an expression
+    statements    SET, IF / ELSEIF / ELSE / ENDIF, FOR / NEXT
+    operators     == != &lt;&gt; &gt; &gt;= &lt; &lt;= AND OR NOT, string concat via Concat()
+    literals      &quot;double&quot; &#x27;single&#x27; numbers true/false
+    functions     Lookup, LookupRows, LookupOrderedRows, Row, Field, RowCount,
+                  Empty, Trim, ProperCase, Uppercase, Lowercase, Concat,
+                  Length, Substring, IndexOf, Replace, IIF,
+                  FormatDate, FormatNumber, Now, DateDiff, DateAdd,
+                  Add, Subtract, Multiply, Divide, Mod, AttributeValue,
+                  URLEncode, RedirectTo, ProperCase
+
+  Not a Marketing Cloud emulator. It covers the documented behaviour of these
+  functions closely enough to preview personalisation logic, including the
+  fallbacks that decide what a subscriber actually sees.
+  ==========================================================================
+*/
+(function (global) {
+  &#x27;use strict&#x27;;
+
+  /* ---------------------------------------------------------------- lexer */
+  function tokenize(src) {
+    var t = [], i = 0, n = src.length;
+    var two = [&#x27;==&#x27;, &#x27;!=&#x27;, &#x27;&lt;&gt;&#x27;, &#x27;&gt;=&#x27;, &#x27;&lt;=&#x27;];
+    while (i &lt; n) {
+      var c = src[i];
+      if (/\s/.test(c)) { i++; continue; }
+      if (c === &#x27;/&#x27; &amp;&amp; src[i + 1] === &#x27;*&#x27;) { var e = src.indexOf(&#x27;*/&#x27;, i); i = e === -1 ? n : e + 2; continue; }
+      if (c === &#x27;&quot;&#x27; || c === &quot;&#x27;&quot;) {
+        var q = c, s = &#x27;&#x27;; i++;
+        while (i &lt; n &amp;&amp; src[i] !== q) { s += src[i++]; }
+        i++; t.push({ k: &#x27;str&#x27;, v: s }); continue;
+      }
+      if (/[0-9]/.test(c)) {
+        var num = &#x27;&#x27;; while (i &lt; n &amp;&amp; /[0-9.]/.test(src[i])) num += src[i++];
+        t.push({ k: &#x27;num&#x27;, v: parseFloat(num) }); continue;
+      }
+      if (c === &#x27;@&#x27; || /[A-Za-z_]/.test(c)) {
+        var w = &#x27;&#x27;; if (c === &#x27;@&#x27;) { w = &#x27;@&#x27;; i++; }
+        while (i &lt; n &amp;&amp; /[A-Za-z0-9_]/.test(src[i])) w += src[i++];
+        t.push({ k: w[0] === &#x27;@&#x27; ? &#x27;var&#x27; : &#x27;word&#x27;, v: w }); continue;
+      }
+      var pair = src.substr(i, 2);
+      if (two.indexOf(pair) !== -1) { t.push({ k: &#x27;op&#x27;, v: pair }); i += 2; continue; }
+      t.push({ k: &#x27;op&#x27;, v: c }); i++;
+    }
+    return t;
+  }
+
+  /* --------------------------------------------------------------- parser */
+  function Parser(tokens) { this.t = tokens; this.i = 0; }
+  Parser.prototype.peek = function (o) { return this.t[this.i + (o || 0)]; };
+  Parser.prototype.next = function () { return this.t[this.i++]; };
+  Parser.prototype.isWord = function (w) {
+    var p = this.peek();
+    return p &amp;&amp; p.k === &#x27;word&#x27; &amp;&amp; p.v.toUpperCase() === w;
+  };
+  Parser.prototype.eatOp = function (v) {
+    var p = this.peek();
+    if (p &amp;&amp; p.k === &#x27;op&#x27; &amp;&amp; p.v === v) { this.i++; return true; }
+    return false;
+  };
+
+  Parser.prototype.parseBlock = function (stops) {
+    var out = [];
+    while (this.i &lt; this.t.length) {
+      var p = this.peek();
+      if (p.k === &#x27;word&#x27; &amp;&amp; stops.indexOf(p.v.toUpperCase()) !== -1) break;
+      out.push(this.parseStatement());
+    }
+    return out;
+  };
+
+  Parser.prototype.parseStatement = function () {
+    var p = this.peek();
+    if (p.k === &#x27;word&#x27;) {
+      var w = p.v.toUpperCase();
+      if (w === &#x27;SET&#x27;) {
+        this.next();
+        var target = this.next();            // @var
+        this.eatOp(&#x27;=&#x27;);
+        return { t: &#x27;set&#x27;, name: target.v, expr: this.parseExpr() };
+      }
+      if (w === &#x27;IF&#x27;) {
+        this.next();
+        var branches = [], cond = this.parseExpr();
+        if (this.isWord(&#x27;THEN&#x27;)) this.next();
+        branches.push({ cond: cond, body: this.parseBlock([&#x27;ELSEIF&#x27;, &#x27;ELSE&#x27;, &#x27;ENDIF&#x27;]) });
+        while (this.isWord(&#x27;ELSEIF&#x27;)) {
+          this.next();
+          var c2 = this.parseExpr();
+          if (this.isWord(&#x27;THEN&#x27;)) this.next();
+          branches.push({ cond: c2, body: this.parseBlock([&#x27;ELSEIF&#x27;, &#x27;ELSE&#x27;, &#x27;ENDIF&#x27;]) });
+        }
+        var els = null;
+        if (this.isWord(&#x27;ELSE&#x27;)) { this.next(); els = this.parseBlock([&#x27;ENDIF&#x27;]); }
+        if (this.isWord(&#x27;ENDIF&#x27;)) this.next();
+        return { t: &#x27;if&#x27;, branches: branches, els: els };
+      }
+      if (w === &#x27;FOR&#x27;) {
+        this.next();
+        var v = this.next().v;
+        this.eatOp(&#x27;=&#x27;);
+        var from = this.parseExpr();
+        var dir = &#x27;TO&#x27;;
+        if (this.isWord(&#x27;TO&#x27;)) this.next(); else if (this.isWord(&#x27;DOWNTO&#x27;)) { this.next(); dir = &#x27;DOWNTO&#x27;; }
+        var to = this.parseExpr();
+        if (this.isWord(&#x27;DO&#x27;)) this.next();
+        var body = this.parseBlock([&#x27;NEXT&#x27;]);
+        if (this.isWord(&#x27;NEXT&#x27;)) { this.next(); if (this.peek() &amp;&amp; this.peek().k === &#x27;var&#x27;) this.next(); }
+        return { t: &#x27;for&#x27;, v: v, from: from, to: to, dir: dir, body: body };
+      }
+    }
+    return { t: &#x27;expr&#x27;, expr: this.parseExpr() };    // bare call, e.g. OutputLine
+  };
+
+  /* expressions: OR &lt; AND &lt; compare &lt; concat/add &lt; unary &lt; primary */
+  Parser.prototype.parseExpr = function () { return this.parseOr(); };
+  Parser.prototype.parseOr = function () {
+    var l = this.parseAnd();
+    while (this.isWord(&#x27;OR&#x27;)) { this.next(); l = { t: &#x27;bin&#x27;, op: &#x27;OR&#x27;, l: l, r: this.parseAnd() }; }
+    return l;
+  };
+  Parser.prototype.parseAnd = function () {
+    var l = this.parseCmp();
+    while (this.isWord(&#x27;AND&#x27;)) { this.next(); l = { t: &#x27;bin&#x27;, op: &#x27;AND&#x27;, l: l, r: this.parseCmp() }; }
+    return l;
+  };
+  Parser.prototype.parseCmp = function () {
+    var l = this.parseAdd(), p = this.peek();
+    while (p &amp;&amp; p.k === &#x27;op&#x27; &amp;&amp; [&#x27;==&#x27;, &#x27;!=&#x27;, &#x27;&lt;&gt;&#x27;, &#x27;&gt;&#x27;, &#x27;&gt;=&#x27;, &#x27;&lt;&#x27;, &#x27;&lt;=&#x27;].indexOf(p.v) !== -1) {
+      this.next();
+      l = { t: &#x27;bin&#x27;, op: p.v, l: l, r: this.parseAdd() };
+      p = this.peek();
+    }
+    return l;
+  };
+  Parser.prototype.parseAdd = function () {
+    var l = this.parseUnary(), p = this.peek();
+    while (p &amp;&amp; p.k === &#x27;op&#x27; &amp;&amp; (p.v === &#x27;+&#x27; || p.v === &#x27;-&#x27;)) {
+      this.next();
+      l = { t: &#x27;bin&#x27;, op: p.v, l: l, r: this.parseUnary() };
+      p = this.peek();
+    }
+    return l;
+  };
+  Parser.prototype.parseUnary = function () {
+    if (this.isWord(&#x27;NOT&#x27;)) { this.next(); return { t: &#x27;not&#x27;, e: this.parseUnary() }; }
+    return this.parsePrimary();
+  };
+  Parser.prototype.parsePrimary = function () {
+    var p = this.next();
+    if (!p) return { t: &#x27;lit&#x27;, v: &#x27;&#x27; };
+    if (p.k === &#x27;str&#x27;) return { t: &#x27;lit&#x27;, v: p.v };
+    if (p.k === &#x27;num&#x27;) return { t: &#x27;lit&#x27;, v: p.v };
+    if (p.k === &#x27;var&#x27;) return { t: &#x27;ref&#x27;, name: p.v };
+    if (p.k === &#x27;op&#x27; &amp;&amp; p.v === &#x27;(&#x27;) { var e = this.parseExpr(); this.eatOp(&#x27;)&#x27;); return e; }
+    if (p.k === &#x27;word&#x27;) {
+      var up = p.v.toUpperCase();
+      if (up === &#x27;TRUE&#x27;) return { t: &#x27;lit&#x27;, v: true };
+      if (up === &#x27;FALSE&#x27;) return { t: &#x27;lit&#x27;, v: false };
+      if (this.peek() &amp;&amp; this.peek().k === &#x27;op&#x27; &amp;&amp; this.peek().v === &#x27;(&#x27;) {
+        this.next();
+        var args = [];
+        if (!(this.peek() &amp;&amp; this.peek().k === &#x27;op&#x27; &amp;&amp; this.peek().v === &#x27;)&#x27;)) {
+          args.push(this.parseExpr());
+          while (this.eatOp(&#x27;,&#x27;)) args.push(this.parseExpr());
+        }
+        this.eatOp(&#x27;)&#x27;);
+        return { t: &#x27;call&#x27;, name: p.v, args: args };
+      }
+      return { t: &#x27;lit&#x27;, v: p.v };
+    }
+    return { t: &#x27;lit&#x27;, v: &#x27;&#x27; };
+  };
+
+  /* ------------------------------------------------------------ functions */
+  var MONTHS = [&#x27;January&#x27;,&#x27;February&#x27;,&#x27;March&#x27;,&#x27;April&#x27;,&#x27;May&#x27;,&#x27;June&#x27;,&#x27;July&#x27;,
+                &#x27;August&#x27;,&#x27;September&#x27;,&#x27;October&#x27;,&#x27;November&#x27;,&#x27;December&#x27;];
+
+  function toStr(v) { return v === null || v === undefined ? &#x27;&#x27; : String(v); }
+  function toNum(v) { var n = parseFloat(v); return isNaN(n) ? 0 : n; }
+  function truthy(v) {
+    if (v === true) return true;
+    if (v === false || v === null || v === undefined) return false;
+    var s = String(v).toLowerCase();
+    return !(s === &#x27;&#x27; || s === &#x27;false&#x27; || s === &#x27;0&#x27;);
+  }
+  function parseDate(v) {
+    if (v instanceof Date) return v;
+    var d = new Date(v);
+    return isNaN(d.getTime()) ? new Date() : d;
+  }
+  function fmtDate(d, pattern) {
+    d = parseDate(d);
+    var pad = function (x) { return x &lt; 10 ? &#x27;0&#x27; + x : &#x27;&#x27; + x; };
+    var map = {
+      &#x27;yyyy&#x27;: d.getFullYear(), &#x27;yy&#x27;: String(d.getFullYear()).slice(-2),
+      &#x27;MMMM&#x27;: MONTHS[d.getMonth()], &#x27;MMM&#x27;: MONTHS[d.getMonth()].slice(0, 3),
+      &#x27;MM&#x27;: pad(d.getMonth() + 1), &#x27;M&#x27;: d.getMonth() + 1,
+      &#x27;dddd&#x27;: [&#x27;Sunday&#x27;,&#x27;Monday&#x27;,&#x27;Tuesday&#x27;,&#x27;Wednesday&#x27;,&#x27;Thursday&#x27;,&#x27;Friday&#x27;,&#x27;Saturday&#x27;][d.getDay()],
+      &#x27;dd&#x27;: pad(d.getDate()), &#x27;d&#x27;: d.getDate(),
+      &#x27;HH&#x27;: pad(d.getHours()), &#x27;mm&#x27;: pad(d.getMinutes())
+    };
+    return String(pattern || &#x27;M/d/yyyy&#x27;).replace(
+      /yyyy|yy|MMMM|MMM|MM|M|dddd|dd|d|HH|mm/g, function (m) { return map[m]; });
+  }
+
+  function makeFns(ctx) {
+    var F = {};
+    F.lookup = function (de, col, k1, v1, k2, v2) {
+      var rows = F.lookuprows(de, k1, v1, k2, v2);
+      return rows.length ? toStr(rows[0][col]) : &#x27;&#x27;;
+    };
+    F.lookuprows = function (de, k1, v1, k2, v2) {
+      var tbl = ctx.data[de] || [];
+      return tbl.filter(function (r) {
+        if (k1 !== undefined &amp;&amp; String(r[k1]) !== String(v1)) return false;
+        if (k2 !== undefined &amp;&amp; String(r[k2]) !== String(v2)) return false;
+        return true;
+      });
+    };
+    F.lookuporderedrows = function (de, count, orderBy, k1, v1) {
+      var rows = F.lookuprows(de, k1, v1).slice();
+      if (orderBy) {
+        var parts = String(orderBy).trim().split(/\s+/);
+        var col = parts[0], desc = (parts[1] || &#x27;&#x27;).toUpperCase() === &#x27;DESC&#x27;;
+        rows.sort(function (a, b) {
+          var x = a[col], y = b[col];
+          if (x === y) return 0;
+          return (x &gt; y ? 1 : -1) * (desc ? -1 : 1);
+        });
+      }
+      return count &gt; 0 ? rows.slice(0, count) : rows;
+    };
+    F.row = function (rows, i) { return (rows || [])[(i || 1) - 1] || {}; };
+    F.field = function (row, name) { return row &amp;&amp; row[name] !== undefined ? row[name] : &#x27;&#x27;; };
+    F.rowcount = function (rows) { return (rows || []).length; };
+    F.empty = function (v) { return v === null || v === undefined || String(v) === &#x27;&#x27;; };
+    F.trim = function (v) { return toStr(v).trim(); };
+    F.propercase = function (v) {
+      return toStr(v).toLowerCase().replace(/(^|[\s&#x27;-])([a-z])/g, function (m, a, b) { return a + b.toUpperCase(); });
+    };
+    F.uppercase = function (v) { return toStr(v).toUpperCase(); };
+    F.lowercase = function (v) { return toStr(v).toLowerCase(); };
+    F.concat = function () { return [].map.call(arguments, toStr).join(&#x27;&#x27;); };
+    F.length = function (v) { return toStr(v).length; };
+    F.substring = function (v, start, len) {
+      var s = toStr(v), i = Math.max(0, (start || 1) - 1);
+      return len === undefined ? s.substring(i) : s.substr(i, len);
+    };
+    F.indexof = function (hay, needle) { return toStr(hay).indexOf(toStr(needle)) + 1; };
+    F.replace = function (s, a, b) { return toStr(s).split(toStr(a)).join(toStr(b)); };
+    F.iif = function (c, a, b) { return truthy(c) ? a : b; };
+    F.formatdate = function (d, pattern) { return fmtDate(d, pattern); };
+    F.formatnumber = function (v, pattern) {
+      var n = toNum(v), p = String(pattern || &#x27;&#x27;);
+      if (/^N0$/i.test(p)) return Math.round(n).toLocaleString(&#x27;en-US&#x27;);
+      if (/^N2$/i.test(p)) return n.toLocaleString(&#x27;en-US&#x27;, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (/^C$/i.test(p)) return &#x27;$&#x27; + n.toLocaleString(&#x27;en-US&#x27;, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (/^P/i.test(p)) return (n * 100).toFixed(0) + &#x27;%&#x27;;
+      return String(n);
+    };
+    F.now = function () { return ctx.now; };
+    F.datediff = function (a, b, part) {
+      var d1 = parseDate(a), d2 = parseDate(b), ms = d2 - d1;
+      var p = String(part || &#x27;D&#x27;).toUpperCase();
+      if (p === &#x27;Y&#x27;) return d2.getFullYear() - d1.getFullYear();
+      if (p === &#x27;M&#x27;) return (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth());
+      if (p === &#x27;H&#x27;) return Math.floor(ms / 3600000);
+      if (p === &#x27;MI&#x27;) return Math.floor(ms / 60000);
+      return Math.floor(ms / 86400000);
+    };
+    F.dateadd = function (d, amount, part) {
+      var x = new Date(parseDate(d).getTime()), p = String(part || &#x27;D&#x27;).toUpperCase(), a = toNum(amount);
+      if (p === &#x27;Y&#x27;) x.setFullYear(x.getFullYear() + a);
+      else if (p === &#x27;M&#x27;) x.setMonth(x.getMonth() + a);
+      else if (p === &#x27;H&#x27;) x.setHours(x.getHours() + a);
+      else x.setDate(x.getDate() + a);
+      return x;
+    };
+    F.add = function (a, b) { return toNum(a) + toNum(b); };
+    F.subtract = function (a, b) { return toNum(a) - toNum(b); };
+    F.multiply = function (a, b) { return toNum(a) * toNum(b); };
+    F.divide = function (a, b) { return toNum(b) === 0 ? 0 : toNum(a) / toNum(b); };
+    F.mod = function (a, b) { return toNum(b) === 0 ? 0 : toNum(a) % toNum(b); };
+    F.attributevalue = function (name) {
+      var v = ctx.subscriber[name];
+      return v === undefined ? &#x27;&#x27; : v;
+    };
+    F.urlencode = function (v) { return encodeURIComponent(toStr(v)); };
+    F.redirectto = function (v) { return toStr(v); };
+    return F;
+  }
+
+  /* ----------------------------------------------------------- evaluator */
+  function Interp(ctx) {
+    this.ctx = ctx;
+    this.vars = {};
+    this.fns = makeFns(ctx);
+    this.trace = [];
+  }
+  /* Keys are stored without the leading @ and lower-cased, so @FirstName,
+     @firstname and a later read of vars.firstname all reach the same slot. */
+  function vkey(name) { return String(name).replace(/^@/, &#x27;&#x27;).toLowerCase(); }
+
+  Interp.prototype.get = function (name) {
+    var v = this.vars[vkey(name)];
+    return v === undefined ? &#x27;&#x27; : v;
+  };
+  Interp.prototype.set = function (name, val) {
+    this.vars[vkey(name)] = val;
+    this.trace.push({ name: name, value: val });
+  };
+
+  Interp.prototype.evalExpr = function (n) {
+    switch (n.t) {
+      case &#x27;lit&#x27;: return n.v;
+      case &#x27;ref&#x27;: return this.get(n.name);
+      case &#x27;not&#x27;: return !truthy(this.evalExpr(n.e));
+      case &#x27;bin&#x27;: {
+        var op = n.op;
+        if (op === &#x27;AND&#x27;) return truthy(this.evalExpr(n.l)) &amp;&amp; truthy(this.evalExpr(n.r));
+        if (op === &#x27;OR&#x27;) return truthy(this.evalExpr(n.l)) || truthy(this.evalExpr(n.r));
+        var a = this.evalExpr(n.l), b = this.evalExpr(n.r);
+        switch (op) {
+          case &#x27;==&#x27;: return String(a) === String(b);
+          case &#x27;!=&#x27;: case &#x27;&lt;&gt;&#x27;: return String(a) !== String(b);
+          case &#x27;&gt;&#x27;: return toNum(a) &gt; toNum(b);
+          case &#x27;&gt;=&#x27;: return toNum(a) &gt;= toNum(b);
+          case &#x27;&lt;&#x27;: return toNum(a) &lt; toNum(b);
+          case &#x27;&lt;=&#x27;: return toNum(a) &lt;= toNum(b);
+          case &#x27;+&#x27;: return (typeof a === &#x27;number&#x27; &amp;&amp; typeof b === &#x27;number&#x27;) ? a + b : toStr(a) + toStr(b);
+          case &#x27;-&#x27;: return toNum(a) - toNum(b);
+        }
+        return &#x27;&#x27;;
+      }
+      case &#x27;call&#x27;: {
+        var f = this.fns[n.name.toLowerCase()];
+        var args = n.args.map(this.evalExpr, this);
+        if (!f) throw new Error(&#x27;Unsupported function: &#x27; + n.name + &#x27;()&#x27;);
+        return f.apply(null, args);
+      }
+    }
+    return &#x27;&#x27;;
+  };
+
+  Interp.prototype.run = function (stmts) {
+    for (var i = 0; i &lt; stmts.length; i++) {
+      var s = stmts[i];
+      if (s.t === &#x27;set&#x27;) { this.set(s.name, this.evalExpr(s.expr)); }
+      else if (s.t === &#x27;expr&#x27;) { this.evalExpr(s.expr); }
+      else if (s.t === &#x27;if&#x27;) {
+        var done = false;
+        for (var b = 0; b &lt; s.branches.length; b++) {
+          if (truthy(this.evalExpr(s.branches[b].cond))) { this.run(s.branches[b].body); done = true; break; }
+        }
+        if (!done &amp;&amp; s.els) this.run(s.els);
+      }
+      else if (s.t === &#x27;for&#x27;) {
+        var from = toNum(this.evalExpr(s.from)), to = toNum(this.evalExpr(s.to));
+        var step = s.dir === &#x27;DOWNTO&#x27; ? -1 : 1, guard = 0;
+        for (var v = from; step &gt; 0 ? v &lt;= to : v &gt;= to; v += step) {
+          this.set(s.v, v);
+          this.run(s.body);
+          if (++guard &gt; 1000) break;
+        }
+      }
+    }
+  };
+
+  /* ------------------------------------------------------------- template */
+  /*
+    AMPscript control flow wraps HTML: an IF opened in one %%[ ]%% block
+    closes in a later one, and the markup between them is what gets gated.
+    So the template is not evaluated block by block. It is first flattened
+    into ONE program -- literal HTML becomes __emit(n), %%=expr=%% becomes
+    __out(expr), and block code is spliced in as-is -- then parsed and run
+    as a single statement tree. That is what makes
+        %%[ IF @x THEN ]%% &lt;p&gt;A&lt;/p&gt; %%[ ELSE ]%% &lt;p&gt;B&lt;/p&gt; %%[ ENDIF ]%%
+    emit one paragraph instead of both.
+  */
+  function flatten(template) {
+    var parts = [], src = &#x27;&#x27;, i = 0;
+
+    function emitText(txt) {
+      if (!txt) return;
+      parts.push(txt);
+      src += &#x27;\n__emit(&#x27; + (parts.length - 1) + &#x27;)\n&#x27;;
+    }
+
+    while (i &lt; template.length) {
+      var b = template.indexOf(&#x27;%%[&#x27;, i);
+      var n = template.indexOf(&#x27;%%=&#x27;, i);
+      if (b === -1 &amp;&amp; n === -1) { emitText(template.slice(i)); break; }
+
+      var isBlock = b !== -1 &amp;&amp; (n === -1 || b &lt; n);
+      var start = isBlock ? b : n;
+      emitText(template.slice(i, start));
+
+      if (isBlock) {
+        var e = template.indexOf(&#x27;]%%&#x27;, start);
+        if (e === -1) { emitText(template.slice(start)); break; }
+        src += &#x27;\n&#x27; + template.slice(start + 3, e) + &#x27;\n&#x27;;
+        i = e + 3;
+      } else {
+        var e2 = template.indexOf(&#x27;=%%&#x27;, start);
+        if (e2 === -1) { emitText(template.slice(start)); break; }
+        var expr = template.slice(start + 3, e2).trim();
+        if (/^v\s*\(/i.test(expr)) expr = expr.replace(/^v\s*\(/i, &#x27;(&#x27;);
+        src += &#x27;\n__out(&#x27; + expr + &#x27;)\n&#x27;;
+        i = e2 + 3;
+      }
+    }
+    return { src: src, parts: parts };
+  }
+
+  function render(template, ctx) {
+    var flat = flatten(template);
+    var interp = new Interp(ctx);
+    var buf = [];
+
+    interp.fns.__emit = function (idx) { buf.push(flat.parts[idx]); return &#x27;&#x27;; };
+    interp.fns.__out  = function (v) { buf.push(toStr(v)); return &#x27;&#x27;; };
+
+    var errors = [];
+    try {
+      interp.run(new Parser(tokenize(flat.src)).parseBlock([]));
+    } catch (e) {
+      errors.push(e.message);
+    }
+    return { html: buf.join(&#x27;&#x27;), vars: interp.vars, trace: interp.trace, errors: errors };
+  }
+
+  global.MiniAmp = { render: render, tokenize: tokenize, Parser: Parser };
+})(window);
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/ampscript/engine.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

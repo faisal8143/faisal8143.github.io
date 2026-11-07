@@ -1,0 +1,96 @@
+%%[
+/*
+  ==========================================================================
+  NORTHWIND LEARNING | ENROLMENT REMINDER — AMPSCRIPT PERSONALISATION BLOCK
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  One template, every subscriber. The rules below decide what each person
+  sees, and every lookup has a fallback so no send can render an empty value.
+
+  Data Extensions
+    Course_Enquiries   SubscriberKey, CourseName, CourseCode, Fee, EnquiryDate
+    Term_Config        TermName, CloseDate, IsCurrent
+    Student_Status     SubscriberKey, IsReturning, EngagementScore
+  ==========================================================================
+*/
+
+/* --- 1. Greeting. Never render "Hi ," --- */
+SET @firstName = AttributeValue("FirstName")
+IF Empty(@firstName) THEN
+  SET @firstName = "there"
+ELSE
+  SET @firstName = ProperCase(Trim(@firstName))
+ENDIF
+
+/* --- 2. Most recent enquiry, with a neutral fallback --- */
+SET @rows = LookupOrderedRows("Course_Enquiries", 1, "EnquiryDate DESC", "SubscriberKey", _subscriberkey)
+IF RowCount(@rows) > 0 THEN
+  SET @row        = Row(@rows, 1)
+  SET @courseName = Field(@row, "CourseName")
+  SET @courseCode = Field(@row, "CourseCode")
+  SET @fee        = Field(@row, "Fee")
+  SET @hasEnquiry = true
+ELSE
+  SET @courseName = "your chosen course"
+  SET @courseCode = "GENERAL"
+  SET @fee        = 0
+  SET @hasEnquiry = false
+ENDIF
+
+/* --- 3. Term and deadline --- */
+SET @termName = Lookup("Term_Config", "TermName",  "IsCurrent", "true")
+SET @closeRaw = Lookup("Term_Config", "CloseDate", "IsCurrent", "true")
+IF Empty(@termName) THEN SET @termName = "the upcoming term" ENDIF
+IF Empty(@closeRaw) THEN
+  SET @closeDate = "soon"
+  SET @daysLeft  = 999
+ELSE
+  SET @closeDate = FormatDate(@closeRaw, "d MMMM yyyy")
+  SET @daysLeft  = DateDiff(Now(), @closeRaw, "D")
+ENDIF
+
+/* --- 4. Urgency tier drives the banner and the subject --- */
+IF @daysLeft <= 7 THEN
+  SET @urgency  = "closing"
+  SET @banner   = Concat("Applications close in ", @daysLeft, " days")
+ELSEIF @daysLeft <= 30 THEN
+  SET @urgency  = "soon"
+  SET @banner   = Concat("Applications close on ", @closeDate)
+ELSE
+  SET @urgency  = "open"
+  SET @banner   = Concat("Enrolments are open for ", @termName)
+ENDIF
+
+/* --- 5. Engagement score decides the call to action --- */
+SET @score = Lookup("Student_Status", "EngagementScore", "SubscriberKey", _subscriberkey)
+IF Empty(@score) THEN SET @score = 0 ENDIF
+
+IF @score >= 40 THEN
+  SET @segment = "Hot"
+  SET @ctaText = "Finish your application"
+  SET @ctaPath = "/apply"
+ELSEIF @score >= 20 THEN
+  SET @segment = "Warm"
+  SET @ctaText = "Talk to an advisor"
+  SET @ctaPath = "/advisor"
+ELSE
+  SET @segment = "Cold"
+  SET @ctaText = "Explore the course"
+  SET @ctaPath = "/courses"
+ENDIF
+
+/* --- 6. Returning students skip the intro block --- */
+SET @isReturning = Lookup("Student_Status", "IsReturning", "SubscriberKey", _subscriberkey)
+
+/* --- 7. Tracked CTA with UTM parameters --- */
+SET @ctaUrl = Concat("https://example.edu", @ctaPath,
+                     "?course=", URLEncode(@courseCode),
+                     "&utm_source=sfmc&utm_medium=email&utm_campaign=enrolment_reminder")
+
+/* --- 8. Fee, formatted for display --- */
+IF @fee > 0 THEN
+  SET @feeDisplay = FormatNumber(@fee, "C")
+ELSE
+  SET @feeDisplay = ""
+ENDIF
+]%%
