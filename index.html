@@ -270,7 +270,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
   <div class="container nav-in">
     <a href="#top" class="logo" aria-label="Faisal Irfan, home"><span class="logo-mark">FI</span><span>Faisal Irfan</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
+      <a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#journey">Journeys</a><a href="#ghl">Funnels</a><a href="#certs">Certifications</a><a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
@@ -284,7 +284,7 @@ footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));color:var(--muted
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#offers">Offers</a><a href="#cases">Case studies</a><a href="#work">Code</a><a href="#preview">Emails</a><a href="#ampscript">AMPscript</a><a href="#journey">Journeys</a><a href="#ghl">Funnels</a><a href="#process">Process</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#opensource">Open source</a><a href="#experience">Experience</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -2886,6 +2886,339 @@ WHERE s.Status = &#x27;active&#x27;
   global.MiniAmp = { render: render, tokenize: tokenize, Parser: Parser };
 })(window);
 </code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/ampscript/engine.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="container">
+    <div class="eyebrow">Journey Builder</div>
+    <h2>A journey you can step through, one contact at a time</h2>
+    <p class="sub">An enrolment nurture journey built the way it would be in Journey Builder &mdash; Data Extension entry, waits, an engagement split, a decision split, a Sales Cloud hand-off and a goal. Pick a contact, press step, and the canvas lights up as each activity evaluates against that person's actual behaviour, with the reason for every decision recorded underneath.</p>
+
+    <div class="ampx">
+      <a class="amp-cta" href="sfmc/journeys/journey-simulator.html" target="_blank" rel="noopener">
+        <span class="amp-run">&#9654;</span>
+        <span><b>Open the journey simulator</b><span>Four contacts &middot; four different paths &middot; a reason for every split</span></span>
+      </a>
+      <div class="amp-pts">
+        <div><b>Goal and exit are continuous</b><span>One contact applies during a five-day wait and leaves there, never receiving the deadline reminder. That is the detail most journey designs get wrong.</span></div>
+        <div><b>Engagement windows are finite</b><span>An open on day 5 does not retroactively move a contact onto the engaged path when the split evaluated on day 3.</span></div>
+        <div><b>Splits read the attribute now</b><span>A decision split reads EngagementScore at that moment, not the value the contact entered the journey with.</span></div>
+      </div>
+    </div>
+
+    <div class="checks">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Journey Builder</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Engagement &amp; decision splits</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Goal &amp; exit criteria</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Sales Cloud hand-off</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Re-entry rules</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>SMS &amp; multi-channel</span>
+    </div>
+
+    <div class="work" style="margin-top:28px">
+      <div class="tabs" role="tablist" aria-label="Journey code">
+        <button class="tab" role="tab" id="tab-jmodel" aria-selected="true" aria-controls="panel-jmodel" tabindex="0"><b>Journey model</b><span>Activities, paths and split rules as data</span></button>
+        <button class="tab" role="tab" id="tab-jsim" aria-selected="false" aria-controls="panel-jsim" tabindex="-1"><b>The stepper</b><span>How each activity evaluates</span></button>
+      </div>
+      <div>
+        <div class="panel" role="tabpanel" id="panel-jmodel" aria-labelledby="tab-jmodel">
+          <div class="panel-desc"><ul><li>The journey expressed as activities and the paths between them, mirroring a Journey Builder canvas one-for-one</li><li>Each contact carries the behaviour the simulator replays &mdash; the opens, clicks, unsubscribes and conversions Journey Builder would see</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/journeys/journey-model.js</span><button class="copy" type="button" data-target="code-jmodel">Copy</button></div><pre tabindex="0"><code id="code-jmodel">/*
+  ==========================================================================
+  NORTHWIND LEARNING | ENROLMENT NURTURE JOURNEY — MODEL
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  The journey as data: activities, the paths between them, and the rules each
+  split evaluates. The simulator walks a contact through this structure and
+  records why every decision went the way it did.
+
+  Mirrors a Journey Builder canvas one-for-one:
+    entry       Data Extension entry source, re-entry rules
+    wait        duration or until a date attribute
+    email       a send, with the engagement it may produce
+    decision    attribute-based split (data at that moment)
+    engagement  behaviour split (opened / clicked within a window)
+    update      Update Contact / Sales Cloud activity
+    goal        exit the moment the goal is met
+  ==========================================================================
+*/
+window.JOURNEY = {
+  name: &#x27;Enrolment nurture&#x27;,
+  goal: { label: &#x27;Application submitted&#x27;, field: &#x27;applied&#x27; },
+  exitAfterDays: 30,
+
+  /* x,y are canvas coordinates in a 1000 x 560 viewBox */
+  nodes: [
+    { id: &#x27;entry&#x27;,   type: &#x27;entry&#x27;,      x:  62, y: 270, label: &#x27;Course_Enquiries&#x27;,
+      sub: &#x27;Entry source · no re-entry while in journey&#x27; },
+
+    { id: &#x27;wait1&#x27;,   type: &#x27;wait&#x27;,       x: 182, y: 270, label: &#x27;1 hour&#x27;, sub: &#x27;Wait&#x27;, hours: 1 },
+
+    { id: &#x27;email1&#x27;,  type: &#x27;email&#x27;,      x: 294, y: 270, label: &#x27;Enquiry received&#x27;,
+      sub: &#x27;Email 1 · transactional tone&#x27; },
+
+    { id: &#x27;wait2&#x27;,   type: &#x27;wait&#x27;,       x: 406, y: 270, label: &#x27;3 days&#x27;, sub: &#x27;Wait&#x27;, hours: 72 },
+
+    { id: &#x27;eng1&#x27;,    type: &#x27;engagement&#x27;, x: 522, y: 270, label: &#x27;Opened Email 1?&#x27;,
+      sub: &#x27;Engagement split · 3-day window&#x27; },
+
+    { id: &#x27;email2a&#x27;, type: &#x27;email&#x27;,      x: 650, y: 148, label: &#x27;Course detail&#x27;,
+      sub: &#x27;Email 2A · engaged path&#x27; },
+    { id: &#x27;email2b&#x27;, type: &#x27;email&#x27;,      x: 650, y: 392, label: &#x27;Still deciding?&#x27;,
+      sub: &#x27;Email 2B · re-engagement&#x27; },
+
+    { id: &#x27;split&#x27;,   type: &#x27;decision&#x27;,   x: 778, y: 270, label: &#x27;Score &gt;= 40?&#x27;,
+      sub: &#x27;Decision split · EngagementScore&#x27; },
+
+    { id: &#x27;hot&#x27;,     type: &#x27;update&#x27;,     x: 906, y: 128, label: &#x27;Sales task + SMS&#x27;,
+      sub: &#x27;Hot path · advisor calls within 24h&#x27; },
+    { id: &#x27;nurture&#x27;, type: &#x27;email&#x27;,      x: 906, y: 412, label: &#x27;Monthly nurture&#x27;,
+      sub: &#x27;Warm path · keeps the contact live&#x27; },
+
+    { id: &#x27;wait3&#x27;,   type: &#x27;wait&#x27;,       x: 1034, y: 270, label: &#x27;5 days&#x27;, sub: &#x27;Wait&#x27;, hours: 120 },
+
+    { id: &#x27;email3&#x27;,  type: &#x27;email&#x27;,      x: 1146, y: 270, label: &#x27;Closing soon&#x27;,
+      sub: &#x27;Email 3 · deadline reminder&#x27; }
+  ],
+
+  edges: [
+    { from: &#x27;entry&#x27;,   to: &#x27;wait1&#x27; },
+    { from: &#x27;wait1&#x27;,   to: &#x27;email1&#x27; },
+    { from: &#x27;email1&#x27;,  to: &#x27;wait2&#x27; },
+    { from: &#x27;wait2&#x27;,   to: &#x27;eng1&#x27; },
+    { from: &#x27;eng1&#x27;,    to: &#x27;email2a&#x27;, label: &#x27;Yes&#x27;,  path: &#x27;yes&#x27; },
+    { from: &#x27;eng1&#x27;,    to: &#x27;email2b&#x27;, label: &#x27;No&#x27;,   path: &#x27;no&#x27; },
+    { from: &#x27;email2a&#x27;, to: &#x27;split&#x27; },
+    { from: &#x27;email2b&#x27;, to: &#x27;split&#x27; },
+    { from: &#x27;split&#x27;,   to: &#x27;hot&#x27;,     label: &#x27;Hot&#x27;,  path: &#x27;yes&#x27; },
+    { from: &#x27;split&#x27;,   to: &#x27;nurture&#x27;, label: &#x27;Warm&#x27;, path: &#x27;no&#x27; },
+    { from: &#x27;hot&#x27;,     to: &#x27;wait3&#x27; },
+    { from: &#x27;nurture&#x27;, to: &#x27;wait3&#x27; },
+    { from: &#x27;wait3&#x27;,   to: &#x27;email3&#x27; }
+  ],
+
+  /* Each contact carries the behaviour the simulator replays against the
+     journey. These are the rows and events Journey Builder would see. */
+  contacts: [
+    {
+      id: &#x27;priya&#x27;,
+      name: &#x27;Priya Mehta&#x27;,
+      blurb: &#x27;Opens fast, high score, applies on day 6&#x27;,
+      attributes: { CourseName: &#x27;Diploma of Business&#x27;, EngagementScore: 55 },
+      events: [
+        { afterHours: 2,   type: &#x27;open&#x27;,  of: &#x27;email1&#x27; },
+        { afterHours: 3,   type: &#x27;click&#x27;, of: &#x27;email1&#x27; },
+        { afterHours: 148, type: &#x27;goal&#x27;,  note: &#x27;Submitted an application&#x27; }
+      ]
+    },
+    {
+      id: &#x27;tom&#x27;,
+      name: &#x27;Tom Whitfield&#x27;,
+      blurb: &#x27;Ignores Email 1, re-engages on the second&#x27;,
+      attributes: { CourseName: &#x27;Bachelor of IT&#x27;, EngagementScore: 25 },
+      events: [
+        { afterHours: 120, type: &#x27;open&#x27;, of: &#x27;email2b&#x27; }
+      ]
+    },
+    {
+      id: &#x27;mei&#x27;,
+      name: &#x27;Mei Chen&#x27;,
+      blurb: &#x27;Opens, but score stays low — warm path&#x27;,
+      attributes: { CourseName: &#x27;Grad Cert Data Analytics&#x27;, EngagementScore: 18 },
+      events: [
+        { afterHours: 30, type: &#x27;open&#x27;, of: &#x27;email1&#x27; }
+      ]
+    },
+    {
+      id: &#x27;jordan&#x27;,
+      name: &#x27;Jordan Blake&#x27;,
+      blurb: &#x27;Unsubscribes after Email 1 — exits immediately&#x27;,
+      attributes: { CourseName: &#x27;Undecided&#x27;, EngagementScore: 5 },
+      events: [
+        { afterHours: 26, type: &#x27;unsubscribe&#x27;, note: &#x27;Clicked unsubscribe in Email 1&#x27; }
+      ]
+    }
+  ]
+};
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/journeys/journey-model.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-jsim" aria-labelledby="tab-jsim" hidden>
+          <div class="panel-desc"><ul><li>Walks a contact through the model and records why every decision went the way it did</li><li>Checks goal and exit criteria during waits, not only between activities &mdash; which is what makes a converted contact leave mid-wait</li><li>Engagement splits evaluate against a fixed window, so a late open does not change a decision already made</li></ul></div>
+          <div class="code-card"><div class="code-head"><span class="fname">sfmc/journeys/simulator.js</span><button class="copy" type="button" data-target="code-jsim">Copy</button></div><pre tabindex="0"><code id="code-jsim">/*
+  ==========================================================================
+  JOURNEY BUILDER SIMULATOR
+  Author: Faisal Irfan | github.com/faisal8143
+  --------------------------------------------------------------------------
+  Walks one contact through the journey model, evaluating each activity the
+  way Journey Builder would and recording WHY every decision went as it did.
+
+  The part people get wrong in interviews: goal and exit criteria are checked
+  continuously, not at the end. A contact who meets the goal inside a wait
+  leaves the journey there and never receives the rest of the sends. The
+  stepper below models that, which is why Priya exits mid-wait on day 6.
+  ==========================================================================
+*/
+(function () {
+  &#x27;use strict&#x27;;
+  var J = window.JOURNEY;
+
+  var NODE = {};
+  J.nodes.forEach(function (n) { NODE[n.id] = n; });
+
+  function edgesFrom(id) { return J.edges.filter(function (e) { return e.from === id; }); }
+
+  function fmt(h) {
+    if (h &lt; 1) return &#x27;start&#x27;;
+    if (h &lt; 24) return &#x27;hour &#x27; + Math.round(h);
+    var d = h / 24;
+    return &#x27;day &#x27; + (d % 1 === 0 ? d : d.toFixed(1));
+  }
+
+  /* --------------------------------------------------------------------
+     Build the full step list for one contact.
+     Each step: node, hour, status, reason.
+     -------------------------------------------------------------------- */
+  function simulate(contact) {
+    var steps = [];
+    var hour = 0;
+    var id = &#x27;entry&#x27;;
+    var sent = [];
+    var guard = 0;
+
+    /* Events that cut the journey short, checked between every activity */
+    function interrupt(fromHour, toHour) {
+      var hit = null;
+      contact.events.forEach(function (ev) {
+        if (ev.afterHours &lt;= fromHour || ev.afterHours &gt; toHour) return;
+        if (ev.type === &#x27;goal&#x27; || ev.type === &#x27;unsubscribe&#x27;) {
+          if (!hit || ev.afterHours &lt; hit.afterHours) hit = ev;
+        }
+      });
+      return hit;
+    }
+
+    function opened(emailId, byHour, windowHours) {
+      var sentAt = sent[emailId];
+      if (sentAt === undefined) return null;
+      var found = null;
+      contact.events.forEach(function (ev) {
+        if (ev.of !== emailId) return;
+        if (ev.type !== &#x27;open&#x27; &amp;&amp; ev.type !== &#x27;click&#x27;) return;
+        if (ev.afterHours &lt; sentAt || ev.afterHours &gt; byHour) return;
+        if (!found || ev.afterHours &lt; found.afterHours) found = ev;
+      });
+      return found;
+    }
+
+    while (id &amp;&amp; guard++ &lt; 40) {
+      var n = NODE[id];
+
+      if (n.type === &#x27;wait&#x27;) {
+        var until = hour + n.hours;
+        var cut = interrupt(hour, until);
+        if (cut) {
+          steps.push({
+            node: n.id, hour: hour, status: &#x27;wait&#x27;,
+            reason: &#x27;Waiting &#x27; + n.label + &#x27;. Goal and exit criteria stay live during a wait.&#x27;
+          });
+          steps.push({
+            node: cut.type === &#x27;goal&#x27; ? &#x27;goal&#x27; : &#x27;exit&#x27;,
+            hour: cut.afterHours,
+            status: cut.type === &#x27;goal&#x27; ? &#x27;goal&#x27; : &#x27;exit&#x27;,
+            reason: cut.type === &#x27;goal&#x27;
+              ? cut.note + &#x27; on &#x27; + fmt(cut.afterHours) + &#x27;. Goal met, so the contact exits here and receives nothing further.&#x27;
+              : cut.note + &#x27; on &#x27; + fmt(cut.afterHours) + &#x27;. Exit criteria met, journey ends.&#x27;
+          });
+          return steps;
+        }
+        steps.push({
+          node: n.id, hour: hour, status: &#x27;done&#x27;,
+          reason: &#x27;Waited &#x27; + n.label + &#x27;, resuming at &#x27; + fmt(until) + &#x27;.&#x27;
+        });
+        hour = until;
+        id = (edgesFrom(id)[0] || {}).to;
+        continue;
+      }
+
+      if (n.type === &#x27;entry&#x27;) {
+        steps.push({
+          node: n.id, hour: 0, status: &#x27;done&#x27;,
+          reason: &#x27;Entered from Course_Enquiries with &#x27; + contact.attributes.CourseName +
+                  &#x27; and EngagementScore &#x27; + contact.attributes.EngagementScore + &#x27;.&#x27;
+        });
+        id = (edgesFrom(id)[0] || {}).to;
+        continue;
+      }
+
+      if (n.type === &#x27;email&#x27;) {
+        sent[n.id] = hour;
+        steps.push({
+          node: n.id, hour: hour, status: &#x27;done&#x27;,
+          reason: &#x27;Sent &quot;&#x27; + n.label + &#x27;&quot; on &#x27; + fmt(hour) + &#x27;.&#x27;
+        });
+        id = (edgesFrom(id)[0] || {}).to;
+        continue;
+      }
+
+      if (n.type === &#x27;engagement&#x27;) {
+        var ev = opened(&#x27;email1&#x27;, hour, 72);
+        var yes = !!ev;
+        steps.push({
+          node: n.id, hour: hour, status: yes ? &#x27;yes&#x27; : &#x27;no&#x27;,
+          reason: yes
+            ? &#x27;Opened Email 1 on &#x27; + fmt(ev.afterHours) + &#x27;, inside the 3-day window, so the contact takes the engaged path.&#x27;
+            : &#x27;No open on Email 1 within 3 days, so the contact takes the re-engagement path. The window matters: an open on day 4 arrives after the split has already evaluated.&#x27;
+        });
+        var e = edgesFrom(n.id).filter(function (x) { return x.path === (yes ? &#x27;yes&#x27; : &#x27;no&#x27;); })[0];
+        id = e &amp;&amp; e.to;
+        continue;
+      }
+
+      if (n.type === &#x27;decision&#x27;) {
+        var score = contact.attributes.EngagementScore;
+        var hot = score &gt;= 40;
+        steps.push({
+          node: n.id, hour: hour, status: hot ? &#x27;yes&#x27; : &#x27;no&#x27;,
+          reason: &#x27;EngagementScore is &#x27; + score + &#x27;. &#x27; + (hot
+            ? &#x27;At or above 40, so the contact is routed to the hot path.&#x27;
+            : &#x27;Below 40, so the contact continues on the warm nurture path.&#x27;) +
+            &#x27; A decision split reads the attribute as it stands at this moment, not at entry.&#x27;
+        });
+        var e2 = edgesFrom(n.id).filter(function (x) { return x.path === (hot ? &#x27;yes&#x27; : &#x27;no&#x27;); })[0];
+        id = e2 &amp;&amp; e2.to;
+        continue;
+      }
+
+      if (n.type === &#x27;update&#x27;) {
+        steps.push({
+          node: n.id, hour: hour, status: &#x27;done&#x27;,
+          reason: &#x27;Created a Sales Cloud task and sent the advisor SMS. Advisor calls within 24 hours.&#x27;
+        });
+        id = (edgesFrom(id)[0] || {}).to;
+        continue;
+      }
+
+      id = (edgesFrom(id)[0] || {}).to;
+    }
+
+    steps.push({
+      node: &#x27;end&#x27;, hour: hour, status: &#x27;end&#x27;,
+      reason: &#x27;Reached the end of the journey without meeting the goal. Exits automatically after &#x27; +
+              J.exitAfterDays + &#x27; days.&#x27;
+    });
+    return steps;
+  }
+
+  window.simulateJourney = simulate;
+  window.JOURNEY_NODE = NODE;
+  window.journeyEdgesFrom = edgesFrom;
+  window.journeyFmtHour = fmt;
+})();
+</code></pre></div><p style="margin:10px 0 0"><a class="gh-link" href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/journeys/simulator.js" target="_blank" rel="noopener">View on GitHub &#8594;</a></p>
         </div>
       </div>
     </div>

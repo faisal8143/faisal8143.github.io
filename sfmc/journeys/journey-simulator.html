@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journey Builder simulator | Faisal Irfan</title>
+<meta name="description" content="A Salesforce Marketing Cloud journey you can step through. Pick a contact and watch each split evaluate, with the reason for every decision.">
+<style>
+  :root{
+    --bg:#0B1220; --panel:#131E33; --panel2:#1A2742; --line:#27395E;
+    --text:#E2E8F0; --dim:#94A3B8; --blue:#5B9DFF; --teal:#5EEAD4;
+    --amber:#FBBF24; --red:#F87171; --green:#4ADE80;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 var(--font)}
+  a{color:var(--blue)}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+
+  header{border-bottom:1px solid var(--line);padding:22px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .back{color:var(--dim);text-decoration:none;font-size:14px}.back:hover{color:var(--blue)}
+  .badge{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);
+    border:1px solid rgba(94,234,212,.35);background:rgba(94,234,212,.09);border-radius:999px;padding:5px 12px}
+
+  .intro{padding:36px 0 24px}
+  h1{font-size:clamp(25px,3.4vw,36px);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}
+  h1 em{font-style:normal;color:var(--teal)}
+  .lede{color:var(--dim);max-width:76ch;margin:0 0 6px;font-size:16px}
+
+  .people{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 18px}
+  .person{text-align:left;background:var(--panel);border:1.5px solid var(--line);border-radius:13px;
+    padding:14px;cursor:pointer;color:var(--text);font:inherit;transition:border-color .15s,background .15s}
+  .person:hover{border-color:var(--blue)}
+  .person[aria-pressed="true"]{border-color:var(--teal);background:var(--panel2)}
+  .person b{display:block;font-size:15px;margin:0 0 3px}
+  .person span{display:block;font-size:12.5px;color:var(--dim);line-height:1.45}
+
+  .controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+  .btn{background:var(--panel);border:1.5px solid var(--line);color:var(--text);font:600 14px var(--font);
+    padding:10px 18px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .btn:hover{border-color:var(--blue)}
+  .btn.primary{background:var(--teal);border-color:var(--teal);color:#06281F;font-weight:800}
+  .btn[disabled]{opacity:.4;cursor:not-allowed}
+  .clock{margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--dim);
+    background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 14px}
+  .clock b{color:var(--teal)}
+
+  .canvas{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:10px;overflow-x:auto}
+  svg{display:block;width:100%;min-width:1100px;height:auto}
+  .nd rect{fill:#1A2742;stroke:#2F4470;stroke-width:1.5;transition:fill .25s,stroke .25s}
+  .nd .t{fill:#E2E8F0;font:600 12px var(--font)}
+  .nd .s{fill:#7D8CA8;font:10.5px var(--font)}
+  .nd .ic{font:700 11px var(--font)}
+  .nd.done rect{fill:#16304A;stroke:#3D7FB8}
+  .nd.active rect{fill:#0E4F47;stroke:var(--teal);stroke-width:2.5}
+  .nd.goal rect{fill:#14432B;stroke:var(--green);stroke-width:2.5}
+  .nd.exit rect{fill:#451A1A;stroke:var(--red);stroke-width:2.5}
+  .nd.skip rect{opacity:.32}
+  .nd.skip .t,.nd.skip .s{opacity:.32}
+  .ed{stroke:#2F4470;stroke-width:2;fill:none;transition:stroke .25s}
+  .ed.taken{stroke:var(--teal);stroke-width:3}
+  .ed.skip{opacity:.25}
+  .el{fill:#7D8CA8;font:600 10.5px var(--font)}
+  .el.taken{fill:var(--teal)}
+
+  .log{margin:22px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:0 0 60px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .card-h{padding:13px 18px;border-bottom:1px solid var(--line);background:var(--panel2);
+    font-size:13.5px;font-weight:700}
+  .steps{max-height:420px;overflow:auto}
+  .st{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:12px 18px;
+    border-bottom:1px solid rgba(39,57,94,.5);font-size:13.5px;opacity:.38;transition:opacity .2s}
+  .st:last-child{border-bottom:0}
+  .st.on{opacity:1}
+  .st time{font-family:var(--mono);font-size:11.5px;color:var(--dim);white-space:nowrap}
+  .st b{display:block;margin:0 0 2px;font-size:13.5px}
+  .st p{margin:0;color:var(--dim);font-size:13px;line-height:1.55}
+  .st.yes b{color:var(--teal)} .st.no b{color:var(--amber)}
+  .st.goal b{color:var(--green)} .st.exit b{color:var(--red)}
+
+  .notes{padding:16px 18px;font-size:13.5px;color:var(--dim)}
+  .notes h3{color:var(--text);font-size:13.5px;margin:0 0 8px}
+  .notes ul{margin:0 0 14px;padding:0 0 0 18px}
+  .notes li{margin:0 0 7px}
+  .notes strong{color:var(--teal);font-weight:700}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--dim);font-size:13px}
+
+  @media (max-width:980px){ .log{grid-template-columns:1fr} .people{grid-template-columns:1fr 1fr} }
+  @media (max-width:560px){ .people{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="../../index.html">&larr; Faisal Irfan</a>
+    <span class="badge">Journey Builder &middot; steppable</span>
+  </div>
+</header>
+
+<div class="wrap intro">
+  <h1>A journey you can step through, <em>one contact at a time</em></h1>
+  <p class="lede">This is an enrolment nurture journey as it would be built in Journey Builder: a Data Extension entry source, waits, an engagement split, a decision split, a Sales Cloud hand-off and a goal. Pick a contact, press step, and watch the canvas light up as each activity evaluates against that person's real behaviour.</p>
+  <p class="lede">The panel underneath records why every decision went the way it did &mdash; including the one most people get wrong, which is that goal and exit criteria are live during a wait, not checked at the end.</p>
+</div>
+
+<div class="wrap">
+  <div class="people" role="group" aria-label="Choose a contact"></div>
+
+  <div class="controls">
+    <button class="btn primary" id="play">&#9654;&nbsp; Play</button>
+    <button class="btn" id="step">Step &rarr;</button>
+    <button class="btn" id="reset">Reset</button>
+    <span class="clock" id="clock"></span>
+  </div>
+
+  <div class="canvas">
+    <svg id="cv" viewBox="0 75 1200 400" role="img" aria-label="Journey canvas"></svg>
+  </div>
+
+  <div class="log">
+    <div class="card">
+      <div class="card-h">Activity log</div>
+      <div class="steps" id="steps"></div>
+    </div>
+    <div class="card">
+      <div class="card-h">What this journey demonstrates</div>
+      <div class="notes">
+        <h3>Design decisions</h3>
+        <ul>
+          <li><strong>Goal and exit are continuous.</strong> Priya applies on day 6, inside the five-day wait, and leaves the journey there. She never receives the deadline reminder, because sending it would be nagging someone who already converted.</li>
+          <li><strong>Engagement windows are finite.</strong> Tom opens on day 5, but the split evaluated on day 3. An open outside the window does not retroactively move a contact onto the engaged path.</li>
+          <li><strong>Decision splits read the attribute now.</strong> Mei opens the first email but her score is 18, so she goes warm. The split reads EngagementScore at that moment, not the value she entered with.</li>
+          <li><strong>Unsubscribe cuts everything.</strong> Jordan exits mid-wait on day 1. No further activity evaluates.</li>
+        </ul>
+        <h3>Built with</h3>
+        <ul>
+          <li>Data Extension entry source with re-entry disabled while in journey</li>
+          <li>Engagement split on open within a 3-day window</li>
+          <li>Decision split on a SQL-maintained EngagementScore attribute</li>
+          <li>Sales Cloud activity creating a task plus an SMS to the advisor</li>
+          <li>Goal: application submitted &middot; auto-exit after 30 days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Built by Faisal Irfan for a fictional brand &mdash; client work is under NDA.
+    <a href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/journeys/journey-model.js">Journey model</a> &middot;
+    <a href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/journeys/simulator.js">Simulator</a> &middot;
+    <a href="https://github.com/faisal8143/faisal8143.github.io/blob/main/sfmc/journeys/enrolment-nurture-journey.md">Full written design</a>
+  </div>
+</footer>
+
+<script src="journey-model.js"></script>
+<script src="simulator.js"></script>
+<script src="canvas.js"></script>
+</body>
+</html>
